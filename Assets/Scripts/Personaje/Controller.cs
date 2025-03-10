@@ -19,13 +19,14 @@ public class Controller : MonoBehaviour
 
     public Nivel1 accion1;
     public Nivel2 accion2;
+    public GameMana gamemana;
     public Pausa pausa;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
 
         nivel1 = GameObject.Find("Nivel1 Manager");
@@ -89,38 +90,16 @@ public class Controller : MonoBehaviour
             accion1.RunaColor();
         }
 
-        if (other.name == "Puerta3")
-        {
-            accion2.Abrirpuerta2();
-        }
-
         if (other.tag == "puerta")
         {
             other.transform.GetChild(0).gameObject.SetActive(true);
             other.GetComponent<Collider>().enabled = false;
-
-            if (other.name == "trigger puerta 2")
-            {
-                print("nivel 1 fuera");
-                nivel1.SetActive(false);
-            }
-
-            if (other.name == "trigger puerta 4")
-            {
-                print("nivel 2 fuera");
-                nivel2.SetActive(false);
-            }
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.name == "Puerta2" && ground == false)
-        {
-            accion2.Abrirpuerta();
-        }
-
-        if (other.name == "Puerta4" && ground == false)
         {
             accion2.Abrirpuerta();
         }

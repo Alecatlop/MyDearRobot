@@ -5,14 +5,15 @@ using UnityEngine;
 public class Nivel2 : MonoBehaviour
 {
     GameObject puerta;
-    GameObject puerta2;
-    int a;
+    public GameMana nivel;
+    //GameObject puerta2;
 
     // Start is called before the first frame update
     void Start()
     {
         puerta = GameObject.Find("Puerta2");
-        puerta2 = GameObject.Find("Puerta3");
+        //puerta2 = GameObject.Find("Puerta3");
+        this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,27 +24,15 @@ public class Nivel2 : MonoBehaviour
 
     public void Abrirpuerta()
     {
-        
         puerta.SetActive(false);
+        nivel.Nivel2();
     }
 
-    public void Abrirpuerta2()
+    private void OnTriggerEnter(Collider other)
     {
-        a++;
-
-        if (a == 1)
+        if (other.tag == "Player")
         {
-            puerta2.SetActive(false);
-        }
-        else if (a == 2)
-        {
-            puerta2 .SetActive(true);
+            puerta.SetActive(true);
         }
     }
-
-    public void Cerrarpuerta()
-    {
-        puerta.SetActive(true);
-    }
-
 }

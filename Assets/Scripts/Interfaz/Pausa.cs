@@ -11,12 +11,14 @@ public class Pausa : MonoBehaviour
     GameObject ps4;
     GameObject xbox;
     GameObject opciones;
+    GameObject configuracion;
     bool activo = false;
 
     // Start is called before the first frame update
     void Start()
     {
         controles = GameObject.Find("Controles");
+        configuracion = GameObject.Find("Configuracion");
         teclado = GameObject.Find("Teclado");
         ps4 = GameObject.Find("Ps4");
         xbox = GameObject.Find("Xbox");
@@ -25,6 +27,7 @@ public class Pausa : MonoBehaviour
         this.gameObject.SetActive(false);
         opciones.SetActive(true);
         controles.SetActive(false);
+        configuracion.SetActive(false);
         teclado.SetActive(true);
         ps4.SetActive(false);
         xbox.SetActive(false);
@@ -38,6 +41,13 @@ public class Pausa : MonoBehaviour
 
     public void Pausar()
     {
+        opciones.SetActive(true);
+        controles.SetActive(false);
+        teclado.SetActive(true);
+        ps4.SetActive(false);
+        xbox.SetActive(false);
+        configuracion.SetActive(false);
+
         activo = !activo;
 
         if (activo == true)
@@ -61,6 +71,12 @@ public class Pausa : MonoBehaviour
     public void Controles()
     {
         controles.SetActive(true);
+        opciones.SetActive(false);
+    }
+
+    public void Configuracion()
+    {
+        configuracion.SetActive(true);
         opciones.SetActive(false);
     }
 

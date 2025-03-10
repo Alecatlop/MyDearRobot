@@ -11,7 +11,7 @@ public class Nivel1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        puerta = GameObject.Find("Puerta1");
+       puerta = GameObject.Find("Puerta1");
     }
 
     // Update is called once per frame
@@ -30,7 +30,15 @@ public class Nivel1 : MonoBehaviour
 
         if (contadorrunas == 2)
         {
-            puerta.SetActive(false);
+           puerta.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            puerta.SetActive(true);
         }
     }
 

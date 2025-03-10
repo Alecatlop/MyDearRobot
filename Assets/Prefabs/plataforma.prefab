@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3291490711268938367}
   - component: {fileID: 5171217786468663740}
   - component: {fileID: 8251344304382648552}
+  - component: {fileID: 7066721838761518}
   - component: {fileID: 4604936885911870355}
   m_Layer: 0
   m_Name: plataforma
@@ -84,6 +85,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7066721838761518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3540547677464465720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0763d1d37372347479394e705073cba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &4604936885911870355
 BoxCollider:
   m_ObjectHideFlags: 0
