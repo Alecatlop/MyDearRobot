@@ -33,7 +33,7 @@ public class GameMana : MonoBehaviour
 
     public void Nivel2()
     {
-        nivel2.SetActive(!nivel2.activeSelf);
+        nivel2.SetActive(false);
     }
 
     //public void Nivel3()

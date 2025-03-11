@@ -13,7 +13,6 @@ public class Nivel2 : MonoBehaviour
     {
         puerta = GameObject.Find("Puerta2");
         //puerta2 = GameObject.Find("Puerta3");
-        this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,7 +24,6 @@ public class Nivel2 : MonoBehaviour
     public void Abrirpuerta()
     {
         puerta.SetActive(false);
-        nivel.Nivel2();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,6 +31,7 @@ public class Nivel2 : MonoBehaviour
         if (other.tag == "Player")
         {
             puerta.SetActive(true);
+            nivel.Nivel1();
         }
     }
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Plataforma : MonoBehaviour
 {
+    int rand;
     // Start is called before the first frame update
     void Start()
     {
+        rand = Random.Range(0, 1);
         StartCoroutine(Movimiento());
     }
 
@@ -18,27 +20,29 @@ public class Plataforma : MonoBehaviour
 
     private IEnumerator Movimiento()
     {
-        int rand = Random.Range(0,1);
-
-        if (rand == 0)
+        while (true) 
         {
-            this.transform.Translate(Vector3.forward * Time.deltaTime);
+            if (rand == 0)
+            {
+                this.transform.Translate(Vector3.forward * Time.deltaTime);
 
-            yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(2f);
 
-            this.transform.Translate(Vector3.back * Time.deltaTime);
+                this.transform.Translate(Vector3.back * Time.deltaTime);
 
-            yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(2f);
+            }
+            else
+            {
+                this.transform.Translate(Vector3.back * Time.deltaTime);
+
+                yield return new WaitForSeconds(2f);
+
+                this.transform.Translate(Vector3.forward * Time.deltaTime);
+
+                yield return new WaitForSeconds(2f);
+            }
         }
-        else
-        {
-            this.transform.Translate(Vector3.back * Time.deltaTime);
-
-            yield return new WaitForSeconds(2f);
-
-            this.transform.Translate(Vector3.forward * Time.deltaTime);
-
-            yield return new WaitForSeconds(2f);
-        }
+       
     }
 }
