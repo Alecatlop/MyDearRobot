@@ -10,6 +10,8 @@ public class GameMana : MonoBehaviour
     GameObject nivel4;
     GameObject nivel5;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class GameMana : MonoBehaviour
         //nivel3 = GameObject.Find("Nivel3 Manager");
         //nivel4 = GameObject.Find("Nivel4 Manager");
         //nivel5 = GameObject.Find("Nivel5 Manager");
+        nivel2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,12 +31,12 @@ public class GameMana : MonoBehaviour
 
     public void Nivel1()
     {
-        nivel1.SetActive(false);
+        nivel1.SetActive(!nivel1.activeSelf);
     }
 
     public void Nivel2()
     {
-        nivel2.SetActive(false);
+        nivel2.SetActive(!nivel2.activeSelf);
     }
 
     //public void Nivel3()

@@ -7,6 +7,7 @@ public class Nivel1 : MonoBehaviour
     int contadorrunas = -1;
     GameObject puerta;
     public GameObject[] simbolos;
+    public GameMana nivel;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,8 @@ public class Nivel1 : MonoBehaviour
         if (other.tag == "Player")
         {
             puerta.SetActive(true);
+            nivel.Nivel1();
+            nivel.Nivel2();
         }
     }
 

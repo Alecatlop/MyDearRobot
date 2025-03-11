@@ -14,9 +14,6 @@ public class Controller : MonoBehaviour
     Vector2 sensibilidad = new Vector2(60, 40);
     bool ground = true;
 
-    GameObject nivel1;
-    GameObject nivel2;
-
     public Nivel1 accion1;
     public Nivel2 accion2;
     public GameMana gamemana;
@@ -28,9 +25,6 @@ public class Controller : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
-
-        nivel1 = GameObject.Find("Nivel1 Manager");
-        nivel2 = GameObject.Find("Nivel2 Manager");
     }
 
     // Update is called once per frame
@@ -92,7 +86,7 @@ public class Controller : MonoBehaviour
 
         if (other.tag == "puerta")
         {
-            other.transform.GetChild(0).gameObject.SetActive(true);
+            other.transform.gameObject.SetActive(true);
             other.GetComponent<Collider>().enabled = false;
         }
     }

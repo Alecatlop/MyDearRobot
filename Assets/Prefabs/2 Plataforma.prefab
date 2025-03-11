@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3291490711268938367}
   - component: {fileID: 5171217786468663740}
   - component: {fileID: 8251344304382648552}
-  - component: {fileID: 7066721838761518}
+  - component: {fileID: 6279212108072381394}
   - component: {fileID: 4604936885911870355}
   m_Layer: 0
-  m_Name: plataforma
+  m_Name: 2 Plataforma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,9 +28,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3540547677464465720}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 56.71, y: 75.40023, z: -10.19294}
-  m_LocalScale: {x: 5.54, y: 0.5, z: 6.63}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 51.02, y: 72.81, z: -10.19294}
+  m_LocalScale: {x: 4.5, y: 0.5, z: 6.63}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7066721838761518
+--- !u!114 &6279212108072381394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,9 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3540547677464465720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0763d1d37372347479394e705073cba0, type: 3}
+  m_Script: {fileID: 11500000, guid: 577bcf8df0ffb48448627e5d80bb1d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 6
 --- !u!65 &4604936885911870355
 BoxCollider:
   m_ObjectHideFlags: 0

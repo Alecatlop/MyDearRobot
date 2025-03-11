@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plataforma : MonoBehaviour
+public class Plataforma2 : MonoBehaviour
 {
     bool avanzar = false;
     bool retroceder = false;
@@ -17,6 +17,7 @@ public class Plataforma : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (avanzar == true)
         {
             this.transform.Translate(Vector3.forward * Time.deltaTime * speed);
@@ -32,19 +33,19 @@ public class Plataforma : MonoBehaviour
     {
         while (true) 
         {
-            retroceder = true;
-
-            yield return new WaitForSeconds(1f);
-
-            retroceder = false;
-
-            yield return new WaitForSeconds(2f);
-
             avanzar = true;
 
             yield return new WaitForSeconds(1f);
 
             avanzar = false;
+
+            yield return new WaitForSeconds(2f);
+
+            retroceder = true;
+
+            yield return new WaitForSeconds(1f);
+
+            retroceder = false;
 
             yield return new WaitForSeconds(2f);
         }
