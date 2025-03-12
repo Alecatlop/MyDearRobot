@@ -14,6 +14,11 @@ public class Plataforma : MonoBehaviour
         
     }
 
+    void OnEnable()
+    {
+        StartCoroutine(Movimiento());
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -26,11 +31,6 @@ public class Plataforma : MonoBehaviour
         {
             this.transform.Translate(Vector3.back * Time.deltaTime * speed);
         }
-    }
-
-    public void Inicio()
-    {
-        StartCoroutine(Movimiento());
     }
 
     private IEnumerator Movimiento()
