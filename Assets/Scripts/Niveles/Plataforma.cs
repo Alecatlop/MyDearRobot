@@ -11,7 +11,7 @@ public class Plataforma : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Movimiento());
+        
     }
 
     // Update is called once per frame
@@ -26,6 +26,11 @@ public class Plataforma : MonoBehaviour
         {
             this.transform.Translate(Vector3.back * Time.deltaTime * speed);
         }
+    }
+
+    public void Inicio()
+    {
+        StartCoroutine(Movimiento());
     }
 
     private IEnumerator Movimiento()

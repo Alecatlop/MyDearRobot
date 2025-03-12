@@ -11,13 +11,15 @@ public class Plataforma2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Movimiento());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //if ()
+        //{
+        //    StartCoroutine(Movimiento());
+        //}
         if (avanzar == true)
         {
             this.transform.Translate(Vector3.forward * Time.deltaTime * speed);

@@ -42,15 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "interact",
-                    "type": "Button",
-                    "id": "54006c67-a201-42f1-a363-49a9b459afec",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "pause",
                     "type": "Button",
                     "id": "71b64305-ce05-4380-bf59-1e6bc3bd8485",
@@ -146,28 +137,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "83c6a3ea-5f29-40de-9aa5-9e6aa9ed9ec8",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5636b6e4-0273-440f-9db1-331068412698",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
