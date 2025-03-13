@@ -1760,12 +1760,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3540547677464465720, guid: 39c93f7a9cf0f82448a1d8182c658b1a, type: 3}
       propertyPath: m_Name
-      value: 1 Plataforma (6)
+      value: Plataforma spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 3540547677464465720, guid: 39c93f7a9cf0f82448a1d8182c658b1a, type: 3}
+      propertyPath: m_TagString
+      value: Respawn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3540547677464465720, guid: 39c93f7a9cf0f82448a1d8182c658b1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1111290516}
   m_SourcePrefab: {fileID: 100100000, guid: 39c93f7a9cf0f82448a1d8182c658b1a, type: 3}
 --- !u!1 &253796368
 GameObject:
@@ -2938,6 +2945,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408620579}
   m_CullTransparentMesh: 1
+--- !u!1 &410734221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3540547677464465720, guid: 39c93f7a9cf0f82448a1d8182c658b1a, type: 3}
+  m_PrefabInstance: {fileID: 252114903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &437045444
 GameObject:
   m_ObjectHideFlags: 0
@@ -3842,6 +3854,7 @@ MonoBehaviour:
   accion1: {fileID: 341771843}
   accion2: {fileID: 938730220}
   gamemana: {fileID: 1247447639}
+  respawn: 1
   pausa: {fileID: 804255772}
 --- !u!1001 &557456053
 PrefabInstance:
@@ -6566,7 +6579,7 @@ GameObject:
   - component: {fileID: 938730221}
   m_Layer: 0
   m_Name: Nivel2 Manager
-  m_TagString: Untagged
+  m_TagString: puerta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8226,6 +8239,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3291490711268938367, guid: 39c93f7a9cf0f82448a1d8182c658b1a, type: 3}
   m_PrefabInstance: {fileID: 252114903}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1111290516
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410734221}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000004, y: 4.2, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: -0.00000047683716}
 --- !u!1001 &1135085238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8844,6 +8878,8 @@ GameObject:
   - component: {fileID: 1230798314}
   - component: {fileID: 1230798313}
   - component: {fileID: 1230798312}
+  - component: {fileID: 1230798316}
+  - component: {fileID: 1230798315}
   m_Layer: 0
   m_Name: Suelo (1)
   m_TagString: Untagged
@@ -8938,6 +8974,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230798310}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1230798315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230798310}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.999999, y: 2.18, z: 10}
+  m_Center: {x: 0.000000014901161, y: 0.0000009536743, z: 0}
+--- !u!114 &1230798316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230798310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  spawn: {fileID: 1375756687}
 --- !u!1 &1234469447
 GameObject:
   m_ObjectHideFlags: 0
@@ -9881,6 +9952,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce012f3bcc978154b8b5ca183adab793, type: 3}
+--- !u!1 &1375756687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1375756688}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1375756688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375756687}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 3.68, y: 6.2, z: -7.46}
+  m_LocalScale: {x: 4.32, y: 2.0417, z: 5.25}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1477850352}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1386492346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9955,7 +10057,7 @@ GameObject:
   - component: {fileID: 1437679782}
   - component: {fileID: 1437679781}
   m_Layer: 0
-  m_Name: Cube (10)
+  m_Name: Suelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10323,6 +10425,7 @@ Transform:
   - {fileID: 1461672837}
   - {fileID: 2038468324}
   - {fileID: 644238334}
+  - {fileID: 1375756688}
   - {fileID: 1230798311}
   - {fileID: 1437679780}
   m_Father: {fileID: 938730219}

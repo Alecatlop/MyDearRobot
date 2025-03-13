@@ -17,6 +17,7 @@ public class Controller : MonoBehaviour
     public Nivel1 accion1;
     public Nivel2 accion2;
     public GameMana gamemana;
+    public bool respawn = true;
     public Pausa pausa;
 
 
@@ -88,6 +89,11 @@ public class Controller : MonoBehaviour
         {
             other.transform.gameObject.SetActive(true);
             other.GetComponent<Collider>().enabled = false;
+        }
+
+        if (other.tag == "Respawn")
+        {
+            respawn = false;
         }
     }
 
