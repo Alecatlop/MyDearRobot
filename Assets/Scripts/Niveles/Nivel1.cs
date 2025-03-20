@@ -5,14 +5,13 @@ using UnityEngine;
 public class Nivel1 : MonoBehaviour
 {
     int contadorrunas = -1;
-    GameObject puerta;
     public GameObject[] simbolos;
     public GameMana nivel;
 
     // Start is called before the first frame update
     void Start()
     {
-       puerta = GameObject.Find("Puerta1");
+
     }
 
     // Update is called once per frame
@@ -31,7 +30,7 @@ public class Nivel1 : MonoBehaviour
 
         if (contadorrunas == 2)
         {
-           puerta.SetActive(false);
+            nivel.Abrir1();
         }
     }
 
@@ -39,7 +38,7 @@ public class Nivel1 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            puerta.SetActive(true);
+            nivel.Abrir1();
             nivel.Nivel1();
             nivel.Nivel2();
         }

@@ -5,30 +5,37 @@ using static UnityEngine.LightProbeProxyVolume;
 
 public class Nivel2 : MonoBehaviour
 {
-    GameObject puerta;
     public GameMana nivel;
     GameObject plataformas;
-
-    //GameObject puerta2;
+    GameObject puerta;
+    GameObject jugador;
 
     // Start is called before the first frame update
     void Start()
     {
-        puerta = GameObject.Find("Puerta2");
+        jugador = GameObject.Find("Jugador");
+        puerta = GameObject.Find("Puerta3");
         plataformas = GameObject.Find("Plataformas");
         plataformas.SetActive(false);
-        //puerta2 = GameObject.Find("Puerta3");
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        Vector3 posjugador = jugador.transform.position;
+        Vector3 pospuerta = puerta.transform.position;
+
+        float distancia = Vector3.Distance(posjugador, pospuerta);
+
+        if (distancia <= 3)
+        {
+           puerta.SetActive(false);
+        }
     }
 
-    public void Abrirpuerta()
+    public void ActivarPlataformas()
     {
-        puerta.SetActive(false);
+        nivel.Abrir2();
         plataformas.SetActive(true);
     }
 
@@ -36,7 +43,7 @@ public class Nivel2 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            puerta.SetActive(true);
+            nivel.Abrir2();
             nivel.Nivel2();
         }
     }

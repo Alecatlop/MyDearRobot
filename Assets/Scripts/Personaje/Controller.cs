@@ -11,12 +11,13 @@ public class Controller : MonoBehaviour
     Rigidbody rb;
     float speed = 7f;
     float force = 100f;
-    Vector2 sensibilidad = new Vector2(60, 40);
+    float anglex;
+    Vector2 sensibilidad = new Vector2(35, 15);
     bool ground = true;
 
     public Nivel1 accion1;
     public Nivel2 accion2;
-    public GameMana gamemana;
+    public GameMana nivel;
     public bool respawn = true;
     public Pausa pausa;
 
@@ -36,10 +37,12 @@ public class Controller : MonoBehaviour
         newVelocity = transform.rotation * newVelocity;
         rb.velocity = newVelocity;
 
+
         // rotar personaje con cámara
         transform.Rotate(0,inputaim.x * sensibilidad.x * Time.deltaTime,0);
-        //transform.GetChild(0).Rotate(-inputaim.y * sensibilidad.y * Time.deltaTime, 0, 0);
-        //transform.GetChild(0).localRotation = Quaternion.Euler(xAngle, 0, 0);
+        transform.GetChild(0).Rotate(-inputaim.y * sensibilidad.y * Time.deltaTime, 0, 0);
+        anglex = Mathf.Clamp(anglex - inputaim.y * sensibilidad.y * Time.deltaTime, -5, 40);
+        transform.GetChild(0).localRotation = Quaternion.Euler(anglex, 0, 0);
     }
 
     private void OnMove(InputValue value)
@@ -85,7 +88,7 @@ public class Controller : MonoBehaviour
             accion1.RunaColor();
         }
 
-        if (other.tag == "puerta")
+        if (other.tag == "puerta" && other.name != "Puerta2")
         {
             other.transform.gameObject.SetActive(true);
             other.GetComponent<Collider>().enabled = false;
@@ -101,7 +104,15 @@ public class Controller : MonoBehaviour
     {
         if (other.name == "Puerta2" && ground == false)
         {
-            accion2.Abrirpuerta();
+            other.GetComponent<Collider>().enabled = false;
+            accion2.ActivarPlataformas();
+        }
+
+        if (other.name == "Puerta4")
+        {
+            other.GetComponent<Collider>().enabled = false;
+            nivel.Abrir3();
+            nivel.Nivel3();
         }
     }
 }

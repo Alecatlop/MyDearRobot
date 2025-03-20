@@ -7,19 +7,28 @@ public class Lasers : MonoBehaviour
 {
     bool subir = false;
     bool bajar = false;
-    float speed = 9f;
+    float speed = 5f;
+    int rand;
    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rand = Random.Range(0,2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (subir == true)
+        {
+            this.transform.Translate(Vector3.up * Time.deltaTime * speed);
+        }
+
+        if (bajar == true)
+        {
+            this.transform.Translate(Vector3.down * Time.deltaTime * speed);
+        }
     }
 
     void OnEnable()
@@ -29,12 +38,38 @@ public class Lasers : MonoBehaviour
 
     private IEnumerator Corrutina()
     {
-        this.GetComponentInChildren<GameObject>().SetActive(false);
+        while (true)
+        {
+            if (rand == 0)
+            {
+                subir = true;
 
-        yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
 
-        this.GetComponentInChildren<GameObject>().SetActive(true);
+                subir = false;
 
-        yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(2f);
+
+                bajar = true;
+
+                yield return new WaitForSeconds(1f);
+
+                bajar = false;
+
+                yield return new WaitForSeconds(2f);
+            }
+            else
+            {
+                transform.GetChild(0).gameObject.SetActive(true);
+
+                yield return new WaitForSeconds(2f);
+
+                transform.GetChild(0).gameObject.SetActive(false);
+
+                yield return new WaitForSeconds(2f);
+            }
+           
+        }
+       
     }
 }

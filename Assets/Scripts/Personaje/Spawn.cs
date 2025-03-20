@@ -5,14 +5,12 @@ using UnityEngine.UIElements;
 
 public class Spawn : MonoBehaviour
 {
-    GameObject player;
-    
+    public Controller player;
     public GameObject spawn;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Jugador");
         
     }
 
@@ -24,10 +22,11 @@ public class Spawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" )
+        if (other.tag == "Player" && player.respawn == true)
         {
-            player.transform.position = spawn.transform.position;
+            player.gameObject.transform.position = spawn.transform.position;
         }
+        else this.GetComponent<Collider>().enabled = false; 
        
     }
 }
