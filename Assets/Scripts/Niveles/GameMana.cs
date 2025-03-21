@@ -66,10 +66,15 @@ public class GameMana : MonoBehaviour
         puertas[2].gameObject.SetActive(!puertas[2].activeSelf);
     }
 
-    //public void Nivel4()
-    //{
-    //    nivel4.SetActive(!nivel4.activeSelf);
-    //}
+    public void Nivel4()
+    {
+        nivel4.SetActive(!nivel4.activeSelf);
+    }
+
+    public void Abrir4()
+    {
+        puertas[3].gameObject.SetActive(!puertas[3].activeSelf);
+    }
 
     //public void Nivel5()
     //{
