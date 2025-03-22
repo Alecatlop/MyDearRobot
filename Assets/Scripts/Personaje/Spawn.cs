@@ -25,6 +25,7 @@ public class Spawn : MonoBehaviour
         if (other.tag == "Player" && player.respawn == true)
         {
             player.gameObject.transform.position = spawn.transform.position;
+            print("eoooooo");
         }
         else this.GetComponent<Collider>().enabled = false; 
        

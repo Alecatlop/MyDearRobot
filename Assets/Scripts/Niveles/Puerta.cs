@@ -1,22 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.LightProbeProxyVolume;
 
-public class Nivel2 : MonoBehaviour
+public class Puerta : MonoBehaviour
 {
-    public GameMana nivel;
-    GameObject plataformas;
-    GameObject puerta;
     GameObject jugador;
+    public GameObject puerta;
 
     // Start is called before the first frame update
     void Start()
     {
         jugador = GameObject.Find("Jugador");
-        puerta = GameObject.Find("Puerta3");
-        plataformas = GameObject.Find("Plataformas");
-        plataformas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,24 +21,24 @@ public class Nivel2 : MonoBehaviour
 
         float distancia = Vector3.Distance(posjugador, pospuerta);
 
-        if (distancia <= 3)
+        if (distancia > 5)
         {
-           puerta.SetActive(false);
+            puerta.gameObject.SetActive(true);
         }
-    }
-
-    public void ActivarPlataformas()
-    {
-        nivel.Abrir2();
-        plataformas.SetActive(true);
+        else if (distancia < 5)
+        {
+            puerta.gameObject.SetActive(false);
+        }
+           
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.name == "Jugador")
         {
-            nivel.Abrir2();
-            nivel.Nivel2();
+            puerta.gameObject.SetActive(true);
+            Destroy(gameObject);
         }
     }
+
 }

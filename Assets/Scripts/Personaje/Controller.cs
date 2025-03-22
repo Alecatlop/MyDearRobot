@@ -20,6 +20,7 @@ public class Controller : MonoBehaviour
     public GameMana nivel;
     public bool respawn = true;
     public Pausa pausa;
+    private GameObject puerta;
 
 
     // Start is called before the first frame update
@@ -27,6 +28,8 @@ public class Controller : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
+
+        puerta = GameObject.Find("Puerta6");
     }
 
     // Update is called once per frame
@@ -83,20 +86,18 @@ public class Controller : MonoBehaviour
     {
         if (other.tag == "runa nivel1")
         {
-            other.GetComponent<MeshRenderer>().material.color = Color.yellow;
             other.GetComponent<Collider>().enabled = false;
             accion1.RunaColor();
-        }
-
-        if (other.tag == "puerta" && other.name != "Puerta2")
-        {
-            other.transform.gameObject.SetActive(true);
-            other.GetComponent<Collider>().enabled = false;
         }
 
         if (other.tag == "Respawn")
         {
             respawn = false;
+        }
+
+        if (other.tag == "Finish")
+        {
+            puerta.SetActive(false);
         }
     }
 
@@ -107,12 +108,6 @@ public class Controller : MonoBehaviour
             other.GetComponent<Collider>().enabled = false;
             accion2.ActivarPlataformas();
         }
-
-        if (other.name == "Puerta4")
-        {
-            other.GetComponent<Collider>().enabled = false;
-            nivel.Abrir3();
-            nivel.Nivel3();
-        }
     }
+
 }

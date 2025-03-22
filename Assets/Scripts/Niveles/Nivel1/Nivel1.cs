@@ -5,19 +5,22 @@ using UnityEngine;
 public class Nivel1 : MonoBehaviour
 {
     int contadorrunas = -1;
-    public GameObject[] simbolos;
     public GameMana nivel;
+    GameObject puerta;
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        puerta = GameObject.Find("Puerta1");
+        puerta.GetComponent<Collider>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     public void RunaColor()
@@ -25,12 +28,12 @@ public class Nivel1 : MonoBehaviour
         if (contadorrunas < 2)
         {
             contadorrunas++;
-            simbolos[contadorrunas].GetComponent<MeshRenderer>().material.color = Color.yellow;
         }
 
         if (contadorrunas == 2)
         {
-            nivel.Abrir1();
+            puerta.GetComponent<Collider>().enabled = true;
+            puerta.SetActive(false);
         }
     }
 
@@ -38,7 +41,7 @@ public class Nivel1 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            nivel.Abrir1();
+            puerta.SetActive(true);
             nivel.Nivel1();
             nivel.Nivel2();
         }

@@ -243,10 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d306b191bb8222940965310c32b14a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simbolos:
-  - {fileID: 836732188}
-  - {fileID: 836732187}
-  - {fileID: 836732186}
   nivel: {fileID: 608910595}
 --- !u!4 &35475988
 Transform:
@@ -2765,10 +2761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d306b191bb8222940965310c32b14a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simbolos:
-  - {fileID: 836732188}
-  - {fileID: 836732187}
-  - {fileID: 836732186}
   nivel: {fileID: 608910595}
 --- !u!4 &316383666
 Transform:
@@ -4827,7 +4819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f448ef8897a10bf489b44a1536575dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puertas: []
+  niveles: []
 --- !u!4 &608910596
 Transform:
   m_ObjectHideFlags: 0
@@ -6003,21 +5995,6 @@ PrefabInstance:
 --- !u!4 &836732185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8453171427175113815, guid: 4ecefbe5a6caa344792db3ca80bccf11, type: 3}
-  m_PrefabInstance: {fileID: 836732184}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &836732186 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3779164016900760324, guid: 4ecefbe5a6caa344792db3ca80bccf11, type: 3}
-  m_PrefabInstance: {fileID: 836732184}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &836732187 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1619324837211553917, guid: 4ecefbe5a6caa344792db3ca80bccf11, type: 3}
-  m_PrefabInstance: {fileID: 836732184}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &836732188 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1587205162847451434, guid: 4ecefbe5a6caa344792db3ca80bccf11, type: 3}
   m_PrefabInstance: {fileID: 836732184}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &838234313
