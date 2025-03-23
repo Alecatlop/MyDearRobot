@@ -37,6 +37,7 @@ public class Nivel2 : MonoBehaviour
         {
             puerta.SetActive(true);
             nivel.Nivel3();
+            this.GetComponent<Collider>().enabled = false;
         }
     }
 }

@@ -17,15 +17,19 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (player.altura == true)
+        {
+            player.gameObject.transform.position = spawn.transform.position;
+            player.altura = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "Player" && player.respawn == true)
         {
             player.gameObject.transform.position = spawn.transform.position;
-            print("eoooooo");
         }
         else this.GetComponent<Collider>().enabled = false; 
        

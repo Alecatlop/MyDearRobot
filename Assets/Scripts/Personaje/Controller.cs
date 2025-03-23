@@ -15,10 +15,13 @@ public class Controller : MonoBehaviour
     Vector2 sensibilidad = new Vector2(35, 15);
     bool ground = true;
 
+
+    public Gravedad gravedad;
     public Nivel1 accion1;
     public Nivel2 accion2;
     public GameMana nivel;
     public bool respawn = true;
+    public bool altura = false;
     public Pausa pausa;
     private GameObject puerta;
 
@@ -46,6 +49,8 @@ public class Controller : MonoBehaviour
         transform.GetChild(0).Rotate(-inputaim.y * sensibilidad.y * Time.deltaTime, 0, 0);
         anglex = Mathf.Clamp(anglex - inputaim.y * sensibilidad.y * Time.deltaTime, -5, 40);
         transform.GetChild(0).localRotation = Quaternion.Euler(anglex, 0, 0);
+
+        Caida();
     }
 
     private void OnMove(InputValue value)
@@ -70,16 +75,33 @@ public class Controller : MonoBehaviour
 
     private void OnJump()
     {
-        if (ground == true)
+        if (ground == true && gravedad.gravedad == false)
         {
             rb.AddForce(0, speed * force, 0);
             ground = false;
+        }
+
+        if (gravedad.gravedad == true && ground == true)
+        {
+            rb.AddForce(0, -speed * force, 0);
+            ground = false;
+        }
+    }
+
+    private void Caida()
+    {
+        if (rb.velocity.y < -12f || rb.velocity.y > 12f)
+        {
+            altura = true;
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        ground = true;
+        if (collision.collider.tag == "Suelo" || collision.collider.tag == "Respawn")
+        {
+            ground = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,7 +114,15 @@ public class Controller : MonoBehaviour
 
         if (other.tag == "Respawn")
         {
-            respawn = false;
+
+            if (respawn == true)
+            {
+                respawn = false;
+            }
+            else if (respawn == false)
+            {
+                respawn = true;
+            }
         }
 
         if (other.tag == "Finish")

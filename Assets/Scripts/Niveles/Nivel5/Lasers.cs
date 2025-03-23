@@ -14,7 +14,7 @@ public class Lasers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rand = Random.Range(0,2);
+       
     }
 
     // Update is called once per frame
@@ -33,6 +33,7 @@ public class Lasers : MonoBehaviour
 
     void OnEnable()
     {
+        rand = Random.Range(0, 2);
         StartCoroutine(Corrutina());
     }
 
@@ -42,19 +43,19 @@ public class Lasers : MonoBehaviour
         {
             if (rand == 0)
             {
-                subir = true;
-
-                yield return new WaitForSeconds(1f);
-
-                subir = false;
-
-                yield return new WaitForSeconds(2f);
-
                 bajar = true;
 
                 yield return new WaitForSeconds(1f);
 
                 bajar = false;
+
+                yield return new WaitForSeconds(2f);
+
+                subir = true;
+
+                yield return new WaitForSeconds(1f);
+
+                subir = false;
 
                 yield return new WaitForSeconds(2f);
             }

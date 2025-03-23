@@ -49,6 +49,7 @@ public class Nivel3 : MonoBehaviour
             pasillo.SetActive(false);
             nivel.Nivel2();
             nivel.Nivel4();
+            this.GetComponent<Collider>().enabled = false;
         }
     }
 }
