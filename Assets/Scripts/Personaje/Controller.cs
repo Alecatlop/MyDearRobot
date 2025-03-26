@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -14,6 +15,8 @@ public class Controller : MonoBehaviour
     float anglex;
     Vector2 sensibilidad = new Vector2(35, 15);
     bool ground = true;
+    bool pausar = false;
+
 
 
     public Gravedad gravedad;
@@ -29,7 +32,7 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
 
         puerta = GameObject.Find("Puerta6");
@@ -50,7 +53,18 @@ public class Controller : MonoBehaviour
         anglex = Mathf.Clamp(anglex - inputaim.y * sensibilidad.y * Time.deltaTime, -5, 40);
         transform.GetChild(0).localRotation = Quaternion.Euler(anglex, 0, 0);
 
+
         Caida();
+
+        //if (gravedad.gravedad == true)
+        //{
+        //    transform.GetChild(1).gameObject.SetActive(true);
+        //    transform.GetChild(0).gameObject.SetActive(false);
+        //}
+        //else transform.GetChild(0).gameObject.SetActive(true); transform.GetChild(1).gameObject.SetActive(false);
+
+
+
     }
 
     private void OnMove(InputValue value)
@@ -70,12 +84,13 @@ public class Controller : MonoBehaviour
 
     private void OnPause()
     {
+        pausar = !pausar;
         pausa.Pausar();
     }
 
     private void OnJump()
     {
-        if (ground == true && gravedad.gravedad == false)
+        if (ground == true && gravedad.gravedad == false && pausar == false)
         {
             rb.AddForce(0, speed * force, 0);
             ground = false;

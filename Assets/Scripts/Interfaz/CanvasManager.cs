@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,11 +13,13 @@ public class CanvasManager : MonoBehaviour
     GameObject sliderbrillo;
     public Image panelbrillo;
 
+    Toggle toggle;
+
     GameObject sliderefectos;
     GameObject slidermusica;
 
     public AudioSource boton;
-    public AudioSource musica;
+    Persistente musica;
 
 
     // Start is called before the first frame update
@@ -27,23 +28,33 @@ public class CanvasManager : MonoBehaviour
         configuracion = GameObject.Find("Configuracion");
         opciones = GameObject.Find("Opciones");
 
+        musica = GameObject.Find("Persistente").GetComponent<Persistente>();
+
         sliderbrillo = GameObject.Find("SliderBrillo");
         sliderefectos = GameObject.Find("SliderEfectos");
         slidermusica = GameObject.Find("SliderMusica");
 
+        toggle = GameObject.Find("Toggle").gameObject.GetComponent<Toggle>();
+
         configuracion.SetActive(false);
         opciones.SetActive(true);
 
-        slidermusica.GetComponent<Slider>().value = PlayerPrefs.GetFloat("musica", 0.5f);
-        sliderefectos.GetComponent<Slider>().value = PlayerPrefs.GetFloat("efectos", 0.5f);
+        boton.volume = sliderefectos.GetComponent<Slider>().value;
+        musica.GetComponent<AudioSource>().volume = slidermusica.GetComponent<Slider>().value;
 
-        sliderbrillo.GetComponent<Slider>().value = PlayerPrefs.GetFloat("brillo", 0f);
-        panelbrillo.color = new Color(panelbrillo.color.r, panelbrillo.color.g, panelbrillo.color.b, sliderbrillo.GetComponent<Slider>().value);
+
+        if (Screen.fullScreen)
+        {
+            toggle.isOn = true;
+        }
+        else toggle.isOn = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+       
     }
 
     public void Jugar()
@@ -67,6 +78,7 @@ public class CanvasManager : MonoBehaviour
 
     public void Efectos(float valor)
     {
+        boton.Play();
         PlayerPrefs.GetFloat("efectos", sliderefectos.GetComponent<Slider>().value);
         boton.volume = sliderefectos.GetComponent<Slider>().value;
     }
@@ -74,7 +86,12 @@ public class CanvasManager : MonoBehaviour
     public void Musica(float valor)
     {
         PlayerPrefs.GetFloat("musica", slidermusica.GetComponent<Slider>().value);
-        musica.volume = slidermusica.GetComponent<Slider>().value;
+        musica.GetComponent<AudioSource>().volume = slidermusica.GetComponent<Slider>().value;
+    }
+
+    public void PantallaCompleta(bool valor)
+    {
+        Screen.fullScreen = valor;
     }
 
     public void Regresar()
