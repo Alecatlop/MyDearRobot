@@ -60,7 +60,7 @@ public class CanvasManager : MonoBehaviour
     public void Jugar()
     {
         boton.Play();
-        SceneManager.LoadScene("Catret");
+        SceneManager.LoadScene("Oficial");
     }
 
     public void Configuracion()

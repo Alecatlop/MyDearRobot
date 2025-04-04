@@ -5,13 +5,13 @@ using UnityEngine.UIElements;
 
 public class Spawn : MonoBehaviour
 {
-    public Controller player;
+    public CharacterControllerScript player;
     public GameObject spawn;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GetComponent<CharacterControllerScript>();
     }
 
     // Update is called once per frame

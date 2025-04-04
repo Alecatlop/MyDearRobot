@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Catret.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Sori.unity
+    guid: 565b40264b2809d498555a28406e08f7
+  - enabled: 1
+    path: Assets/Scenes/Oficial.unity
+    guid: c133cb3ab0b3e6e418b6b788f66061e1
   m_configObjects: {}
