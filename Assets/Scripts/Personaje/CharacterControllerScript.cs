@@ -44,6 +44,16 @@ public class CharacterControllerScript : MonoBehaviour
             verticalVelocity = -2f; // Para mantener el personaje en el suelo
         }
 
+        if(pausar == true)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+
+        }
+
         // Movimiento
         Vector3 move = transform.right * inputMove.x + transform.forward * inputMove.y;
         controller.Move(move * speed * Time.deltaTime);
