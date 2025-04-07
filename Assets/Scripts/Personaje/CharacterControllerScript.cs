@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,6 +28,9 @@ public class CharacterControllerScript : MonoBehaviour
 
     Transform cam;
 
+    public CinemachineFreeLook freeLookCamera;
+    public float mouseSensitivity = 2f;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -37,6 +41,12 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+        freeLookCamera.m_XAxis.Value += mouseX;
+        freeLookCamera.m_YAxis.Value -= mouseY;
+
         // Verificar si está en el suelo
         isGrounded = controller.isGrounded;
         if (isGrounded && verticalVelocity < 0)
