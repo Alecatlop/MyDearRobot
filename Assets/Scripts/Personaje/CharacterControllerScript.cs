@@ -26,27 +26,17 @@ public class CharacterControllerScript : MonoBehaviour
     public Pausa pausa;
     private GameObject puerta;
 
-    Transform cam;
 
-    public CinemachineFreeLook freeLookCamera;
-    public float mouseSensitivity = 2f;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
         puerta = GameObject.Find("Puerta6");
-        cam = transform.GetChild(0); // Cámara
     }
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-        freeLookCamera.m_XAxis.Value += mouseX;
-        freeLookCamera.m_YAxis.Value -= mouseY;
-
         // Verificar si está en el suelo
         isGrounded = controller.isGrounded;
         if (isGrounded && verticalVelocity < 0)
@@ -64,18 +54,32 @@ public class CharacterControllerScript : MonoBehaviour
 
         }
 
-        // Movimiento
-        Vector3 move = transform.right * inputMove.x + transform.forward * inputMove.y;
+        Transform cam = Camera.main.transform;
+
+        // Direcciones horizontal y vertical de la cámara
+        Vector3 camForward = cam.forward;
+        Vector3 camRight = cam.right;
+
+        // Eliminar inclinación vertical
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        // Dirección final basada en input + cámara
+        Vector3 move = camRight * inputMove.x + camForward * inputMove.y;
         controller.Move(move * speed * Time.deltaTime);
+
+        // Rotar el personaje si se está moviendo
+        if (move != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+        }
 
         // Aplicar gravedad
         verticalVelocity += gravity * Time.deltaTime;
         controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
-
-        // Rotación
-        transform.Rotate(0, inputAim.x * sensibilidad.x * Time.deltaTime, 0);
-        anglex = Mathf.Clamp(anglex - inputAim.y * sensibilidad.y * Time.deltaTime, -5, 40);
-        cam.localRotation = Quaternion.Euler(anglex, 0, 0);
 
         Caida();
     }
