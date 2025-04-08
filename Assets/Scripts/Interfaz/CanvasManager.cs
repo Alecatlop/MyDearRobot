@@ -25,6 +25,7 @@ public class CanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         configuracion = GameObject.Find("Configuracion");
         opciones = GameObject.Find("Opciones");
 
