@@ -6,14 +6,15 @@ public class Nivel1 : MonoBehaviour
 {
     int contadorrunas = -1;
     public GameMana nivel;
-    GameObject puerta;
+    public GameObject puerta;
+    public GameObject tierra;
     
 
 
     // Start is called before the first frame update
     void Start()
     {
-        puerta = GameObject.Find("Puerta1");
+        puerta = GameObject.Find("Modelo ruinas");
         puerta.GetComponent<Collider>().enabled = false;
     }
 
@@ -33,7 +34,10 @@ public class Nivel1 : MonoBehaviour
         if (contadorrunas == 2)
         {
             puerta.GetComponent<Collider>().enabled = true;
+            tierra.GetComponent<Collider>().enabled = true;
             puerta.SetActive(false);
+            tierra.SetActive(false);
+
         }
     }
 

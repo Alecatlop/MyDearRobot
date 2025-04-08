@@ -1919,6 +1919,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2014203437819960937, guid: fa4e89f2051c2a04bbebbb122b66c1d9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.016
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fa4e89f2051c2a04bbebbb122b66c1d9, type: 3}
       propertyPath: m_Name
       value: Modelo ruinas
@@ -20567,7 +20571,7 @@ Transform:
   m_GameObject: {fileID: 1407565689}
   serializedVersion: 2
   m_LocalRotation: {x: -0.6997554, y: -0, z: -0, w: 0.7143826}
-  m_LocalPosition: {x: -141.32, y: 8.33, z: 5.72}
+  m_LocalPosition: {x: -141.32, y: 10.29, z: 5.72}
   m_LocalScale: {x: 2.589017, y: 1.5215, z: 1.5215}
   m_ConstrainProportionsScale: 0
   m_Children: []
