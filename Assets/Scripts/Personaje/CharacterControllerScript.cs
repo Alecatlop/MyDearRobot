@@ -8,14 +8,15 @@ public class CharacterControllerScript : MonoBehaviour
     Vector2 inputMove;
     Vector2 inputAim;
     CharacterController controller;
-    float speed = 7f;
-    float gravity = -9.81f;
+    float speed = 10f;
+    public float gravity = -15f;
     float jumpForce = 10f;
-    float verticalVelocity;
+    public float verticalVelocity;
     float anglex;
     Vector2 sensibilidad = new Vector2(35, 15);
     bool isGrounded;
     bool pausar = false;
+    public bool gravitycheck = true;
 
     public Gravedad gravedad;
     public Nivel1 accion1;
@@ -77,9 +78,18 @@ public class CharacterControllerScript : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
         }
 
-        // Aplicar gravedad
-        verticalVelocity += gravity * Time.deltaTime;
-        controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
+        if (gravitycheck == true)
+        {
+            // Aplicar gravedad
+            verticalVelocity += gravity * Time.deltaTime;
+            controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
+        }
+        
+        else
+        {
+            verticalVelocity += -gravity * Time.deltaTime;
+            controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
+        }
 
         Caida();
     }
@@ -111,7 +121,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     private void Caida()
     {
-        if (Mathf.Abs(verticalVelocity) > 12f)
+        if (Mathf.Abs(verticalVelocity) > 15f)
         {
             altura = true;
         }

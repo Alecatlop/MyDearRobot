@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class Gravedad : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public CharacterControllerScript jugador;
     public bool gravedad = false;
-    
+
     void OnTriggerEnter(Collider other)
     {
-        if(gravedad == false)
+        if(jugador.gravitycheck == true)
         {
+            jugador.gravitycheck = false;
+            Physics.gravity = new Vector3(0, 9.8f, 0);
             gravedad = true;
-            Physics.gravity = new Vector3(0, 9.8f, 0);           
         }
 
-        else if(gravedad == true)
+        else
         {
+            jugador.gravitycheck = true;
+            Physics.gravity = new Vector3(0, -9.8f, 0);
             gravedad = false;
-            Physics.gravity = new Vector3(0,-9.8f, 0);
-
         }
     }
 }

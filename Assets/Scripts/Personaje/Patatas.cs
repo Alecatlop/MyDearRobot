@@ -90,13 +90,13 @@ public class Controller : MonoBehaviour
 
     private void OnJump()
     {
-        if (ground == true && gravedad.gravedad == false && pausar == false)
+        //if (ground == true && gravedad.gravedad == false && pausar == false)
         {
             rb.AddForce(0, speed * force, 0);
             ground = false;
         }
 
-        if (gravedad.gravedad == true && ground == true)
+        //if (gravedad.gravedad == true && ground == true)
         {
             rb.AddForce(0, -speed * force, 0);
             ground = false;

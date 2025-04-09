@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &16523498
 GameObject:
@@ -1302,7 +1302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &39156977
 GameObject:
@@ -1979,7 +1979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &89118715
 GameObject:
@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &96586185
 GameObject:
@@ -2247,7 +2247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &98704443
 GameObject:
@@ -2495,7 +2495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &117510774
 GameObject:
@@ -2734,7 +2734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &121740860
 GameObject:
@@ -2868,7 +2868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &124046157
 GameObject:
@@ -3002,7 +3002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &133581035
 GameObject:
@@ -3136,7 +3136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &135432616
 GameObject:
@@ -3270,7 +3270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &138844103
 GameObject:
@@ -3404,7 +3404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &140276708
 GameObject:
@@ -3538,7 +3538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &140878203
 GameObject:
@@ -3796,7 +3796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &148463682
 GameObject:
@@ -5449,7 +5449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &242557220
 GameObject:
@@ -5806,7 +5806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &253796368
 GameObject:
@@ -6143,7 +6143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &267838353
 GameObject:
@@ -6382,7 +6382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &275683873
 GameObject:
@@ -6649,7 +6649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &289093875
 GameObject:
@@ -6783,7 +6783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!4 &291621731 stripped
 Transform:
@@ -6973,7 +6973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &305368495
 GameObject:
@@ -7117,7 +7117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &308544066
 Transform:
   m_ObjectHideFlags: 0
@@ -7494,7 +7494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &320633541
 GameObject:
@@ -7628,7 +7628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &330138338
 GameObject:
@@ -8138,6 +8138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nivel: {fileID: 1247447639}
+  puerta: {fileID: 0}
+  tierra: {fileID: 0}
 --- !u!4 &341771844
 Transform:
   m_ObjectHideFlags: 0
@@ -8308,7 +8310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &349196983
 GameObject:
@@ -8442,7 +8444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &355263298
 GameObject:
@@ -8576,7 +8578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &355447818
 GameObject:
@@ -8971,7 +8973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &365919491
 GameObject:
@@ -9105,7 +9107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &368024621
 GameObject:
@@ -9373,7 +9375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &371055936
 GameObject:
@@ -9854,7 +9856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &403832123
 GameObject:
@@ -10790,7 +10792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &422334553
 GameObject:
@@ -10839,7 +10841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1327756275}
 --- !u!65 &422334556
 BoxCollider:
@@ -11227,7 +11229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &432047219
 GameObject:
@@ -11466,7 +11468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &437045444
 GameObject:
@@ -12300,7 +12302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &475000092
 GameObject:
@@ -12961,7 +12963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &527809259
 GameObject:
@@ -14123,7 +14125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &609606007
 GameObject:
@@ -14378,7 +14380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &614971815
 GameObject:
@@ -14721,7 +14723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &635195069
 GameObject:
@@ -14855,7 +14857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!4 &643789552 stripped
 Transform:
@@ -15099,7 +15101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &649717004
 GameObject:
@@ -15286,6 +15288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runa: {fileID: 1213294340}
+  camara: {fileID: 0}
   activado: 0
 --- !u!1 &669244445
 GameObject:
@@ -15766,7 +15769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1327756275}
 --- !u!65 &712173256
 BoxCollider:
@@ -16090,7 +16093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &721755779
 GameObject:
@@ -16224,7 +16227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &723250748
 GameObject:
@@ -16358,7 +16361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1001 &735302791
 PrefabInstance:
@@ -16710,7 +16713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1327756275}
 --- !u!65 &743361133
 BoxCollider:
@@ -17207,7 +17210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &756850004
 GameObject:
@@ -17446,7 +17449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1001 &759741131
 PrefabInstance:
@@ -18234,7 +18237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &794003061
 GameObject:
@@ -18463,7 +18466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &807059574
 GameObject:
@@ -18962,7 +18965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &827683058
 GameObject:
@@ -19096,7 +19099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &832957334
 GameObject:
@@ -19230,7 +19233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &835916408
 GameObject:
@@ -19483,7 +19486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &840660920
 GameObject:
@@ -19947,7 +19950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &864664105
 GameObject:
@@ -20740,7 +20743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &901876385
 GameObject:
@@ -20874,7 +20877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &902947646
 GameObject:
@@ -21008,7 +21011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &903019717
 GameObject:
@@ -21247,7 +21250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1001 &905231969
 PrefabInstance:
@@ -21656,7 +21659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &931089886
 GameObject:
@@ -22441,7 +22444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &946842855
 GameObject:
@@ -23182,7 +23185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &986042443
 GameObject:
@@ -23316,7 +23319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &987824628
 GameObject:
@@ -23631,7 +23634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1001 &997354767
 PrefabInstance:
@@ -23967,7 +23970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1010450729
 GameObject:
@@ -24412,7 +24415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1018433044
 GameObject:
@@ -24546,7 +24549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1021554866
 GameObject:
@@ -24786,7 +24789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1033127087
 GameObject:
@@ -24920,7 +24923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1034318835
 GameObject:
@@ -25054,7 +25057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1066009417
 GameObject:
@@ -25307,7 +25310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1070989729
 GameObject:
@@ -25858,7 +25861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1090993798
 GameObject:
@@ -26792,7 +26795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1145606753
 GameObject:
@@ -27134,7 +27137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1171117740
 GameObject:
@@ -27402,7 +27405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1181797582
 GameObject:
@@ -27536,7 +27539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1184491819
 GameObject:
@@ -27670,7 +27673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1188108775
 GameObject:
@@ -27977,7 +27980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1209868340 stripped
 GameObject:
@@ -28493,7 +28496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1375756687}
 --- !u!1 &1234469447
 GameObject:
@@ -28880,7 +28883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1247640022
 GameObject:
@@ -29089,7 +29092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1249859824
 GameObject:
@@ -29223,7 +29226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1252704578
 GameObject:
@@ -29712,7 +29715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1327756275}
 --- !u!65 &1281960370
 BoxCollider:
@@ -30530,7 +30533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1350291557
 GameObject:
@@ -30664,7 +30667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1354743585
 GameObject:
@@ -30798,7 +30801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1356680260
 GameObject:
@@ -31024,7 +31027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 389954828}
 --- !u!1 &1368292051
 GameObject:
@@ -31621,7 +31624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1001 &1412867219
 PrefabInstance:
@@ -32272,7 +32275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1461672836
 GameObject:
@@ -32616,7 +32619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1473275878
 GameObject:
@@ -33045,7 +33048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1487472809
 GameObject:
@@ -33641,7 +33644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1511852596
 GameObject:
@@ -33775,7 +33778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1515855376
 GameObject:
@@ -34482,7 +34485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 0}
 --- !u!1 &1565330688
 GameObject:
@@ -34760,6 +34763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runa: {fileID: 1209868340}
+  camara: {fileID: 0}
   activado: 0
 --- !u!1 &1575989722
 GameObject:
@@ -35528,7 +35532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!4 &1595005622 stripped
 Transform:
@@ -36283,7 +36287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1625669890
 GameObject:
@@ -36417,7 +36421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1628474912
 GameObject:
@@ -36619,7 +36623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1631859334
 GameObject:
@@ -36872,7 +36876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1634161613 stripped
 GameObject:
@@ -37032,7 +37036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1638062729
 GameObject:
@@ -37565,7 +37569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1654722106
 GameObject:
@@ -37699,7 +37703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1659573033
 GameObject:
@@ -38030,7 +38034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1665115172
 GameObject:
@@ -38516,7 +38520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1705195658 stripped
 GameObject:
@@ -38536,6 +38540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runa: {fileID: 1607950307}
+  camara: {fileID: 0}
   activado: 0
 --- !u!1 &1707599778
 GameObject:
@@ -39027,7 +39032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1733640063
 GameObject:
@@ -39452,7 +39457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1759080677
 GameObject:
@@ -39586,7 +39591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1760416680
 GameObject:
@@ -39720,7 +39725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1770113713
 GameObject:
@@ -39854,7 +39859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1001 &1773890811
 PrefabInstance:
@@ -40079,7 +40084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1779034870
 GameObject:
@@ -40332,7 +40337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1799301031
 GameObject:
@@ -41077,7 +41082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1829525819
 GameObject:
@@ -41464,7 +41469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1843809346
 GameObject:
@@ -41598,7 +41603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1850595126
 GameObject:
@@ -42322,7 +42327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1861996604
 GameObject:
@@ -42523,7 +42528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1896229673
 GameObject:
@@ -42872,7 +42877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1928155254
 GameObject:
@@ -43111,7 +43116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1935728339
 GameObject:
@@ -43364,7 +43369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1941850538
 GameObject:
@@ -43660,7 +43665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1958965799
 GameObject:
@@ -43829,7 +43834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &1978236252
 GameObject:
@@ -44378,7 +44383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &2006157083
 GameObject:
@@ -44631,7 +44636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &2015891002
 GameObject:
@@ -44765,7 +44770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &2023312205
 GameObject:
@@ -45363,7 +45368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1327756275}
 --- !u!1 &2038468323
 GameObject:
@@ -46132,7 +46137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &2091891976
 GameObject:
@@ -46730,7 +46735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1629230228}
 --- !u!1 &2117543228
 GameObject:
@@ -46779,7 +46784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 549036569}
+  player: {fileID: 0}
   spawn: {fileID: 1327756275}
 --- !u!65 &2117543231
 BoxCollider:
@@ -47082,6 +47087,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 176229822}
     m_Modifications:
+    - target: {fileID: 978848527945340726, guid: 4ecefbe5a6caa344792db3ca80bccf11, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 978848527945340726, guid: 4ecefbe5a6caa344792db3ca80bccf11, type: 3}
       propertyPath: m_IsTrigger
       value: 1

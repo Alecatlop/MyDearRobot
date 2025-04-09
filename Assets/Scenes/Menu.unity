@@ -2224,11 +2224,11 @@ Transform:
   m_GameObject: {fileID: 362517311}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -187.90002, y: 6.5, z: 7}
+  m_LocalPosition: {x: 5.0299683, y: 5.1, z: 100.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1875530808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &413344896
 GameObject:
@@ -7968,52 +7968,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630477103}
   m_CullTransparentMesh: 1
---- !u!1 &632990973
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 632990974}
-  - component: {fileID: 632990975}
-  m_Layer: 0
-  m_Name: WindZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &632990974
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632990973}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 88.649994, y: 11.39, z: 22.060005}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1875530808}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!182 &632990975
-WindZone:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632990973}
-  m_Enabled: 1
-  m_Mode: 0
-  m_Radius: 20
-  m_WindMain: 1
-  m_WindTurbulence: 0.45
-  m_WindPulseMagnitude: 0.5
-  m_WindPulseFrequency: 0.01
 --- !u!1 &633489982
 GameObject:
   m_ObjectHideFlags: 0
@@ -21684,7 +21638,6 @@ Transform:
   - {fileID: 592305606}
   - {fileID: 1215134798}
   - {fileID: 192910086}
-  - {fileID: 632990974}
   - {fileID: 1305789431}
   - {fileID: 741207945}
   - {fileID: 1395636368}
@@ -21692,6 +21645,7 @@ Transform:
   - {fileID: 1989337419}
   - {fileID: 117387331}
   - {fileID: 44259869}
+  - {fileID: 362517314}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1923353981
@@ -22836,4 +22790,3 @@ SceneRoots:
   - {fileID: 629888730}
   - {fileID: 329909927}
   - {fileID: 1407565693}
-  - {fileID: 362517314}
