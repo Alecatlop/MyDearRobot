@@ -13083,8 +13083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e9cfe55aadec34bb5574bf8a21ccd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 549036571}
   gravedad: 0
-  jugador: {fileID: 0}
 --- !u!65 &424126533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14977,7 +14977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521857090}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.007205288, y: 0.9920922, z: -0.105338015, w: -0.06786068}
+  m_LocalRotation: {x: -0.007205286, y: 0.9920922, z: -0.105338044, w: -0.06786065}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15536,6 +15536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: -15
   verticalVelocity: 0
+  gravitycheck: 1
   gravedad: {fileID: 424126532}
   accion1: {fileID: 341771843}
   accion2: {fileID: 938730220}
@@ -25277,7 +25278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1055296, y: 0.031974096, z: -0.0033949348, w: 0.99389625}
+  m_LocalRotation: {x: 0.10552957, y: 0.031974122, z: -0.0033949374, w: 0.99389625}
   m_LocalPosition: {x: -225.31544, y: 5.61, z: -86.90546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25297,7 +25298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: ecf76c0ea51c4c24c9ac16ab8f02091d, type: 2}
-  isGlobal: 0
+  isGlobal: 1
   blendDistance: 0
   weight: 1
   priority: 0
@@ -35570,7 +35571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462732284}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.007205286, y: 0.9920922, z: -0.105338044, w: -0.06786065}
+  m_LocalRotation: {x: -0.007205288, y: 0.9920922, z: -0.105338015, w: -0.06786068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
