@@ -27,6 +27,8 @@ public class CharacterControllerScript : MonoBehaviour
     public Pausa pausa;
     private GameObject puerta;
 
+    public bool spawn = false;
+
 
 
     void Start()
@@ -67,27 +69,37 @@ public class CharacterControllerScript : MonoBehaviour
         camForward.Normalize();
         camRight.Normalize();
 
-        // Dirección final basada en input + cámara
-        Vector3 move = camRight * inputMove.x + camForward * inputMove.y;
-        controller.Move(move * speed * Time.deltaTime);
 
-        // Rotar el personaje si se está moviendo
-        if (move != Vector3.zero)
+        if(!spawn)
         {
-            Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+            // Dirección final basada en input + cámara
+            Vector3 move = camRight * inputMove.x + camForward * inputMove.y;
+            controller.Move(move * speed * Time.deltaTime);
+
+            // Rotar el personaje si se está moviendo
+            if (move != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+            }
+
+            float direction = gravitycheck ? 1f : -1f;
+            verticalVelocity += gravity * direction * Time.deltaTime;
+            controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
+
+            if (verticalVelocity > 10f)
+            {
+                verticalVelocity = 10f;
+            }
+
+            if (verticalVelocity < -15f)
+            {
+                verticalVelocity = -15f;
+            }
+
         }
 
-        float direction = gravitycheck ? 1f : -1f;
-        verticalVelocity += gravity * direction * Time.deltaTime;
-        controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
 
-        if (verticalVelocity > 10f)
-        {
-            verticalVelocity = 10f;
-        }
-
-        Caida();
     }
 
     private void OnMove(InputValue value)
@@ -115,13 +127,6 @@ public class CharacterControllerScript : MonoBehaviour
         }
     }
 
-    private void Caida()
-    {
-        if (Mathf.Abs(verticalVelocity) > 90f)
-        {
-            altura = true;
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {

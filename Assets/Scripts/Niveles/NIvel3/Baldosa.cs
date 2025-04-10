@@ -10,7 +10,6 @@ public class Baldosa : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -27,7 +26,12 @@ public class Baldosa : MonoBehaviour
             {
                 this.GetComponent<Renderer>().material.color = Color.yellow;
             }
-            else this.gameObject.SetActive(false);
+
+            else
+            {
+                this.gameObject.SetActive(false);
+            }
+
         }
     }
 }
