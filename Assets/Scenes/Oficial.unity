@@ -219,7 +219,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.14105015, y: 0.11565306, z: 0.008436231}
+  m_Size: {x: 0.2, y: 0.18, z: 0.06}
   m_Center: {x: 0.05650214, y: 0.0014097436, z: 0.004218114}
 --- !u!114 &1592199
 MonoBehaviour:
@@ -15016,7 +15016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521857090}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.10558407, y: -0.0014973693, z: 0.00015898701, w: -0.99440926}
+  m_LocalRotation: {x: -0.10558404, y: -0.0014974102, z: 0.00015899143, w: -0.99440926}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15570,6 +15570,7 @@ MonoBehaviour:
   altura: 0
   pausa: {fileID: 804255772}
   spawn: 0
+  animator: {fileID: 0}
 --- !u!143 &549036572
 CharacterController:
   m_ObjectHideFlags: 0
@@ -53810,7 +53811,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.04751575, y: 0.021380903, z: 0.0038727855}
+  m_Size: {x: 0.07, y: 0.05, z: 0.02}
   m_Center: {x: 0.017617306, y: 0.0016286754, z: 0.0013816904}
 --- !u!114 &1963964314
 MonoBehaviour:
@@ -54923,7 +54924,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.06440739, y: 0.045564402, z: 0.004718351}
+  m_Size: {x: 0.07, y: 0.07, z: 0.06}
   m_Center: {x: 0.025742091, y: 0.017905213, z: 0.0021430254}
 --- !u!114 &2021019162
 MonoBehaviour:

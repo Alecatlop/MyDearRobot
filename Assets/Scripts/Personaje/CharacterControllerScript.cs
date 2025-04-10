@@ -12,8 +12,6 @@ public class CharacterControllerScript : MonoBehaviour
     public float gravity = -15f;
     public float jumpForce = 10f;
     public float verticalVelocity;
-    float anglex;
-    Vector2 sensibilidad = new Vector2(35, 15);
     bool isGrounded;
     bool pausar = false;
     public bool gravitycheck = true;
@@ -77,7 +75,7 @@ public class CharacterControllerScript : MonoBehaviour
             Vector3 move = camRight * inputMove.x + camForward * inputMove.y;
             controller.Move(move * speed * Time.deltaTime);
 
-            animator.SetFloat("speed", move.magnitude);
+            //animator.SetFloat("speed", move.magnitude);
 
             // Rotar el personaje si se est� moviendo
             if (move != Vector3.zero)
@@ -128,7 +126,7 @@ public class CharacterControllerScript : MonoBehaviour
             verticalVelocity = gravedad.gravedad ? -jumpForce : jumpForce;
             isGrounded = false;
 
-            animator.SetTrigger("jump");
+            //animator.SetTrigger("jump");
         }
     }
 
