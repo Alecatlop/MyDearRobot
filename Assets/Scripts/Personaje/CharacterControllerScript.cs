@@ -29,6 +29,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     public bool spawn = false;
 
+    public Animator animator;
 
 
     void Start()
@@ -40,7 +41,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
-        // Verificar si está en el suelo
+        // Verificar si estï¿½ en el suelo
         isGrounded = controller.isGrounded;
         if (isGrounded && verticalVelocity < 0)
         {
@@ -59,11 +60,11 @@ public class CharacterControllerScript : MonoBehaviour
 
         Transform cam = Camera.main.transform;
 
-        // Direcciones horizontal y vertical de la cámara
+        // Direcciones horizontal y vertical de la cï¿½mara
         Vector3 camForward = cam.forward;
         Vector3 camRight = cam.right;
 
-        // Eliminar inclinación vertical
+        // Eliminar inclinaciï¿½n vertical
         camForward.y = 0f;
         camRight.y = 0f;
         camForward.Normalize();
@@ -72,11 +73,13 @@ public class CharacterControllerScript : MonoBehaviour
 
         if(!spawn)
         {
-            // Dirección final basada en input + cámara
+            // Direcciï¿½n final basada en input + cï¿½mara
             Vector3 move = camRight * inputMove.x + camForward * inputMove.y;
             controller.Move(move * speed * Time.deltaTime);
 
-            // Rotar el personaje si se está moviendo
+            animator.SetFloat("speed", move.magnitude);
+
+            // Rotar el personaje si se estï¿½ moviendo
             if (move != Vector3.zero)
             {
                 Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
@@ -124,6 +127,8 @@ public class CharacterControllerScript : MonoBehaviour
         {
             verticalVelocity = gravedad.gravedad ? -jumpForce : jumpForce;
             isGrounded = false;
+
+            animator.SetTrigger("jump");
         }
     }
 
