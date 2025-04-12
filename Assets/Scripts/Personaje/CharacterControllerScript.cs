@@ -39,8 +39,10 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("isGrounded: " + isGrounded);
+
         // Verificar si est� en el suelo
-        isGrounded = controller.isGrounded;
+        isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, 0.2f);
         if (isGrounded && verticalVelocity < 0)
         {
             verticalVelocity = -2f; // Para mantener el personaje en el suelo
@@ -75,7 +77,7 @@ public class CharacterControllerScript : MonoBehaviour
             Vector3 move = camRight * inputMove.x + camForward * inputMove.y;
             controller.Move(move * speed * Time.deltaTime);
 
-            //animator.SetFloat("speed", move.magnitude);
+            animator.SetFloat("speed", move.magnitude);
 
             // Rotar el personaje si se est� moviendo
             if (move != Vector3.zero)
@@ -126,7 +128,7 @@ public class CharacterControllerScript : MonoBehaviour
             verticalVelocity = gravedad.gravedad ? -jumpForce : jumpForce;
             isGrounded = false;
 
-            //animator.SetTrigger("jump");
+            animator.SetTrigger("jump");
         }
     }
 

@@ -70,7 +70,18 @@ public class Spawn : MonoBehaviour
         fadeImage.color = new Color(color.r, color.g, color.b, endAlpha);
 
         velocidad.spawn = true;
-        jugador.transform.position = spawn.transform.position;
+
+        CharacterController controller = jugador.GetComponent<CharacterController>();
+        if (controller != null)
+        {
+            controller.enabled = false;  // Desactiva el CharacterController
+            jugador.transform.position = spawn.transform.position;  // Mueves el jugador
+            controller.enabled = true;   // Se vuelve a activar el CharacterController
+        }
+        else
+        {
+            jugador.transform.position = spawn.transform.position;  // Por si no tiene controller
+        }
     }
 
     private IEnumerator FadeOut(float startAlpha, float endAlpha, float duration)
