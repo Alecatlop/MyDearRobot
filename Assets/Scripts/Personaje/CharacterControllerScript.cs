@@ -8,7 +8,7 @@ public class CharacterControllerScript : MonoBehaviour
     Vector2 inputMove;
     Vector2 inputAim;
     CharacterController controller;
-    float speed = 10f;
+    float speed = 5f;
     public float gravity = -15f;
     public float jumpForce = 10f;
     public float verticalVelocity;
