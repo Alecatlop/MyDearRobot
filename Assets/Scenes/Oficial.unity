@@ -9964,6 +9964,8 @@ GameObject:
   - component: {fileID: 343927132}
   - component: {fileID: 343927131}
   - component: {fileID: 343927130}
+  - component: {fileID: 343927135}
+  - component: {fileID: 343927134}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Suelo
@@ -10156,6 +10158,48 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 146.71324, y: 22.188126, z: 5.8961334}
   m_Center: {x: 49.486107, y: 10.41, z: -31.4}
+--- !u!65 &343927134
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343927126}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 68.4, y: 16.1, z: 8.83}
+  m_Center: {x: 95.6, y: 14.7, z: 90.2}
+--- !u!65 &343927135
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343927126}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 68.4, y: 16.1, z: 8.83}
+  m_Center: {x: 5.2, y: 14.8, z: 90.2}
 --- !u!1 &345993550
 GameObject:
   m_ObjectHideFlags: 0
@@ -25813,7 +25857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: ecf76c0ea51c4c24c9ac16ab8f02091d, type: 2}
-  isGlobal: 1
+  isGlobal: 0
   blendDistance: 0
   weight: 1
   priority: 0
