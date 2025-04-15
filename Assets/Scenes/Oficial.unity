@@ -32624,7 +32624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: -4.999939}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: -1053.8306, y: -922.9925}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247640024
@@ -40802,6 +40802,7 @@ GameObject:
   - component: {fileID: 1623270705}
   - component: {fileID: 1623270704}
   - component: {fileID: 1623270703}
+  - component: {fileID: 1623270706}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Finish
@@ -40895,6 +40896,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623270701}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1623270706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623270701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f34b1a7484c17d44a55359beb64a5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugador: {fileID: 1507030482}
+  puerta: {fileID: 2062768249}
 --- !u!1 &1625017099
 GameObject:
   m_ObjectHideFlags: 0
