@@ -11,6 +11,7 @@ public class Gravedad : MonoBehaviour
     {
         if(jugador.gravitycheck == true)
         {
+            Debug.Log(message: "cambio arriba");
             jugador.verticalVelocity = 3;
             jugador.gravitycheck = false;
             Physics.gravity = new Vector3(0, 9.8f, 0);
@@ -19,6 +20,7 @@ public class Gravedad : MonoBehaviour
 
         else
         {
+            Debug.Log(message: "cambio abajo");
             jugador.verticalVelocity = 3;
             jugador.gravitycheck = true;
             Physics.gravity = new Vector3(0, -9.8f, 0);
