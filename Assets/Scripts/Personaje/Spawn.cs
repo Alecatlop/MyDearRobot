@@ -71,6 +71,8 @@ public class Spawn : MonoBehaviour
 
         velocidad.spawn = true;
 
+        velocidad.AñadirMuerte();
+
         CharacterController controller = jugador.GetComponent<CharacterController>();
         if (controller != null)
         {

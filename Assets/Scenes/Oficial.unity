@@ -556,6 +556,21 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1507030483}
   m_SourcePrefab: {fileID: 100100000, guid: d92b15a211f475542972c1d080628be4, type: 3}
+--- !u!137 &8562195 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8691232610738494076, guid: d92b15a211f475542972c1d080628be4, type: 3}
+  m_PrefabInstance: {fileID: 8562194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8562196 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3808207019063292926, guid: d92b15a211f475542972c1d080628be4, type: 3}
+  m_PrefabInstance: {fileID: 8562194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8562197 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7788116854736304593, guid: d92b15a211f475542972c1d080628be4, type: 3}
+  m_PrefabInstance: {fileID: 8562194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8897727
 GameObject:
   m_ObjectHideFlags: 0
@@ -38138,6 +38153,24 @@ MonoBehaviour:
   pausa: {fileID: 804255772}
   spawn: 0
   animator: {fileID: 1507030489}
+  partesDelRobot:
+  - {fileID: 8562197}
+  - {fileID: 8562196}
+  - {fileID: 8562195}
+  materialesNormales:
+  - {fileID: 2100000, guid: f139490ac415f1041ab402b9e0a8e252, type: 2}
+  - {fileID: 2100000, guid: 10bf9e6cbd475fd4ab37b7aaf8b28f4f, type: 2}
+  - {fileID: 2100000, guid: 299a85955430b344e91058c27eb1c6a1, type: 2}
+  "materialesDa\xF1ados":
+  - {fileID: 2100000, guid: 1812b05d5b0e2aa4bac6cce4d24a0945, type: 2}
+  - {fileID: 2100000, guid: 01fcb88b88a64824e9abf48b7609ca90, type: 2}
+  - {fileID: 2100000, guid: 10a8371b6e59bfb498e6d3dc911f33de, type: 2}
+  "materialesMuyDa\xF1ados":
+  - {fileID: 2100000, guid: 2e0d6999fb2cf244a814f7277b59821e, type: 2}
+  - {fileID: 2100000, guid: 85a059ab6fc2d004e8b159da8b4494ae, type: 2}
+  - {fileID: 2100000, guid: d857f24ee68f8be43873fceedbb59eeb, type: 2}
+  "muertesParaDa\xF1o": 3
+  "muertesParaMuyDa\xF1o": 6
 --- !u!81 &1507030486
 AudioListener:
   m_ObjectHideFlags: 0

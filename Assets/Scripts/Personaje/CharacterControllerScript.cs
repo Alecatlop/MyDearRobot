@@ -29,6 +29,14 @@ public class CharacterControllerScript : MonoBehaviour
 
     public Animator animator;
 
+    public Renderer[] partesDelRobot;
+    public Material[] materialesNormales;
+    public Material[] materialesDañados;
+    public Material[] materialesMuyDañados;
+
+    public int muertesParaDaño = 3;
+    public int muertesParaMuyDaño = 6;
+    private int muertesActuales = 0;
 
     void Start()
     {
@@ -158,6 +166,35 @@ public class CharacterControllerScript : MonoBehaviour
         {
             other.GetComponent<Collider>().enabled = false;
             accion2.ActivarPlataformas();
+        }
+    }
+
+    public void AñadirMuerte()
+    {
+        muertesActuales++;
+        Debug.Log("Muertes: " + muertesActuales);
+
+        if (muertesActuales >= muertesParaMuyDaño)
+        {
+            CambiarMateriales(materialesMuyDañados);
+        }
+        else if (muertesActuales >= muertesParaDaño)
+        {
+            CambiarMateriales(materialesDañados);
+        }
+    }
+
+    private void CambiarMateriales(Material[] nuevosMateriales)
+    {
+        if (nuevosMateriales.Length != partesDelRobot.Length)
+        {
+            Debug.Log("No coinciden la cantidad de materiales con las partes del robot");
+            return;
+        }
+
+        for (int i = 0; i < partesDelRobot.Length; i++)
+        {
+            partesDelRobot[i].material = nuevosMateriales[i];
         }
     }
 }
