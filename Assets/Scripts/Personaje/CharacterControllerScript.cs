@@ -56,6 +56,15 @@ public class CharacterControllerScript : MonoBehaviour
             verticalVelocity = -2f; // Para mantener el personaje en el suelo
         }
 
+        if (!isGrounded && verticalVelocity < 0f)
+        {
+            animator.SetBool("falling", true);
+        }
+        else
+        {
+            animator.SetBool("falling", false);
+        }
+
         if(pausar == true)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -85,7 +94,15 @@ public class CharacterControllerScript : MonoBehaviour
             Vector3 move = camRight * inputMove.x + camForward * inputMove.y;
             controller.Move(move * speed * Time.deltaTime);
 
-            animator.SetFloat("speed", move.magnitude);
+            //animator.SetFloat("speed", move.magnitude);
+            if (isGrounded)
+            {
+                animator.SetFloat("speed", move.magnitude);
+            }
+            else
+            {
+                animator.SetFloat("speed", 0f);
+            }
 
             // Rotar el personaje si se est� moviendo
             if (move != Vector3.zero)
@@ -107,7 +124,7 @@ public class CharacterControllerScript : MonoBehaviour
             {
                 verticalVelocity = -15f;
             }
-
+            
         }
 
 
