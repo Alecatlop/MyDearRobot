@@ -13,7 +13,7 @@ public class CharacterControllerScript : MonoBehaviour
     public float jumpForce = 10f;
     public float verticalVelocity;
     bool isGrounded;
-    bool pausar = false;
+    public bool pausar = false;
     public bool gravitycheck = true;
 
     public Gravedad gravedad;
@@ -47,7 +47,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("isGrounded: " + isGrounded);
+        Debug.Log(pausar);
 
         // Verificar si est� en el suelo
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, 0.2f);
@@ -142,7 +142,6 @@ public class CharacterControllerScript : MonoBehaviour
 
     private void OnPause()
     {
-        pausar = !pausar;
         pausa.Pausar();
     }
 

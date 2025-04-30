@@ -21101,6 +21101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelbrillo: {fileID: 1247640024}
   boton: {fileID: 1247447640}
+  personaje: {fileID: 1507030485}
 --- !u!1 &804337772
 GameObject:
   m_ObjectHideFlags: 3
@@ -38143,6 +38144,7 @@ MonoBehaviour:
   gravity: -15
   jumpForce: 10
   verticalVelocity: 0
+  pausar: 0
   gravitycheck: 1
   gravedad: {fileID: 424126532}
   accion1: {fileID: 341771843}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,8 +13,6 @@ public class Pausa : MonoBehaviour
     GameObject xbox;
     GameObject opciones;
     GameObject configuracion;
-    bool activo = false;
-
     GameObject sliderbrillo;
     public Image panelbrillo;
 
@@ -24,6 +23,7 @@ public class Pausa : MonoBehaviour
 
     public AudioSource boton;
     Persistente musica;
+    public CharacterControllerScript personaje;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +68,8 @@ public class Pausa : MonoBehaviour
 
     public void Pausar()
     {
+        personaje.pausar = !personaje.pausar;
+
         opciones.SetActive(true);
         controles.SetActive(false);
         teclado.SetActive(true);
@@ -75,9 +77,7 @@ public class Pausa : MonoBehaviour
         xbox.SetActive(false);
         configuracion.SetActive(false);
 
-        activo = !activo;
-
-        if (activo == true)
+        if (personaje.pausar == true)
         {
             Time.timeScale = 0;
             this.gameObject.SetActive(true);
@@ -94,6 +94,7 @@ public class Pausa : MonoBehaviour
         boton.Play();
         this.gameObject.SetActive(false);
         Time.timeScale = 1;
+        personaje.pausar = false;
     }
 
     public void Controles()
