@@ -15,7 +15,7 @@ public class Nivel1 : MonoBehaviour
     void Start()
     {
         puerta = GameObject.Find("Modelo ruinas");
-        puerta.GetComponent<Collider>().enabled = false;
+        puerta.GetComponent<Collider>().enabled = true;
     }
 
     // Update is called once per frame
