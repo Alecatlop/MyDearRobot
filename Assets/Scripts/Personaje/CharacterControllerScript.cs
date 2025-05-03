@@ -8,14 +8,13 @@ public class CharacterControllerScript : MonoBehaviour
     Vector2 inputMove;
     Vector2 inputAim;
     CharacterController controller;
-    float speed = 5f;
+    float speed = 8f;
     public float gravity = -15f;
     public float jumpForce = 10f;
     public float verticalVelocity;
     bool isGrounded;
     public bool pausar = false;
     public bool gravitycheck = true;
-
     public Gravedad gravedad;
     public Nivel1 accion1;
     public Nivel2 accion2;
@@ -37,6 +36,10 @@ public class CharacterControllerScript : MonoBehaviour
     public int muertesParaDaño = 3;
     public int muertesParaMuyDaño = 6;
     private int muertesActuales = 0;
+
+    Transform plataformaActual = null;
+    Vector3 ultimaPosicionPlataforma;
+    bool sobrePlataforma = false;
 
     void Start()
     {
@@ -127,7 +130,20 @@ public class CharacterControllerScript : MonoBehaviour
             
         }
 
+        // Si el jugador está sobre una plataforma, se mueve con ella
+        if (plataformaActual != null && sobrePlataforma)
+        {
+            Vector3 movimientoPlataforma = plataformaActual.position - ultimaPosicionPlataforma;
+            controller.Move(movimientoPlataforma);
+            ultimaPosicionPlataforma = plataformaActual.position;
+        }
 
+        // Si el jugador no toca el suelo no estamos en ninguna plataforma
+        if (!isGrounded)
+        {
+            sobrePlataforma = false;
+            plataformaActual = null;
+        }
     }
 
     private void OnMove(InputValue value)
@@ -153,6 +169,8 @@ public class CharacterControllerScript : MonoBehaviour
             isGrounded = false;
 
             animator.SetTrigger("jump");
+
+            plataformaActual = null;
         }
     }
 
@@ -182,6 +200,20 @@ public class CharacterControllerScript : MonoBehaviour
         {
             other.GetComponent<Collider>().enabled = false;
             accion2.ActivarPlataformas();
+        }
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Plataforma"))
+        {
+            if (plataformaActual != hit.transform)
+            {
+                plataformaActual = hit.transform;
+                ultimaPosicionPlataforma = plataformaActual.position;
+            }
+
+            sobrePlataforma = true;
         }
     }
 
