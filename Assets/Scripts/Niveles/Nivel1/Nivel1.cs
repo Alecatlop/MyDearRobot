@@ -16,6 +16,7 @@ public class Nivel1 : MonoBehaviour
     {
         puerta = GameObject.Find("Modelo ruinas");
         puerta.GetComponent<Collider>().enabled = true;
+        puerta.GetComponent<Animator>().enabled = false;
     }
 
     // Update is called once per frame
@@ -33,10 +34,10 @@ public class Nivel1 : MonoBehaviour
 
         if (contadorrunas == 2)
         {
+            puerta.GetComponent<Animator>().enabled = true;
             puerta.GetComponent<Collider>().enabled = true;
             tierra.GetComponent<Collider>().enabled = true;
             puerta.SetActive(false);
-            tierra.SetActive(false);
 
         }
     }
