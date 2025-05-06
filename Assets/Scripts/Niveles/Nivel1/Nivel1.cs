@@ -7,6 +7,7 @@ public class Nivel1 : MonoBehaviour
     int contadorrunas = -1;
     public GameMana nivel;
     public GameObject puerta;
+    public GameObject puertasalida;
     public GameObject tierra;
     
 
@@ -15,7 +16,6 @@ public class Nivel1 : MonoBehaviour
     void Start()
     {
         puerta = GameObject.Find("Modelo ruinas");
-        puerta.GetComponent<Collider>().enabled = true;
         puerta.GetComponent<Animator>().enabled = false;
     }
 
@@ -35,9 +35,9 @@ public class Nivel1 : MonoBehaviour
         if (contadorrunas == 2)
         {
             puerta.GetComponent<Animator>().enabled = true;
-            puerta.GetComponent<Collider>().enabled = true;
             tierra.GetComponent<Collider>().enabled = true;
-            puerta.SetActive(false);
+
+            tierra.SetActive(false);
 
         }
     }
@@ -46,7 +46,8 @@ public class Nivel1 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            puerta.SetActive(true);
+            puertasalida.SetActive(true);
+            puerta.SetActive(false);
             nivel.Nivel1();
             nivel.Nivel2();
             this.GetComponent<Collider>().enabled = false;
