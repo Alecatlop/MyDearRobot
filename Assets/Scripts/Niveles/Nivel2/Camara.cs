@@ -8,7 +8,7 @@ public class Camara : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private IEnumerator Animacion()
@@ -25,6 +25,7 @@ public class Camara : MonoBehaviour
         if (other.name == "Jugador")
         {
             StartCoroutine(Animacion());
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 }

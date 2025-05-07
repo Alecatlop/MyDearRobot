@@ -9,6 +9,7 @@ public class Nivel1 : MonoBehaviour
     public GameObject puerta;
     public GameObject puertasalida;
     public GameObject tierra;
+    public GameObject arena;
     
 
 
@@ -17,6 +18,7 @@ public class Nivel1 : MonoBehaviour
     {
         puerta = GameObject.Find("Modelo ruinas");
         puerta.GetComponent<Animator>().enabled = false;
+        arena = GameObject.Find("Arena");
     }
 
     // Update is called once per frame
@@ -46,6 +48,7 @@ public class Nivel1 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            arena.SetActive(false);
             puertasalida.SetActive(true);
             puerta.SetActive(false);
             nivel.Nivel1();
