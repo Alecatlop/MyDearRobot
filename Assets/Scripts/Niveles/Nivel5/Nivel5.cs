@@ -23,7 +23,7 @@ public class Nivel5 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            nivel.Nivel4();
+            nivel.Nivel3();
             nivel.Nivel5();
             this.GetComponent<Collider>().enabled = false;
         }
