@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class Nivel5 : MonoBehaviour
 {
-    GameObject pasillo;
     public GameMana nivel;
 
     // Start is called before the first frame update
     void Start()
     {
-        pasillo = GameObject.Find("Pasillo 3");
+        
     }
 
     // Update is called once per frame
@@ -23,8 +23,8 @@ public class Nivel5 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            pasillo.SetActive(false);
-            //nivel.Nivel6();
+            nivel.Nivel4();
+            nivel.Nivel5();
             this.GetComponent<Collider>().enabled = false;
         }
     }

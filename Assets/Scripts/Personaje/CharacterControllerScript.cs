@@ -15,7 +15,6 @@ public class CharacterControllerScript : MonoBehaviour
     bool isGrounded;
     public bool pausar = false;
     public bool gravitycheck = true;
-    public Gravedad gravedad;
     public Nivel1 accion1;
     public Nivel2 accion2;
     public GameMana nivel;
@@ -50,8 +49,6 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(pausar);
-
         // Verificar si est� en el suelo
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, 0.2f);
         if (isGrounded && verticalVelocity < 0)
@@ -165,11 +162,9 @@ public class CharacterControllerScript : MonoBehaviour
     {
         if (isGrounded && !pausar)
         {
-            verticalVelocity = gravedad.gravedad ? -jumpForce : jumpForce;
+            verticalVelocity = jumpForce;      
             isGrounded = false;
-
             animator.SetTrigger("jump");
-
             plataformaActual = null;
         }
     }

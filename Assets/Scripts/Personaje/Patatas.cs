@@ -19,7 +19,7 @@ public class Controller : MonoBehaviour
 
 
 
-    public Gravedad gravedad;
+    //public Gravedad gravedad;
     public Nivel1 accion1;
     public Nivel2 accion2;
     public GameMana nivel;
@@ -47,7 +47,7 @@ public class Controller : MonoBehaviour
         rb.velocity = newVelocity;
 
 
-        // rotar personaje con cámara
+        // rotar personaje con cï¿½mara
         transform.Rotate(0,inputaim.x * sensibilidad.x * Time.deltaTime,0);
         transform.GetChild(0).Rotate(-inputaim.y * sensibilidad.y * Time.deltaTime, 0, 0);
         anglex = Mathf.Clamp(anglex - inputaim.y * sensibilidad.y * Time.deltaTime, -5, 40);
