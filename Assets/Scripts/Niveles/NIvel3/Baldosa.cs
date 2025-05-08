@@ -26,6 +26,7 @@ public class Baldosa : MonoBehaviour
 
             if (correcto == true)
             {
+                Debug.Log("hola");
                 Material material = runarenderer.material;
                 material.SetColor("_EmissionColor", Color.green);  // Establece el color de emisi�n
                 material.EnableKeyword("_EMISSION");  // Aseg�rate de que la emisi�n est� activada
@@ -33,7 +34,7 @@ public class Baldosa : MonoBehaviour
 
             else
             {
-                Material material = GetComponent<Renderer>().material;
+                Material material = runarenderer.material;
                 material.SetColor("_EmissionColor", Color.red);  // Establece el color de emisi�n a rojo
                 material.EnableKeyword("_EMISSION");
             }
