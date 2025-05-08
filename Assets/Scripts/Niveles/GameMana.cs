@@ -14,7 +14,6 @@ public class GameMana : MonoBehaviour
         niveles[2].SetActive(false);
         niveles[3].SetActive(false);
         niveles[4].SetActive(false);
-        niveles[5].SetActive(false);
     }
 
     // Update is called once per frame

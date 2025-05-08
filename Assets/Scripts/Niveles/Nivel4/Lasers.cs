@@ -7,7 +7,7 @@ public class Lasers : MonoBehaviour
 {
     bool subir = false;
     bool bajar = false;
-    float speed = 5f;
+    float speed = 12f;
     int rand;
    
 
@@ -49,7 +49,7 @@ public class Lasers : MonoBehaviour
 
                 bajar = false;
 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(3f);
 
                 subir = true;
 
@@ -57,17 +57,17 @@ public class Lasers : MonoBehaviour
 
                 subir = false;
 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(3f);
             }
             else
             {
                 transform.GetChild(0).gameObject.SetActive(true);
 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(3f);
 
                 transform.GetChild(0).gameObject.SetActive(false);
 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(4f);
             }
            
         }
