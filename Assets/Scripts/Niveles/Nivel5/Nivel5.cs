@@ -24,7 +24,7 @@ public class Nivel5 : MonoBehaviour
         if (other.tag == "Player")
         {
             pasillo.SetActive(false);
-            nivel.Nivel6();
+            //nivel.Nivel6();
             this.GetComponent<Collider>().enabled = false;
         }
     }

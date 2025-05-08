@@ -6,11 +6,13 @@ public class Puerta : MonoBehaviour
 {
     GameObject jugador;
     public GameObject puerta;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         jugador = GameObject.Find("Jugador");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,11 +23,12 @@ public class Puerta : MonoBehaviour
 
         float distancia = Vector3.Distance(posjugador, pospuerta);
 
-        if (distancia > 5)
+        if (distancia > 15)
         {
+            //animator.enabled = true;
             puerta.gameObject.SetActive(true);
         }
-        else if (distancia < 5)
+        else if (distancia < 15)
         {
             puerta.gameObject.SetActive(false);
         }

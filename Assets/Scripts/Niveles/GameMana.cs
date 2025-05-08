@@ -15,7 +15,6 @@ public class GameMana : MonoBehaviour
         niveles[2].SetActive(false);
         niveles[3].SetActive(false);
         niveles[4].SetActive(false);
-        niveles[5].SetActive(false);
 
     }
 
@@ -55,13 +54,13 @@ public class GameMana : MonoBehaviour
         niveles[4].SetActive(!niveles[4].activeSelf);
     }
 
-    public void Nivel6()
+   /* public void Nivel6()
     {
                 Debug.Log("activado.");
 
         niveles[5].SetActive(!niveles[5].activeSelf);
     }
-
+   */
     public IEnumerator Nivel1Destroy()
     {
         yield return new WaitForSeconds(2f);
