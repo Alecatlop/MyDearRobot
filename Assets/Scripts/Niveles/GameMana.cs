@@ -10,13 +10,11 @@ public class GameMana : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    
         niveles[1].SetActive(false);
         niveles[2].SetActive(false);
         niveles[3].SetActive(false);
         niveles[4].SetActive(false);
         niveles[5].SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -53,13 +51,6 @@ public class GameMana : MonoBehaviour
     {
         Debug.Log("activado.");
         niveles[4].SetActive(!niveles[4].activeSelf);
-    }
-
-    public void Nivel6()
-    {
-                Debug.Log("activado.");
-
-        niveles[5].SetActive(!niveles[5].activeSelf);
     }
 
     public IEnumerator Nivel1Destroy()
