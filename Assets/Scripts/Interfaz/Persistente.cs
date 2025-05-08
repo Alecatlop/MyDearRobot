@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Persistente : MonoBehaviour
 {
+    public float valorcalidad;
+    public float volumenmusica;
+    public float volumenefectos;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +20,10 @@ public class Persistente : MonoBehaviour
     {
         
     }
-
     private void Awake()
     {
         DontDestroyOnLoad(GameObject.Find("Persistente"));
+        //sliderbrillo = GameObject.Find("SliderBrillo");
+        //valorcalidad = sliderbrillo.GetComponent<Slider>().value;
     }
 }

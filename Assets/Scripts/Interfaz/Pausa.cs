@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,8 +23,11 @@ public class Pausa : MonoBehaviour
     Toggle toggle;
 
     public AudioSource boton;
-    Persistente musica;
+    Persistente datos;
     public CharacterControllerScript personaje;
+
+    public TMP_Dropdown calidaddropdown;
+    Resolution[] resoluciones;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +44,8 @@ public class Pausa : MonoBehaviour
         slidermusica = GameObject.Find("SliderMusica");
         toggle = GameObject.Find("Toggle").gameObject.GetComponent<Toggle>();
 
-        musica = GameObject.Find("Persistente").GetComponent<Persistente>();
-
+        datos = GameObject.Find("Persistente").GetComponent<Persistente>();
+      
         this.gameObject.SetActive(false);
         opciones.SetActive(true);
         controles.SetActive(false);
@@ -50,20 +54,54 @@ public class Pausa : MonoBehaviour
         ps4.SetActive(false);
         xbox.SetActive(false);
 
-        boton.volume = sliderefectos.GetComponent<Slider>().value;
+        sliderbrillo.GetComponent<Slider>().value = datos.valorcalidad;
         panelbrillo.color = new Color(panelbrillo.color.r, panelbrillo.color.g, panelbrillo.color.b, sliderbrillo.GetComponent<Slider>().value);
+
+        slidermusica.GetComponent<Slider>().value = datos.volumenmusica;
+        datos.GetComponent<AudioSource>().volume = slidermusica.GetComponent<Slider>().value;
+
+        sliderefectos.GetComponent<Slider>().value = datos.volumenefectos;
 
         if (Screen.fullScreen)
         {
             toggle.isOn = true;
         }
         else toggle.isOn = false;
+
+        ComprobacionCalidad();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ComprobacionCalidad()
     {
-       
+        resoluciones = Screen.resolutions;
+        calidaddropdown.ClearOptions();
+        List<string> calidadtipos = new List<string>();
+        int calidadvalor = 0;
+
+        for (int i = 0; i < resoluciones.Length; i++)
+        {
+            string tipo = resoluciones[i].width + " x " + resoluciones[i].height;
+            calidadtipos.Add(tipo);
+
+            if (Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && Screen.fullScreen && resoluciones[i].height == Screen.currentResolution.height)
+            {
+                calidadvalor = i;
+            }
+        }
+
+        calidaddropdown.AddOptions(calidadtipos);
+        calidaddropdown.value = calidadvalor;
+        calidaddropdown.RefreshShownValue();
+
+        calidaddropdown.value = PlayerPrefs.GetInt("numerosresolucion", 0);
+    }
+
+    public void CambiarCalidad(int valor)
+    {
+        PlayerPrefs.SetInt("numerosresolucion", calidaddropdown.value);
+
+        Resolution resolucion = resoluciones[valor];
+        Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen);
     }
 
     public void Pausar()
@@ -113,6 +151,7 @@ public class Pausa : MonoBehaviour
 
     public void Brillo(float valor)
     {
+        datos.valorcalidad = sliderbrillo.GetComponent<Slider>().value;
         PlayerPrefs.GetFloat("brillo", sliderbrillo.GetComponent<Slider>().value);
         panelbrillo.color = new Color(panelbrillo.color.r, panelbrillo.color.g, panelbrillo.color.b, sliderbrillo.GetComponent<Slider>().value);
     }
@@ -120,14 +159,16 @@ public class Pausa : MonoBehaviour
     public void Efectos(float valor)
     {
         boton.Play();
+        datos.volumenefectos = sliderefectos.GetComponent<Slider>().value;
         PlayerPrefs.GetFloat("efectos", sliderefectos.GetComponent<Slider>().value);
         boton.volume = sliderefectos.GetComponent<Slider>().value;
     }
 
     public void Musica(float valor)
     {
+        datos.volumenmusica = slidermusica.GetComponent<Slider>().value;
         PlayerPrefs.GetFloat("musica", slidermusica.GetComponent<Slider>().value);
-        musica.GetComponent<AudioSource>().volume = slidermusica.GetComponent<Slider>().value;
+        datos.GetComponent<AudioSource>().volume = slidermusica.GetComponent<Slider>().value;
     }
 
     public void PantallaCompleta(bool valor)
