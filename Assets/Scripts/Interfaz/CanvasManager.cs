@@ -25,6 +25,17 @@ public class CanvasManager : MonoBehaviour
     public TMP_Dropdown calidaddropdown;
     Resolution[] resoluciones;
 
+    public Image fade;
+    public Image textotitulo;
+    public TextMeshProUGUI textojugar;
+    public TextMeshProUGUI textojugar2;
+    public TextMeshProUGUI textoconfiguracion;
+    public TextMeshProUGUI textoconfiguracion2;
+    public TextMeshProUGUI textosalir;
+    public TextMeshProUGUI textosalir2;
+
+    float speed = 0.2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +51,7 @@ public class CanvasManager : MonoBehaviour
 
         togglebrillo = GameObject.Find("Toggle").gameObject.GetComponent<Toggle>();
 
+
         configuracion.SetActive(false);
         opciones.SetActive(true);
 
@@ -52,8 +64,6 @@ public class CanvasManager : MonoBehaviour
 
         sliderefectos.GetComponent<Slider>().value = datos.volumenefectos;
 
-
-
         if (Screen.fullScreen)
         {
             togglebrillo.isOn = true;
@@ -61,6 +71,17 @@ public class CanvasManager : MonoBehaviour
         else togglebrillo.isOn = false;
 
         ComprobacionCalidad();
+
+        fade.color = new Color(1,1,1,1);
+        textosalir.color = new Color(1, 1, 1, 0);
+        textosalir2.color = new Color(1, 1, 1, 0);
+        textojugar.color = new Color(1, 1, 1, 0);
+        textojugar2.color = new Color(1, 1, 1, 0);
+        textoconfiguracion.color = new Color(1, 1, 1, 0);
+        textoconfiguracion2.color = new Color(1, 1, 1, 0);
+        textotitulo.color = new Color(1, 1, 1, 0);
+
+        StartCoroutine(FadeText());
 
     }
 
@@ -154,5 +175,42 @@ public class CanvasManager : MonoBehaviour
     {
         boton.Play();
         Application.Quit();
+    }
+
+    IEnumerator FadeText()
+    {
+        yield return new WaitForSeconds(1f);
+
+        while (fade.color.a > 0)
+        {
+            fade.color = new Color(1, 1, 1, fade.color.a - speed);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
+        while (textotitulo.color.a < 1)
+        {
+         
+            textotitulo.color = new Color(1, 1, 1, textotitulo.color.a + speed);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(0.8f);
+
+        while (textosalir.color.a < 1)
+        {
+            textosalir.color = new Color(1, 1, 1, textosalir.color.a + speed);
+            textosalir2.color = new Color(1, 1, 1, textosalir2.color.a + speed);
+            textojugar.color = new Color(1, 1, 1, textojugar.color.a + speed);
+            textojugar2.color = new Color(1, 1, 1, textojugar2.color.a + speed);
+            textoconfiguracion.color = new Color(1, 1, 1, textoconfiguracion.color.a + speed);
+            textoconfiguracion2.color = new Color(1, 1, 1, textoconfiguracion2.color.a + speed);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
     }
 }

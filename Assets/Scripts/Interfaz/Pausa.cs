@@ -213,6 +213,7 @@ public class Pausa : MonoBehaviour
     public void Volver()
     {
         boton.Play();
+        datos.GetComponent<AudioSource>().Stop();
         SceneManager.LoadScene("Menu");
     }
 }
