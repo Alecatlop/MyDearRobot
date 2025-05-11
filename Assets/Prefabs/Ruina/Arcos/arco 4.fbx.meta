@@ -3,7 +3,22 @@ guid: e2205b27893b9ad4bbb53213cdd0b37d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arco 4
+    second: {fileID: 2100000, guid: 2c3ed32b646eb0244a062bf5e23c2a74, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: arco 4 basecolor
+    second: {fileID: 2800000, guid: bb3edb8d9e640ef428ccc6619183e12c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bake arco 4
+    second: {fileID: 2800000, guid: 93d19a593f32f874f8ffd9d39d9afde9, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
