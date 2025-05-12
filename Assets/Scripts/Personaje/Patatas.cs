@@ -18,24 +18,12 @@ public class Controller : MonoBehaviour
     bool pausar = false;
 
 
-
-    //public Gravedad gravedad;
-    public Nivel1 accion1;
-    public Nivel2 accion2;
-    public GameMana nivel;
-    public bool respawn = true;
-    public bool altura = false;
-    public Pausa pausa;
-    private GameObject puerta;
-
-
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
 
-        puerta = GameObject.Find("Puerta6");
     }
 
     // Update is called once per frame
@@ -53,8 +41,6 @@ public class Controller : MonoBehaviour
         anglex = Mathf.Clamp(anglex - inputaim.y * sensibilidad.y * Time.deltaTime, -5, 40);
         transform.GetChild(0).localRotation = Quaternion.Euler(anglex, 0, 0);
 
-
-        Caida();
 
         //if (gravedad.gravedad == true)
         //{
@@ -82,76 +68,21 @@ public class Controller : MonoBehaviour
         inputaim = value.Get<Vector2>();
     }
 
-    private void OnPause()
-    {
-        pausar = !pausar;
-        pausa.Pausar();
-    }
-
     private void OnJump()
     {
-        //if (ground == true && gravedad.gravedad == false && pausar == false)
+        if (ground == true)
         {
             rb.AddForce(0, speed * force, 0);
             ground = false;
         }
 
-        //if (gravedad.gravedad == true && ground == true)
-        {
-            rb.AddForce(0, -speed * force, 0);
-            ground = false;
-        }
-    }
-
-    private void Caida()
-    {
-        if (rb.velocity.y < -12f || rb.velocity.y > 12f)
-        {
-            altura = true;
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Suelo" || collision.collider.tag == "Respawn")
+        if (collision.gameObject.name == "batalla pieza 2.2 bake")
         {
             ground = true;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "runa nivel1")
-        {
-            other.GetComponent<Collider>().enabled = false;
-            accion1.RunaColor();
-        }
-
-        if (other.tag == "Respawn")
-        {
-
-            if (respawn == true)
-            {
-                respawn = false;
-            }
-            else if (respawn == false)
-            {
-                respawn = true;
-            }
-        }
-
-        if (other.tag == "Finish")
-        {
-            puerta.SetActive(false);
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.name == "Puerta2" && ground == false)
-        {
-            other.GetComponent<Collider>().enabled = false;
-            accion2.ActivarPlataformas();
         }
     }
 

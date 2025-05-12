@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class Fase1 : Estado
+public class Fase3 : Estado
 {
-    public Fase1() : base()
+    public Fase3() : base()
     {
-        nombre = ESTADO.FASE1; 
+        nombre = ESTADO.FASE2; 
     }
 
     public override void Entrar()
@@ -18,8 +18,7 @@ public class Fase1 : Estado
 
     public override void Actualizar()
     {
-            //enemigoIA.disparando = false;
-            enemigoIA.PuedeAtacar();
+        enemigoIA.PuedeAtacar();
 
         if (enemigoIA.PuedeAtacar()!)
         {
@@ -27,19 +26,17 @@ public class Fase1 : Estado
             enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
         }
 
-        if (enemigoIA.vidas == 2)
-        {
-            siguienteEstado = new Fase2(); 
-            siguienteEstado.inicializarVariables(enemigoIA);
-            faseActual = EVENTO.SALIR; 
-        }
 
+        if (enemigoIA.vidas == 0)
+        {
+            enemigoIA.Morir();
+        }
     }
 
     public override void Salir()
     {
- 
+       
         base.Salir();
     }
-
 }
+
