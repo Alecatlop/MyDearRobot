@@ -14,6 +14,7 @@ public class Fase2 : Estado
     public override void Entrar()
     {
         base.Entrar();
+
     }
 
     public override void Actualizar()

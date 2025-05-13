@@ -19,7 +19,7 @@ public class Fase1 : Estado
     public override void Actualizar()
     {
             //enemigoIA.disparando = false;
-            enemigoIA.PuedeAtacar();
+        enemigoIA.PuedeAtacar();
 
         if (enemigoIA.PuedeAtacar()!)
         {
