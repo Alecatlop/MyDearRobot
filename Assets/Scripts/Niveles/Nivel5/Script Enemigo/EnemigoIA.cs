@@ -82,7 +82,7 @@ public class EnemigoIA: MonoBehaviour
 
     public void Ataque2()
     {
-        Debug.Log("Ataque2 / PUÑETAZO");º
+        Debug.Log("Ataque2 / PUÑETAZO");
         this.agent.speed = 0f;
         StartCoroutine(Espera());
     }
