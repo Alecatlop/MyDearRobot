@@ -15,7 +15,6 @@ public class Controller : MonoBehaviour
     float anglex;
     Vector2 sensibilidad = new Vector2(35, 15);
     bool ground = true;
-    bool pausar = false;
 
 
     // Start is called before the first frame update
@@ -40,17 +39,6 @@ public class Controller : MonoBehaviour
         transform.GetChild(0).Rotate(-inputaim.y * sensibilidad.y * Time.deltaTime, 0, 0);
         anglex = Mathf.Clamp(anglex - inputaim.y * sensibilidad.y * Time.deltaTime, -5, 40);
         transform.GetChild(0).localRotation = Quaternion.Euler(anglex, 0, 0);
-
-
-        //if (gravedad.gravedad == true)
-        //{
-        //    transform.GetChild(1).gameObject.SetActive(true);
-        //    transform.GetChild(0).gameObject.SetActive(false);
-        //}
-        //else transform.GetChild(0).gameObject.SetActive(true); transform.GetChild(1).gameObject.SetActive(false);
-
-
-
     }
 
     private void OnMove(InputValue value)
@@ -80,7 +68,7 @@ public class Controller : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "batalla pieza 2.2 bake")
+        if (collision.gameObject.tag == "Suelo")
         {
             ground = true;
         }

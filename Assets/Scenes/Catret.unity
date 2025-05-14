@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4094969767235998650, guid: 7db75bc1b2098854b8f3595dffc7b3f8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4805906906150876595, guid: 7db75bc1b2098854b8f3595dffc7b3f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1312,9 +1312,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4190865979981595836, guid: b2104d4b41367214c9cb18ce8aeebbb4, type: 3}
+      propertyPath: m_TagString
+      value: Suelo
+      objectReference: {fileID: 0}
     - target: {fileID: -2992000512512431642, guid: b2104d4b41367214c9cb18ce8aeebbb4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2992000512512431642, guid: b2104d4b41367214c9cb18ce8aeebbb4, type: 3}
+      propertyPath: m_TagString
+      value: Suelo
       objectReference: {fileID: 0}
     - target: {fileID: -2971580776441371528, guid: b2104d4b41367214c9cb18ce8aeebbb4, type: 3}
       propertyPath: m_IsActive
@@ -1594,6 +1602,7 @@ MonoBehaviour:
   agent: {fileID: 2089737876}
   vidas: 3
   ocupado: 1
+  superataque: 0
 --- !u!65 &2089737875
 BoxCollider:
   m_ObjectHideFlags: 0

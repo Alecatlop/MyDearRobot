@@ -17,8 +17,8 @@ public class Estado
   
     public enum ESTADO
     {
-        FASE2, FASE1
-    };
+       FASE3, FASE2, FASE1
+    }
 
    
     public enum EVENTO
@@ -52,24 +52,6 @@ public class Estado
         }
         return this;
     }
-
-    //public bool PuedeDisparar()
-    //{
-    //    RaycastHit hit;
-
-    //    enemigoIA.ray.origin = enemigoIA.transform.position;
-    //    enemigoIA.ray.direction = enemigoIA.transform.forward;
-    //    Debug.DrawRay(enemigoIA.canon.transform.position, enemigoIA.ray.direction, Color.red);
-
-    //    if (Physics.Raycast(enemigoIA.ray, out hit))
-    //    {
-    //        if (hit.collider.name == "Jugador")
-    //        {
-    //            return true;
-    //        }
-    //    }
-    //    return false;
-    //}
 
 }
 

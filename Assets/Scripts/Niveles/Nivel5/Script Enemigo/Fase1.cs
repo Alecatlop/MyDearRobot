@@ -18,21 +18,24 @@ public class Fase1 : Estado
 
     public override void Actualizar()
     {
-            //enemigoIA.disparando = false;
-        enemigoIA.PuedeAtacar();
 
-        if (enemigoIA.PuedeAtacar()!)
+        if (enemigoIA.vidas == 2 && !enemigoIA.ocupado)
         {
-            enemigoIA.agent.speed = 9f;
-            enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
-        }
-
-        if (enemigoIA.vidas == 2)
-        {
+            Debug.Log("Fase 2");
             siguienteEstado = new Fase2(); 
             siguienteEstado.inicializarVariables(enemigoIA);
             faseActual = EVENTO.SALIR; 
         }
+        else
+        {
+            bool puede = enemigoIA.PuedeAtacar();
+
+            if (!puede && !enemigoIA.ocupado)
+            {
+                enemigoIA.agent.speed = 2f;
+                enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
+            }
+        } 
 
     }
 

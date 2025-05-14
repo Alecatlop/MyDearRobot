@@ -11,18 +11,11 @@ public class EnemigoIA: MonoBehaviour
     public GameObject jugador;
     public GameObject centro;
     public NavMeshAgent agent;
-    GameObject rayo;
-    GameObject instancia;
-    //public GameObject canon;
-    //public bool disparando;
+
     float dist;
     public int vidas = 3;
-    public bool ocupado = true;
-    bool superataque = false;
-    
-    float fuerza = 30f;
-    public Ray ray;
-    
+    public bool ocupado;
+    public bool superataque;
 
     void Start()
     {
@@ -35,39 +28,18 @@ public class EnemigoIA: MonoBehaviour
     void Update()
     {
         FSM = FSM.Procesar();
-
-        if (vidas == 1 && ocupado == false)
+        
+        if (vidas == 1 && ocupado == false && superataque == true)
         {
-            ocupado = true;
-            Debug.Log("Superataque");
-            StartCoroutine(Espera2());
+            Superataque();
         }
     }
-
- 
-    //IEnumerator recarga()
-    //{
-       
-    //    while (true)
-    //    {
-    //        this.agent.speed = 0f;
-    //        this.agent.SetDestination(jugador.transform.position);
-            
-    //        instancia = Instantiate(rayo, canon.transform.position, Quaternion.identity);
-    //        instancia.transform.LookAt(jugador.transform.position);
-    //        instancia.transform.Rotate(0,90, 90);
-
-    //        instancia.GetComponent<Rigidbody>().AddForce(transform.forward * fuerza, ForceMode.Impulse);
-    //        yield return new WaitForSeconds(2f);
-    //    }
-       
-    //}
 
     public bool PuedeAtacar()
     {
         dist = Vector3.Distance(jugador.transform.position, transform.position);
-        
-        if (dist > 33f && vidas == 1 && ocupado == false)
+
+        if (dist > 35f && vidas == 1 && ocupado == false)
         {
             int probabilidad = Random.Range(0, 3);
 
@@ -86,13 +58,13 @@ public class EnemigoIA: MonoBehaviour
 
             return true;
         }
-        else if (dist < 22f && ocupado == false)
+        else if (dist < 18f && ocupado == false && superataque == false)
         {
             ocupado = true;
             Ataque1();
             return true;
         }
-        else if (dist > 33f && vidas == 3 && ocupado == false)
+        else if (dist > 35f && vidas == 3 && ocupado == false)
         {
             ocupado = true;
             Ataque2();
@@ -110,7 +82,7 @@ public class EnemigoIA: MonoBehaviour
 
     public void Ataque2()
     {
-        Debug.Log("Ataque2 / PUÑETAZO");
+        Debug.Log("Ataque2 / PUÑETAZO");º
         this.agent.speed = 0f;
         StartCoroutine(Espera());
     }
@@ -124,12 +96,22 @@ public class EnemigoIA: MonoBehaviour
 
     public void Golpearsuelo()
     {
+        this.agent.SetDestination(centro.transform.position);
+        this.agent.speed = 6f;
+        StartCoroutine(Espera());
+
         if (ocupado == false)
         {
-            ocupado = true;
             Debug.Log("Golpearsuelo / TERREMOTO");
-            this.agent.SetDestination(centro.transform.position);
         }
+    }
+
+    public void Superataque()
+    {
+        ocupado = true;
+        Debug.Log("Superataque");
+        this.agent.speed = 0f;
+        StartCoroutine(Espera2());
     }
 
     public void Dañado()
@@ -162,11 +144,11 @@ public class EnemigoIA: MonoBehaviour
 
     IEnumerator Espera2()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(12f);
         superataque = false;
         ocupado = false;
+
         yield return new WaitForSeconds(20f);
-        ocupado = false;
         superataque = true;
     }
 
