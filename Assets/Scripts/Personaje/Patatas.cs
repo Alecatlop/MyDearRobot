@@ -68,7 +68,7 @@ public class Controller : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Suelo")
+        if (collision.gameObject.tag == "Suelo" || collision.gameObject.tag == "plataformas1" || collision.gameObject.tag == "plataformas2")
         {
             ground = true;
         }

@@ -7,6 +7,8 @@ TagManager:
   - runa nivel1
   - Suelo
   - Plataforma
+  - plataformas1
+  - plataformas2
   layers:
   - Default
   - TransparentFX

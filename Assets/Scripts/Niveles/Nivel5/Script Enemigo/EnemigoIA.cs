@@ -12,6 +12,8 @@ public class EnemigoIA: MonoBehaviour
     public GameObject centro;
     public NavMeshAgent agent;
 
+    public int runa;
+    int[] runas;
     float dist;
     public int vidas = 3;
     public bool ocupado;
@@ -23,6 +25,7 @@ public class EnemigoIA: MonoBehaviour
         FSM.inicializarVariables(this);
 
         StartCoroutine(Espera());
+        //runas[0] = 1; runas[1] = 2; runas[2] = 3; runas[3] = 4; runas[4] = 5; runas[5] = 6; 
     }
 
     void Update()
@@ -108,6 +111,18 @@ public class EnemigoIA: MonoBehaviour
 
     public void Superataque()
     {
+        //do
+        //{
+        //    runa = Random.Range(0, 6);
+
+        //    for (int i = 0; i < runas.Length; i++)
+        //    {
+        //        i = runa;
+        //        runas[i] == runa;
+        //    }
+        //}
+        //while runas[i] == runa;
+
         ocupado = true;
         Debug.Log("Superataque");
         this.agent.speed = 0f;
