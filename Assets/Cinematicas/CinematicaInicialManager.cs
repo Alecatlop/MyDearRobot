@@ -13,6 +13,8 @@ public class CinematicaInicialManager : MonoBehaviour
     public GameObject secuencia4camara;
     public GameObject secuencia5A;
     public GameObject secuencia5camara;
+    public GameObject secuencia6A;
+    public GameObject secuencia6camara;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +26,10 @@ public class CinematicaInicialManager : MonoBehaviour
       secuencia3camara.SetActive(false);
       secuencia4A.SetActive(false);
       secuencia4camara.SetActive(false);
-        secuencia5A.SetActive(false);
-        secuencia5camara.SetActive(false);
+      secuencia5A.SetActive(false);
+      secuencia5camara.SetActive(false);
+      secuencia6A.SetActive(false);
+      secuencia6camara.SetActive(false);
 
         StartCoroutine(Escena1());
         
@@ -54,6 +58,11 @@ public class CinematicaInicialManager : MonoBehaviour
         secuencia4camara.SetActive(false);
         secuencia5A.SetActive(true);
         secuencia5camara.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        secuencia5A.SetActive(false);
+        secuencia5camara.SetActive(false);
+        secuencia6A.SetActive(true);
+        secuencia6camara.SetActive(true);
 
 
     }
