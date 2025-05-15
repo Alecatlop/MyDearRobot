@@ -13,6 +13,7 @@ public class CharacterControllerScript : MonoBehaviour
     public float jumpForce = 10f;
     public float verticalVelocity;
     bool isGrounded;
+    bool estabaEnElSuelo;
     public bool pausar = false;
     public bool gravitycheck = true;
     public Nivel1 accion1;
@@ -40,6 +41,16 @@ public class CharacterControllerScript : MonoBehaviour
     Vector3 ultimaPosicionPlataforma;
     bool sobrePlataforma = false;
 
+    public AudioSource pasosSource;
+    public AudioSource efectosSource;
+    public AudioClip clipPaso;
+    public AudioClip clipSalto;
+    public AudioClip clipAterrizaje;
+    private float pasoTiempo = 0f;
+    public float tiempoEntrePaso = 0.5f;
+    public float velocidadCaidaMinimaSonido = -6f; 
+    private float ultimaVelocidadAntesDeTocarSuelo = 0f; 
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -51,6 +62,12 @@ public class CharacterControllerScript : MonoBehaviour
     {
         // Verificar si est� en el suelo
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, 0.2f);
+
+        if (!isGrounded)
+        {
+            ultimaVelocidadAntesDeTocarSuelo = verticalVelocity; 
+        }
+
         if (isGrounded && verticalVelocity < 0)
         {
             verticalVelocity = -2f; // Para mantener el personaje en el suelo
@@ -98,6 +115,21 @@ public class CharacterControllerScript : MonoBehaviour
             if (isGrounded)
             {
                 animator.SetFloat("speed", move.magnitude);
+
+                 // Sonido sincronizado con los pasos
+                if (isGrounded && inputMove.magnitude > 0.1f)
+                {
+                    pasoTiempo -= Time.deltaTime;
+                    if(pasoTiempo <= 0f)
+                    {
+                        pasosSource.PlayOneShot(clipPaso);
+                        pasoTiempo = tiempoEntrePaso;
+                    }
+                }
+                else
+                {
+                    pasoTiempo = 0;
+                }
             }
             else
             {
@@ -126,6 +158,14 @@ public class CharacterControllerScript : MonoBehaviour
             }
             
         }
+
+        // Aterrizaje
+        if (!estabaEnElSuelo && isGrounded && ultimaVelocidadAntesDeTocarSuelo <= velocidadCaidaMinimaSonido) 
+        {
+            efectosSource.PlayOneShot(clipAterrizaje);
+        }
+
+        estabaEnElSuelo = isGrounded;
 
         // Si el jugador está sobre una plataforma, se mueve con ella
         if (plataformaActual != null && sobrePlataforma)
@@ -162,9 +202,12 @@ public class CharacterControllerScript : MonoBehaviour
     {
         if (isGrounded && !pausar)
         {
-            verticalVelocity = jumpForce;      
+            verticalVelocity = jumpForce;
             isGrounded = false;
             animator.SetTrigger("jump");
+
+            efectosSource.PlayOneShot(clipSalto); 
+
             plataformaActual = null;
         }
     }
