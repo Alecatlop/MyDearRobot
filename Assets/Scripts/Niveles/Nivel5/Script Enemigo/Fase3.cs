@@ -14,8 +14,9 @@ public class Fase3 : Estado
     public override void Entrar()
     {
         base.Entrar();
-        enemigoIA.superataque = true;
-        
+        enemigoIA.puedeHacerSuperataque = true;
+
+        enemigoIA.lanzarCorrutinaFase3();
         
     }
 
@@ -34,6 +35,13 @@ public class Fase3 : Estado
             {
                 enemigoIA.agent.speed = 2f;
                 enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
+            }
+            else
+            {
+                if (enemigoIA.vidas == 1 && enemigoIA.ocupado == false && enemigoIA.puedeHacerSuperataque == true)
+                {
+                    enemigoIA.Superataque();
+                }
             }
 
         }

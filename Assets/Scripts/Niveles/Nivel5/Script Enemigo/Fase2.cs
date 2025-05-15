@@ -36,7 +36,7 @@ public class Fase2 : Estado
 
     public override void Salir()
     {
-       
+        enemigoIA.TerminarCorrutinas();
         base.Salir();
     }
 }

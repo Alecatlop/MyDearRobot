@@ -8,6 +8,7 @@ public class Plataformas5 : MonoBehaviour
 
     GameObject[] plataformas1;
     GameObject[] plataformas2;
+    GameObject[] runas;
     public EnemigoIA scriptenemigo;
     bool subido = false;
     bool subido2 = false;
@@ -22,7 +23,7 @@ public class Plataformas5 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(subido);
+       // print(subido);
         if (scriptenemigo.vidas == 2 && subido == false)
         {
 
@@ -65,7 +66,7 @@ public class Plataformas5 : MonoBehaviour
         }
 
         // sube plaatforma en secuencia con runa
-        if (scriptenemigo.superataque == true && scriptenemigo.vidas == 1)
+        if (scriptenemigo.puedeHacerSuperataque == true && scriptenemigo.vidas == 1)
         {
             yield return new WaitForSeconds(11);
 
@@ -75,7 +76,7 @@ public class Plataformas5 : MonoBehaviour
 
             subido = true;
         }
-        else if (scriptenemigo.superataque == false && scriptenemigo.vidas == 1)
+        else if (scriptenemigo.puedeHacerSuperataque == false && scriptenemigo.vidas == 1)
         {
             plataformas1[scriptenemigo.runa].transform.Translate(Vector3.back * Time.deltaTime * 2);
 
@@ -91,26 +92,26 @@ public class Plataformas5 : MonoBehaviour
             {
                 for (int i = 0; i < plataformas2.Length; i++)
                 {
-                    plataformas2[i].transform.Translate(Vector3.forward * Time.deltaTime * 4f);
+                    plataformas2[i].transform.Translate(Vector3.forward * Time.deltaTime * 3f);
                 }
                 yield return new WaitForSeconds(2);
                 subido2 = true;
             }
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
 
             if (subido2 == true)
             {
                 for (int i = 0; i < plataformas2.Length; i++)
                 {
-                    plataformas2[i].transform.Translate(Vector3.back * Time.deltaTime * 4f);
+                    plataformas2[i].transform.Translate(Vector3.back * Time.deltaTime * 3f);
                 }
 
                 yield return new WaitForSeconds(2);
                 subido2 = false;
             }
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
 
         }
 

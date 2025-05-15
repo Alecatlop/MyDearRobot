@@ -21,7 +21,6 @@ public class Fase1 : Estado
 
         if (enemigoIA.vidas == 2 && !enemigoIA.ocupado)
         {
-            Debug.Log("Fase 2");
             siguienteEstado = new Fase2(); 
             siguienteEstado.inicializarVariables(enemigoIA);
             faseActual = EVENTO.SALIR; 
@@ -41,6 +40,7 @@ public class Fase1 : Estado
 
     public override void Salir()
     {
+        enemigoIA.TerminarCorrutinas();
  
         base.Salir();
     }
