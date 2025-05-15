@@ -10,9 +10,15 @@ public class Plataforma_2 : MonoBehaviour
     public Transform centroCupula; 
 
     private Vector3 direccion;
+    private AudioSource audioSource;
+
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.volume *= 0.5f;
+
         if (centroCupula != null)
         {
             // Calcula la dirección hacia el centro en el plano XZ
@@ -35,6 +41,23 @@ public class Plataforma_2 : MonoBehaviour
 
     void Update()
     {
+        if (Pausa.juegoPausado) return;
+        
+        if (avanzar || retroceder)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+        }
+        
         if (avanzar)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);

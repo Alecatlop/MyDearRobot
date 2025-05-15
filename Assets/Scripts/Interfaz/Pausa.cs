@@ -29,6 +29,8 @@ public class Pausa : MonoBehaviour
     public TMP_Dropdown calidaddropdown;
     Resolution[] resoluciones;
 
+    public static bool juegoPausado = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +63,7 @@ public class Pausa : MonoBehaviour
         datos.GetComponent<AudioSource>().volume = slidermusica.GetComponent<Slider>().value;
 
         sliderefectos.GetComponent<Slider>().value = datos.volumenefectos;
+        Efectos(datos.volumenefectos); 
 
         if (Screen.fullScreen)
         {
@@ -115,13 +118,17 @@ public class Pausa : MonoBehaviour
         xbox.SetActive(false);
         configuracion.SetActive(false);
 
-        if (personaje.pausar == true)
+        if (personaje.pausar)
         {
+            juegoPausado = true;
+            PausarEfectos();
             Time.timeScale = 0;
             this.gameObject.SetActive(true);
         }
         else
         {
+            juegoPausado = false;
+            ReanudarEfectos();
             this.gameObject.SetActive(false);
             Time.timeScale = 1;
         }
@@ -130,6 +137,8 @@ public class Pausa : MonoBehaviour
     public void Continuar()
     {
         boton.Play();
+        ReanudarEfectos();
+        juegoPausado = false;
         this.gameObject.SetActive(false);
         Time.timeScale = 1;
         personaje.pausar = false;
@@ -160,8 +169,14 @@ public class Pausa : MonoBehaviour
     {
         boton.Play();
         datos.volumenefectos = sliderefectos.GetComponent<Slider>().value;
-        PlayerPrefs.GetFloat("efectos", sliderefectos.GetComponent<Slider>().value);
+        PlayerPrefs.SetFloat("efectos", sliderefectos.GetComponent<Slider>().value);
+        PlayerPrefs.Save();
         boton.volume = sliderefectos.GetComponent<Slider>().value;
+
+        foreach (EfectoSonido efecto in FindObjectsOfType<EfectoSonido>())
+        {
+            efecto.SetVolumen(sliderefectos.GetComponent<Slider>().value);
+        }
     }
 
     public void Musica(float valor)
@@ -215,5 +230,21 @@ public class Pausa : MonoBehaviour
         boton.Play();
         datos.GetComponent<AudioSource>().Stop();
         SceneManager.LoadScene("Menu");
+    }
+    
+    void PausarEfectos()
+    {
+        foreach (var efecto in FindObjectsOfType<EfectoSonido>())
+        {
+            efecto.Pausar();
+        }
+    }
+
+    void ReanudarEfectos()
+    {
+        foreach (var efecto in FindObjectsOfType<EfectoSonido>())
+        {
+            efecto.Reanudar();
+        }
     }
 }
