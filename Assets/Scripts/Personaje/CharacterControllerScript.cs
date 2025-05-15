@@ -46,10 +46,14 @@ public class CharacterControllerScript : MonoBehaviour
     public AudioClip clipPaso;
     public AudioClip clipSalto;
     public AudioClip clipAterrizaje;
+
     private float pasoTiempo = 0f;
     public float tiempoEntrePaso = 0.5f;
     public float velocidadCaidaMinimaSonido = -6f; 
     private float ultimaVelocidadAntesDeTocarSuelo = 0f; 
+
+    private float tiempoMoviendo = 0f;
+    private const float tiempoMinimoParaPaso = 0.15f;
 
     void Start()
     {
@@ -70,57 +74,39 @@ public class CharacterControllerScript : MonoBehaviour
 
         if (isGrounded && verticalVelocity < 0)
         {
-            verticalVelocity = -2f; // Para mantener el personaje en el suelo
+            verticalVelocity = -2f;
         }
 
-        if (!isGrounded && verticalVelocity < 0f)
-        {
-            animator.SetBool("falling", true);
-        }
-        else
-        {
-            animator.SetBool("falling", false);
-        }
+        animator.SetBool("falling", !isGrounded && verticalVelocity < 0f);
 
-        if(pausar == true)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-
-        }
+        Cursor.lockState = pausar ? CursorLockMode.None : CursorLockMode.Locked;
 
         Transform cam = Camera.main.transform;
-
         // Direcciones horizontal y vertical de la c�mara
         Vector3 camForward = cam.forward;
         Vector3 camRight = cam.right;
-
         // Eliminar inclinaci�n vertical
         camForward.y = 0f;
         camRight.y = 0f;
         camForward.Normalize();
         camRight.Normalize();
 
-
-        if(!spawn)
+        if (!spawn)
         {
-            // Direcci�n final basada en input + c�mara
             Vector3 move = camRight * inputMove.x + camForward * inputMove.y;
             controller.Move(move * speed * Time.deltaTime);
 
-            //animator.SetFloat("speed", move.magnitude);
             if (isGrounded)
             {
                 animator.SetFloat("speed", move.magnitude);
 
                  // Sonido sincronizado con los pasos
-                if (isGrounded && inputMove.magnitude > 0.1f)
+                if (inputMove.magnitude > 0.1f)
                 {
+                    tiempoMoviendo += Time.deltaTime;
                     pasoTiempo -= Time.deltaTime;
-                    if(pasoTiempo <= 0f)
+
+                    if (tiempoMoviendo >= tiempoMinimoParaPaso && pasoTiempo <= 0f)
                     {
                         pasosSource.PlayOneShot(clipPaso);
                         pasoTiempo = tiempoEntrePaso;
@@ -128,7 +114,8 @@ public class CharacterControllerScript : MonoBehaviour
                 }
                 else
                 {
-                    pasoTiempo = 0;
+                    tiempoMoviendo = 0f;
+                    pasoTiempo = 0f;
                 }
             }
             else
@@ -147,16 +134,7 @@ public class CharacterControllerScript : MonoBehaviour
             verticalVelocity += gravity * direction * Time.deltaTime;
             controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
 
-            if (verticalVelocity > 10f)
-            {
-                verticalVelocity = 10f;
-            }
-
-            if (verticalVelocity < -15f)
-            {
-                verticalVelocity = -15f;
-            }
-            
+            verticalVelocity = Mathf.Clamp(verticalVelocity, -15f, 10f);
         }
 
         // Aterrizaje
@@ -211,7 +189,6 @@ public class CharacterControllerScript : MonoBehaviour
             plataformaActual = null;
         }
     }
-
 
     private void OnTriggerEnter(Collider other)
     {

@@ -5,72 +5,42 @@ using UnityEngine;
 
 public class Lasers : MonoBehaviour
 {
-    bool subir = false;
-    bool bajar = false;
-    float speed = 12f;
-    int rand;
-   
+    [SerializeField] private float speed = 12f;
+    [SerializeField] private float desplazamientoTiempo = 1f;
+    [SerializeField] private float tiempoEntreMovimientos = 3f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (subir == true)
-        {
-            this.transform.Translate(Vector3.up * Time.deltaTime * speed);
-        }
-
-        if (bajar == true)
-        {
-            this.transform.Translate(Vector3.down * Time.deltaTime * speed);
-        }
-    }
+    private bool moviendo = false;
 
     void OnEnable()
     {
-        rand = Random.Range(0, 2);
-        StartCoroutine(Corrutina());
+        StartCoroutine(MovimientoLaser());
     }
 
-    private IEnumerator Corrutina()
+    private IEnumerator MovimientoLaser()
     {
+        float delayInicial = Random.Range(1f, 5f);
+        yield return new WaitForSeconds(delayInicial);
+
         while (true)
         {
-            if (rand == 0)
-            {
-                bajar = true;
+            // Bajar
+            yield return Mover(Vector3.down);
+            yield return new WaitForSeconds(tiempoEntreMovimientos);
 
-                yield return new WaitForSeconds(1f);
-
-                bajar = false;
-
-                yield return new WaitForSeconds(3f);
-
-                subir = true;
-
-                yield return new WaitForSeconds(1f);
-
-                subir = false;
-
-                yield return new WaitForSeconds(3f);
-            }
-            else
-            {
-                transform.GetChild(0).gameObject.SetActive(true);
-
-                yield return new WaitForSeconds(3f);
-
-                transform.GetChild(0).gameObject.SetActive(false);
-
-                yield return new WaitForSeconds(4f);
-            }
-           
+            // Subir
+            yield return Mover(Vector3.up);
+            yield return new WaitForSeconds(tiempoEntreMovimientos);
         }
-       
+    }
+
+    private IEnumerator Mover(Vector3 direccion)
+    {
+        float tiempo = 0f;
+        while (tiempo < desplazamientoTiempo)
+        {
+            transform.Translate(direccion * speed * Time.deltaTime);
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
     }
 }
