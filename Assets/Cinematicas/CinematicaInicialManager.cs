@@ -15,6 +15,11 @@ public class CinematicaInicialManager : MonoBehaviour
     public GameObject secuencia5camara;
     public GameObject secuencia6A;
     public GameObject secuencia6camara;
+    public GameObject secuencia7A;
+    public GameObject secuencia7camara;
+    public GameObject secuencia8camara;
+    public GameObject secuencia9A;
+    public GameObject secuencia9camara;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +35,12 @@ public class CinematicaInicialManager : MonoBehaviour
       secuencia5camara.SetActive(false);
       secuencia6A.SetActive(false);
       secuencia6camara.SetActive(false);
+      secuencia7A.SetActive(false);
+      secuencia7camara.SetActive(false);
+      secuencia8camara.SetActive(false);
+      secuencia9A.SetActive(false);
+      secuencia9camara.SetActive(false);
+
 
         StartCoroutine(Escena1());
         
@@ -38,7 +49,7 @@ public class CinematicaInicialManager : MonoBehaviour
     public IEnumerator Escena1()
     {
         secuencia1camara.SetActive(true);
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(5.5f);
         secuencia1camara.SetActive(false);
         secuencia2camara.SetActive(true);
         yield return new WaitForSeconds(1f);
@@ -63,6 +74,20 @@ public class CinematicaInicialManager : MonoBehaviour
         secuencia5camara.SetActive(false);
         secuencia6A.SetActive(true);
         secuencia6camara.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        secuencia6A.SetActive(false);
+        secuencia6camara.SetActive(false);
+        secuencia7A.SetActive(true);
+        secuencia7camara.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        secuencia8camara.SetActive(true);
+        secuencia7A.SetActive(false);
+        secuencia7camara.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        secuencia8camara.SetActive(false);
+        secuencia9A.SetActive(true);
+        secuencia9camara.SetActive(true);
+        yield return new WaitForSeconds(3f);
 
 
     }
