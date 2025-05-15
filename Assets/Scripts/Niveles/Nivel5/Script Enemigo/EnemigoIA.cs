@@ -1,9 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;  
+using UnityEngine.AI;
 
 public class EnemigoIA: MonoBehaviour
 {
@@ -11,28 +8,27 @@ public class EnemigoIA: MonoBehaviour
     public GameObject jugador;
     public GameObject centro;
     public NavMeshAgent agent;
+    GameObject rayo;
 
-    public int runa;
-    int[] runas;
+    public int contadorrunas;
+    public int runarandom;
     float dist;
     public int vidas = 3;
     public bool ocupado;
+    public bool luzruna;
     public bool puedeHacerSuperataque;
 
     void Start()
     {
         FSM = new Fase1();
         FSM.inicializarVariables(this);
-
-        StartCoroutine(Espera());
-        //runas[0] = 1; runas[1] = 2; runas[2] = 3; runas[3] = 4; runas[4] = 5; runas[5] = 6; 
+        rayo = GameObject.Find("RAYO");
+        rayo.SetActive(false);
     }
 
     void Update()
     {
         FSM = FSM.Procesar();
-
-
     }
 
     public void TerminarCorrutinas()
@@ -82,67 +78,69 @@ public class EnemigoIA: MonoBehaviour
     {
        Debug.Log("Ataque1 / PISOTON");
         this.agent.speed = 0f;
-        StartCoroutine(Espera());
+        StartCoroutine(Cargaataque());
     }
 
     public void Ataque2()
     {
         Debug.Log("Ataque2 / PUÑETAZO");
         this.agent.speed = 0f;
-        StartCoroutine(Espera());
+        StartCoroutine(Cargaataque());
     }
 
     public void Ataque3()
     {
         Debug.Log("Ataque3 / RAYO");
         this.agent.speed = 0f;
-        StartCoroutine(Espera());
+        StartCoroutine(Cargaataque());
     }
 
     public void Golpearsuelo()
     {
-        this.agent.SetDestination(centro.transform.position);
-        this.agent.speed = 6f;
-
         if (ocupado == false)
         {
+            ocupado = true;
             Debug.Log("Golpearsuelo / TERREMOTO");
-            StartCoroutine(Espera());
         }
     }
 
     public void Superataque()
     {
-        //do
-        //{
-        //    runa = Random.Range(0, 6);
-
-        //    for (int i = 0; i < runas.Length; i++)
-        //    {
-        //        i = runa;
-        //        runas[i] == runa;
-        //    }
-        //}
-        //while runas[i] == runa;
-
-        Debug.Log("Superataque s=true");
+        int runarandom = Random.Range(0, 6);
+        
+        Debug.Log("Superataque");
         ocupado = true;
         this.agent.speed = 0f;
-        StartCoroutine(Espera2());
+        StartCoroutine(CargaSuperataque());
+    }
+
+    public void ActivarRayo()
+    {
+        if (contadorrunas == 6)
+        {
+            rayo.SetActive(true);
+            contadorrunas = 0;
+        }
     }
 
     public void Dañado()
     {
-        Debug.Log("DAÑADO");
         ocupado = true;
+        this.agent.speed = 0f;
         vidas--;
+        luzruna = false;
         Debug.Log("Dañado, le quedan " + vidas);
-        StartCoroutine(Espera());
+        StartCoroutine(CambioFase());
     }
 
     public void lanzarCorrutinaFase3()
     {
-        StartCoroutine(EntrarFase3());
+        StartCoroutine(CambioFase3());
+    }
+
+    public void lanzarCorrutinaFase()
+    {
+        StartCoroutine(CambioFase());
     }
 
     public void Morir()
@@ -151,36 +149,45 @@ public class EnemigoIA: MonoBehaviour
         this.gameObject.SetActive(false);   
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.collider.name == "RAYO")
+        if (other.name == "RAYO")
         {
             Dañado();
+            rayo.SetActive(false);
         }
     }
 
-    IEnumerator Espera()
+    IEnumerator Cargaataque()
     {
         yield return new WaitForSeconds(6f);
         ocupado = false;
     }
 
-    IEnumerator Espera2()
+    IEnumerator CargaSuperataque()
     {
+      
         yield return new WaitForSeconds(12f);
         puedeHacerSuperataque = false;
         ocupado = false;
 
+        Debug.Log("Cargando SUPERATAQUE");
         yield return new WaitForSeconds(20f);
         puedeHacerSuperataque = true;
     }
 
-    public IEnumerator EntrarFase3()
+    IEnumerator CambioFase()
     {
+        print("CAMBIO FASE");
         yield return new WaitForSeconds(5f);
         ocupado = false;
     }
 
+    IEnumerator CambioFase3()
+    {
+        yield return new WaitForSeconds(10f);
+        ocupado = false;
+    }
 
 }
 

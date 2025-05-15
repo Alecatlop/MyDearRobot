@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 
 public class Fase2 : Estado
@@ -14,14 +15,15 @@ public class Fase2 : Estado
     public override void Entrar()
     {
         base.Entrar();
-        enemigoIA.ocupado = true;
+        enemigoIA.agent.SetDestination(enemigoIA.centro.transform.position);
+        enemigoIA.agent.speed = 6f;
+        enemigoIA.lanzarCorrutinaFase();
+        enemigoIA.Golpearsuelo();
+        enemigoIA.luzruna = true;
     }
 
     public override void Actualizar()
     {
-      
-        enemigoIA.Golpearsuelo();
-       
 
         if (enemigoIA.vidas == 1)
         {
@@ -30,8 +32,9 @@ public class Fase2 : Estado
             siguienteEstado.inicializarVariables(enemigoIA);
             faseActual = EVENTO.SALIR;
         }
-        
-       
+        else enemigoIA.ActivarRayo();
+
+
     }
 
     public override void Salir()

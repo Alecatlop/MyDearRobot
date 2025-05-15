@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Runas5 : MonoBehaviour
 {
-    //Material luz;
     public EnemigoIA scriptenemigo;
+    public bool activada = false;
 
     // Start is called before the first frame update
     void Start()
@@ -16,28 +16,34 @@ public class Runas5 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (scriptenemigo.luzruna == false)
+        {
+            Apagar();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         // se activan al pisar 1 fase
-        if (other.name == "RAYO" && scriptenemigo.vidas == 3)
+        if (other.name == "Jugador" && activada == false)
         {
             Material mat = this.GetComponent<MeshRenderer>().material;
             mat.EnableKeyword("_EMISSION");
             mat.SetColor("_EmissionColor", Color.yellow);
+            activada = true;
+            scriptenemigo.contadorrunas++;
+            
         }
-
-        // se desactiva al recibir daño jefe
-        if (other.name == "RAYO" && scriptenemigo.vidas == 2)
-        {
-            print("Apagado");
-            //luz.material.SetColor("_EmissionColor", Color.white);
-        }
-
-
-
-
     }
+
+    public void Apagar()
+    {
+        //scriptenemigo.luzruna = true;
+        print("apagado");
+        activada = false;
+        Material mat = this.GetComponent<MeshRenderer>().material;
+        mat.EnableKeyword("_EMISSION");
+        mat.SetColor("_EmissionColor", Color.white);
+    }
+
 }

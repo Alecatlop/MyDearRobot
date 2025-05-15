@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,14 +16,12 @@ public class Fase3 : Estado
     {
         base.Entrar();
         enemigoIA.puedeHacerSuperataque = true;
-
         enemigoIA.lanzarCorrutinaFase3();
-        
+        enemigoIA.luzruna = true;
     }
 
     public override void Actualizar()
     {
-
         if (enemigoIA.vidas < 1)
         {
             enemigoIA.Morir();
@@ -36,12 +35,11 @@ public class Fase3 : Estado
                 enemigoIA.agent.speed = 2f;
                 enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
             }
-            else
+
+            if (enemigoIA.vidas == 1 && enemigoIA.ocupado == false && enemigoIA.puedeHacerSuperataque == true)
             {
-                if (enemigoIA.vidas == 1 && enemigoIA.ocupado == false && enemigoIA.puedeHacerSuperataque == true)
-                {
-                    enemigoIA.Superataque();
-                }
+                Debug.Log("Lanzar Ataque");
+                enemigoIA.Superataque();
             }
 
         }

@@ -14,6 +14,7 @@ public class Fase1 : Estado
     public override void Entrar()
     {
         base.Entrar();
+        enemigoIA.lanzarCorrutinaFase3();
     }
 
     public override void Actualizar()
@@ -34,6 +35,8 @@ public class Fase1 : Estado
                 enemigoIA.agent.speed = 2f;
                 enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
             }
+
+            enemigoIA.ActivarRayo();
         } 
 
     }
