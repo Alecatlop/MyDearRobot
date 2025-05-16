@@ -7,18 +7,8 @@ public class Runa : MonoBehaviour
     public GameObject runa;
     public GameObject camara;
     public bool activado = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public AudioSource audioSource;
+    public AudioClip sonidoActivacion;
 
     private IEnumerator Pintar()
     {
@@ -33,10 +23,16 @@ public class Runa : MonoBehaviour
         Material runaMat = runa.GetComponent<MeshRenderer>().material;
         runaMat.EnableKeyword("_EMISSION");
         runaMat.SetColor("_EmissionColor", Color.yellow);
+
+        if (audioSource != null && sonidoActivacion != null)
+        {
+            audioSource.PlayOneShot(sonidoActivacion);
+        }
+
         yield return new WaitForSeconds(2f);
         camara.SetActive(false);
 
-        yield return null; // Opcional, por si en el futuro quieres añadir un tiempo o animación
+        yield return null; // Opcional, por si en el futuro quieres aï¿½adir un tiempo o animaciï¿½n
 
     }
 
