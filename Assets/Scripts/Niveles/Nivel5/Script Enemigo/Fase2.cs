@@ -15,11 +15,13 @@ public class Fase2 : Estado
     public override void Entrar()
     {
         base.Entrar();
+        enemigoIA.FASE();
         enemigoIA.agent.SetDestination(enemigoIA.centro.transform.position);
         enemigoIA.agent.speed = 6f;
         enemigoIA.lanzarCorrutinaFase();
         enemigoIA.Golpearsuelo();
         enemigoIA.luzruna = true;
+       
     }
 
     public override void Actualizar()

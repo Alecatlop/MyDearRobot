@@ -12,6 +12,7 @@ public class EnemigoIA: MonoBehaviour
 
     public int contadorrunas;
     public int runarandom;
+    public int fase;
     float dist;
     public int vidas = 3;
     public bool ocupado;
@@ -29,6 +30,7 @@ public class EnemigoIA: MonoBehaviour
     void Update()
     {
         FSM = FSM.Procesar();
+    
     }
 
     public void TerminarCorrutinas()
@@ -120,17 +122,32 @@ public class EnemigoIA: MonoBehaviour
         {
             rayo.SetActive(true);
             contadorrunas = 0;
+           
         }
     }
 
-    public void Dañado()
+    public void FASE()
+    {
+        StartCoroutine(CambiarFase());
+    }
+
+    IEnumerator Dañado()
     {
         ocupado = true;
         this.agent.speed = 0f;
         vidas--;
         luzruna = false;
+       
         Debug.Log("Dañado, le quedan " + vidas);
-        StartCoroutine(CambioFase());
+        ocupado = false;
+        yield return null;
+    }
+
+      IEnumerator CambiarFase()
+    {
+        yield return new WaitForSeconds(5f);
+        print("cambiar fase");
+        fase++;
     }
 
     public void lanzarCorrutinaFase3()
@@ -153,8 +170,8 @@ public class EnemigoIA: MonoBehaviour
     {
         if (other.name == "RAYO")
         {
-            Dañado();
             rayo.SetActive(false);
+            StartCoroutine(Dañado());
         }
     }
 

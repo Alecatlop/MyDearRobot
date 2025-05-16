@@ -15,9 +15,11 @@ public class Fase3 : Estado
     public override void Entrar()
     {
         base.Entrar();
+        enemigoIA.FASE();
         enemigoIA.puedeHacerSuperataque = true;
         enemigoIA.lanzarCorrutinaFase3();
         enemigoIA.luzruna = true;
+       
     }
 
     public override void Actualizar()
@@ -41,6 +43,8 @@ public class Fase3 : Estado
                 Debug.Log("Lanzar Ataque");
                 enemigoIA.Superataque();
             }
+
+            enemigoIA.ActivarRayo();
 
         }
     }

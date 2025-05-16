@@ -44,7 +44,6 @@ public class Fase1 : Estado
     public override void Salir()
     {
         enemigoIA.TerminarCorrutinas();
- 
         base.Salir();
     }
 

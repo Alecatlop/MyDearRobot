@@ -39,7 +39,6 @@ public class Runas5 : MonoBehaviour
     public void Apagar()
     {
         //scriptenemigo.luzruna = true;
-        print("apagado");
         activada = false;
         Material mat = this.GetComponent<MeshRenderer>().material;
         mat.EnableKeyword("_EMISSION");
