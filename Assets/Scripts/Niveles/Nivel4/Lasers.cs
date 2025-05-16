@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Lasers : MonoBehaviour
@@ -9,10 +7,18 @@ public class Lasers : MonoBehaviour
     [SerializeField] private float desplazamientoTiempo = 1f;
     [SerializeField] private float tiempoEntreMovimientos = 3f;
 
-    private bool moviendo = false;
+    public AudioClip sonidoLaser;
+    private AudioSource audioSource;
 
     void OnEnable()
     {
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+                audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         StartCoroutine(MovimientoLaser());
     }
 
@@ -23,11 +29,11 @@ public class Lasers : MonoBehaviour
 
         while (true)
         {
-            // Bajar
+            ReproducirSonido();
             yield return Mover(Vector3.down);
             yield return new WaitForSeconds(tiempoEntreMovimientos);
 
-            // Subir
+            ReproducirSonido();
             yield return Mover(Vector3.up);
             yield return new WaitForSeconds(tiempoEntreMovimientos);
         }
@@ -41,6 +47,14 @@ public class Lasers : MonoBehaviour
             transform.Translate(direccion * speed * Time.deltaTime);
             tiempo += Time.deltaTime;
             yield return null;
+        }
+    }
+
+    private void ReproducirSonido()
+    {
+        if (sonidoLaser != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(sonidoLaser);
         }
     }
 }
