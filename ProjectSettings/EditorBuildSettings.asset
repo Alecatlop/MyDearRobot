@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 98e18a9c127f900459081d261a5a12ba
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Catret.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sori.unity
     guid: 565b40264b2809d498555a28406e08f7
   - enabled: 1

@@ -19,6 +19,7 @@ public class Lasers : MonoBehaviour
                 audioSource = gameObject.AddComponent<AudioSource>();
         }
 
+        audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
         StartCoroutine(MovimientoLaser());
     }
 
@@ -54,6 +55,7 @@ public class Lasers : MonoBehaviour
     {
         if (sonidoLaser != null && audioSource != null)
         {
+            audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
             audioSource.PlayOneShot(sonidoLaser);
         }
     }

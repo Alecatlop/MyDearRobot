@@ -42,6 +42,10 @@ public class Plataforma_2 : MonoBehaviour
     void Update()
     {
         if (Pausa.juegoPausado) return;
+
+        // Actualiza volumen con el valor actual del slider
+        float volumenGlobal = PlayerPrefs.GetFloat("efectos", 1f);
+        audioSource.volume = volumenGlobal * 0.5f;  
         
         if (avanzar || retroceder)
         {

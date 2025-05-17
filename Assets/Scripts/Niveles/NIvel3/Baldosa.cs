@@ -25,6 +25,8 @@ public class Baldosa : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+
+        audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
     }
 
     void Update()
@@ -50,6 +52,7 @@ public class Baldosa : MonoBehaviour
 
                 if (!sonidoCorrectoReproducido && RunaCorrecta != null)
                 {
+                    audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
                     audioSource.PlayOneShot(RunaCorrecta);
                     sonidoCorrectoReproducido = true;
                 }
@@ -61,6 +64,7 @@ public class Baldosa : MonoBehaviour
 
                 if (RunaIncorrecta != null)
                 {
+                    audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
                     audioSource.PlayOneShot(RunaIncorrecta);
                 }
 

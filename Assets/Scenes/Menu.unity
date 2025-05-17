@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1632,6 +1632,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &128166500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,6 +2337,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &260132669
 GameObject:
   m_ObjectHideFlags: 0
@@ -13257,6 +13259,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &537757068
 GameObject:
   m_ObjectHideFlags: 0
@@ -13303,7 +13306,6 @@ GameObject:
   m_Component:
   - component: {fileID: 557709910}
   - component: {fileID: 557709909}
-  - component: {fileID: 557709911}
   m_Layer: 0
   m_Name: UIAudio
   m_TagString: Untagged
@@ -13422,19 +13424,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &557709911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557709908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 106db542c88996b4f807c83cd8e1110c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumenBase: 1
 --- !u!1 &571279310
 GameObject:
   m_ObjectHideFlags: 0
@@ -13973,6 +13962,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 8300000, guid: 0c9043c8984689e49b1db900848dc0b6, type: 3}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &637234729
 GameObject:
   m_ObjectHideFlags: 0
@@ -25748,6 +25738,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 8300000, guid: 0c9043c8984689e49b1db900848dc0b6, type: 3}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &1155114454
 GameObject:
   m_ObjectHideFlags: 0
@@ -26095,6 +26086,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &1197513144
 GameObject:
   m_ObjectHideFlags: 0
@@ -32951,6 +32943,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &1693412147
 GameObject:
   m_ObjectHideFlags: 0
@@ -33432,6 +33425,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 8300000, guid: 0c9043c8984689e49b1db900848dc0b6, type: 3}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &1829372202
 GameObject:
   m_ObjectHideFlags: 0
@@ -34326,6 +34320,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 8300000, guid: 0c9043c8984689e49b1db900848dc0b6, type: 3}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &2042448044
 GameObject:
   m_ObjectHideFlags: 0
@@ -34444,6 +34439,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &2070150957
 GameObject:
   m_ObjectHideFlags: 0
@@ -34727,6 +34723,7 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 8300000, guid: 0c9043c8984689e49b1db900848dc0b6, type: 3}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
+  volumenBase: 1
 --- !u!1 &2099248039
 GameObject:
   m_ObjectHideFlags: 0
