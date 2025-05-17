@@ -14,7 +14,7 @@ public class Fase1 : Estado
     public override void Entrar()
     {
         base.Entrar();
-        enemigoIA.lanzarCorrutinaFase3();
+        enemigoIA.lanzarCorrutinaFase();
     }
 
     public override void Actualizar()

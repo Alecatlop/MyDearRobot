@@ -15,11 +15,9 @@ public class Fase2 : Estado
     public override void Entrar()
     {
         base.Entrar();
-        enemigoIA.FASE();
+        enemigoIA.lanzarCorrutinaFase();
         enemigoIA.agent.SetDestination(enemigoIA.centro.transform.position);
         enemigoIA.agent.speed = 6f;
-        enemigoIA.lanzarCorrutinaFase();
-        enemigoIA.Golpearsuelo();
         enemigoIA.luzruna = true;
        
     }
@@ -34,7 +32,7 @@ public class Fase2 : Estado
             siguienteEstado.inicializarVariables(enemigoIA);
             faseActual = EVENTO.SALIR;
         }
-        else enemigoIA.ActivarRayo();
+        else enemigoIA.ActivarRayo(); 
 
 
     }

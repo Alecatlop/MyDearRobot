@@ -18,6 +18,7 @@ public class EnemigoIA: MonoBehaviour
     public bool ocupado;
     public bool luzruna;
     public bool puedeHacerSuperataque;
+    public bool Superatataqueactivo;
 
     void Start()
     {
@@ -30,7 +31,6 @@ public class EnemigoIA: MonoBehaviour
     void Update()
     {
         FSM = FSM.Procesar();
-    
     }
 
     public void TerminarCorrutinas()
@@ -46,13 +46,13 @@ public class EnemigoIA: MonoBehaviour
         {
             int probabilidad = Random.Range(0, 3);
 
-            if (probabilidad > 0 && ocupado == false && puedeHacerSuperataque == false)
+            if (probabilidad > 0 && ocupado == false && Superatataqueactivo == false && puedeHacerSuperataque == false)
             {
                 ocupado = true;
                 Ataque3();
                 return true;
             }
-            else if (probabilidad == 0 && ocupado == false && puedeHacerSuperataque == false)
+            else if (probabilidad == 0 && ocupado == false && Superatataqueactivo == false && puedeHacerSuperataque == false)
             {
                 ocupado = true;
                 Ataque2();
@@ -61,7 +61,7 @@ public class EnemigoIA: MonoBehaviour
 
             return true;
         }
-        else if (dist < 18f && ocupado == false && puedeHacerSuperataque == false)
+        else if (dist < 18f && ocupado == false && Superatataqueactivo == false && puedeHacerSuperataque == false)
         {
             ocupado = true;
             Ataque1();
@@ -108,10 +108,12 @@ public class EnemigoIA: MonoBehaviour
 
     public void Superataque()
     {
-        int runarandom = Random.Range(0, 6);
+        Debug.Log("Cuantas VECES SE EJECUTA SUPERATAQUE");
+        runarandom = Random.Range(0, 6);
         
-        Debug.Log("Superataque");
         ocupado = true;
+        Superatataqueactivo = true;
+        puedeHacerSuperataque = false;
         this.agent.speed = 0f;
         StartCoroutine(CargaSuperataque());
     }
@@ -122,13 +124,7 @@ public class EnemigoIA: MonoBehaviour
         {
             rayo.SetActive(true);
             contadorrunas = 0;
-           
         }
-    }
-
-    public void FASE()
-    {
-        StartCoroutine(CambiarFase());
     }
 
     IEnumerator Dañado()
@@ -141,23 +137,6 @@ public class EnemigoIA: MonoBehaviour
         Debug.Log("Dañado, le quedan " + vidas);
         ocupado = false;
         yield return null;
-    }
-
-      IEnumerator CambiarFase()
-    {
-        yield return new WaitForSeconds(5f);
-        print("cambiar fase");
-        fase++;
-    }
-
-    public void lanzarCorrutinaFase3()
-    {
-        StartCoroutine(CambioFase3());
-    }
-
-    public void lanzarCorrutinaFase()
-    {
-        StartCoroutine(CambioFase());
     }
 
     public void Morir()
@@ -177,33 +156,51 @@ public class EnemigoIA: MonoBehaviour
 
     IEnumerator Cargaataque()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(5f);
         ocupado = false;
     }
 
     IEnumerator CargaSuperataque()
     {
-      
         yield return new WaitForSeconds(12f);
-        puedeHacerSuperataque = false;
+        
+        Superatataqueactivo = false;
+
+        yield return new WaitForSeconds(5f);
         ocupado = false;
+
 
         Debug.Log("Cargando SUPERATAQUE");
         yield return new WaitForSeconds(20f);
         puedeHacerSuperataque = true;
     }
 
-    IEnumerator CambioFase()
-    {
-        print("CAMBIO FASE");
-        yield return new WaitForSeconds(5f);
-        ocupado = false;
-    }
-
     IEnumerator CambioFase3()
     {
         yield return new WaitForSeconds(10f);
         ocupado = false;
+    }
+
+    IEnumerator CambiarFase()
+    {
+        yield return new WaitForSeconds(4f);
+
+        if (vidas == 2)
+        {
+            Golpearsuelo();
+        }
+
+        fase++;
+    }
+
+    public void lanzarCorrutinaFase3()
+    {
+        StartCoroutine(CambioFase3());
+    }
+
+    public void lanzarCorrutinaFase()
+    {
+        StartCoroutine(CambiarFase());
     }
 
 }
