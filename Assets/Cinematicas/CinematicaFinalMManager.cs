@@ -5,6 +5,7 @@ using UnityEngine;
 public class CinematicaFinalMManager : MonoBehaviour
 {
     public GameObject fade;
+    public GameObject fadeOut;
     public GameObject secuencia1A;
     public GameObject secuencia1camara;
     public GameObject secuencia2A;
@@ -26,6 +27,7 @@ public class CinematicaFinalMManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fadeOut.SetActive(false);
         secuencia1A.SetActive(false);
         secuencia1camara.SetActive(false);
         secuencia2A.SetActive(false);
@@ -34,9 +36,9 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia3camara.SetActive(false);
         secuencia4A.SetActive(false);
         secuencia4camara.SetActive(false);
-        /*secuencia5A.SetActive(false);
+        secuencia5A.SetActive(false);
         secuencia5camara.SetActive(false);
-        secuencia6A.SetActive(false);
+        /*secuencia6A.SetActive(false);
         secuencia6camara.SetActive(false);
         secuencia7A.SetActive(false);
         secuencia7camara.SetActive(false);
@@ -70,6 +72,15 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia3camara.SetActive(false);
         secuencia4A.SetActive(true);
         secuencia4camara.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        secuencia4A.SetActive(false);
+        secuencia4camara.SetActive(false);
+        secuencia5A.SetActive(true);
+        secuencia5camara.SetActive(true);
+        fadeOut.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        fadeOut.SetActive(false);
+
 
 
 
