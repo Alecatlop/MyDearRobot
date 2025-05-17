@@ -5,6 +5,7 @@ using UnityEngine;
 public class CinematicaFinalMManager : MonoBehaviour
 {
     public GameObject fade;
+    public GameObject secuencia1A;
     public GameObject secuencia1camara;
     public GameObject secuencia2A;
     public GameObject secuencia2camara;
@@ -25,6 +26,7 @@ public class CinematicaFinalMManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        secuencia1A.SetActive(false);
         secuencia1camara.SetActive(false);
         secuencia2A.SetActive(false);
         secuencia2camara.SetActive(false);
@@ -32,7 +34,7 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia3camara.SetActive(false);
         secuencia4A.SetActive(false);
         secuencia4camara.SetActive(false);
-        secuencia5A.SetActive(false);
+        /*secuencia5A.SetActive(false);
         secuencia5camara.SetActive(false);
         secuencia6A.SetActive(false);
         secuencia6camara.SetActive(false);
@@ -40,7 +42,7 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia7camara.SetActive(false);
         secuencia8camara.SetActive(false);
         secuencia9A.SetActive(false);
-        secuencia9camara.SetActive(false);
+        secuencia9camara.SetActive(false); */
 
 
         StartCoroutine(Escena1());
@@ -49,7 +51,28 @@ public class CinematicaFinalMManager : MonoBehaviour
 
     public IEnumerator Escena1()
     {
+        secuencia1A.SetActive(true);
         secuencia1camara.SetActive(true);
         yield return new WaitForSeconds(5.5f);
+        secuencia1camara.SetActive(false);
+        secuencia2camara.SetActive(true);
+        secuencia2A.SetActive(true);
+        secuencia1A.SetActive(false);
+        yield return new WaitForSeconds(4.5f);
+        fade.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        secuencia2camara.SetActive(false);
+        secuencia3A.SetActive(true);
+        secuencia3camara.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        secuencia2A.SetActive(false);
+        secuencia3A.SetActive(false);
+        secuencia3camara.SetActive(false);
+        secuencia4A.SetActive(true);
+        secuencia4camara.SetActive(true);
+
+
+
+
     }
 }
