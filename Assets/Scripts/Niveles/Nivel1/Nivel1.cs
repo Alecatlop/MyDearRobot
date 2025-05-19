@@ -38,7 +38,7 @@ public class Nivel1 : MonoBehaviour
         if (contadorrunas == 2)
         {
             puerta.GetComponent<Animator>().enabled = true;
-            animator.Play(stateName: "Puerta");
+            animator.Play(stateName: "Animacion_Completa");
             tierra.GetComponent<Collider>().enabled = true;
 
             tierra.SetActive(false);
@@ -52,7 +52,7 @@ public class Nivel1 : MonoBehaviour
         {
             arena.SetActive(false);
             puertasalida.SetActive(true);
-            puerta.SetActive(false);
+            animator.Play(stateName: "PuertaCerrar");
             nivel.Nivel1();
             nivel.Nivel2();
             this.GetComponent<Collider>().enabled = false;
