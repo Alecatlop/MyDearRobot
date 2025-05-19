@@ -1632,7 +1632,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &128166500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,7 +2336,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &260132669
 GameObject:
   m_ObjectHideFlags: 0
@@ -13259,7 +13257,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &537757068
 GameObject:
   m_ObjectHideFlags: 0
@@ -13324,7 +13321,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -13962,7 +13959,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 8300000, guid: 0c9043c8984689e49b1db900848dc0b6, type: 3}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &637234729
 GameObject:
   m_ObjectHideFlags: 0
@@ -25738,7 +25734,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 8300000, guid: 0c9043c8984689e49b1db900848dc0b6, type: 3}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &1155114454
 GameObject:
   m_ObjectHideFlags: 0
@@ -26028,7 +26023,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2070150958}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.81333315
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -26086,7 +26081,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &1197513144
 GameObject:
   m_ObjectHideFlags: 0
@@ -32943,7 +32937,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &1693412147
 GameObject:
   m_ObjectHideFlags: 0
@@ -33425,7 +33418,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 8300000, guid: 0c9043c8984689e49b1db900848dc0b6, type: 3}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &1829372202
 GameObject:
   m_ObjectHideFlags: 0
@@ -34320,7 +34312,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 8300000, guid: 0c9043c8984689e49b1db900848dc0b6, type: 3}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &2042448044
 GameObject:
   m_ObjectHideFlags: 0
@@ -34439,7 +34430,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &2070150957
 GameObject:
   m_ObjectHideFlags: 0
@@ -34723,7 +34713,6 @@ MonoBehaviour:
   audioSource: {fileID: 557709909}
   hoverSound: {fileID: 8300000, guid: 0c9043c8984689e49b1db900848dc0b6, type: 3}
   clickSound: {fileID: 8300000, guid: be63ed881e37c304688af6409a46d6b0, type: 3}
-  volumenBase: 1
 --- !u!1 &2099248039
 GameObject:
   m_ObjectHideFlags: 0

@@ -181,12 +181,6 @@ public class Pausa : MonoBehaviour
         {
             efecto.SetVolumen(valor);
         }
-
-        // Actualizar botones (si tienen UIButtonSound)
-        foreach (UIButtonSound btn in FindObjectsOfType<UIButtonSound>())
-        {
-            btn.ActualizarVolumen();
-        }
     }
 
     public void Musica(float valor)

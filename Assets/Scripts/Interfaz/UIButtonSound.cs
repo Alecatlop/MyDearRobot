@@ -8,12 +8,6 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerClickH
     public AudioSource audioSource;
     public AudioClip hoverSound;
     public AudioClip clickSound;
-    public float volumenBase = 1f;
-
-    void Start()
-    {
-        ActualizarVolumen();
-    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -29,12 +23,5 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerClickH
         {
             audioSource.PlayOneShot(clickSound, audioSource.volume);
         }
-    }
-
-    public void ActualizarVolumen()
-    {
-        float volumenGlobal = PlayerPrefs.GetFloat("efectos", 1f);
-        if (audioSource != null)
-            audioSource.volume = volumenGlobal * volumenBase;
     }
 }

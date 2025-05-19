@@ -11,7 +11,10 @@ public class Nivel1 : MonoBehaviour
     public GameObject tierra;
     public GameObject arena;
     public Animator animator;
-    
+    public AudioClip audioAbrir;  
+    public AudioClip audioCerrar;
+    private AudioSource audioSource;
+
 
 
     // Start is called before the first frame update
@@ -20,8 +23,14 @@ public class Nivel1 : MonoBehaviour
         puerta = GameObject.Find("Modelo ruinas");
         puerta.GetComponent<Animator>().enabled = false;
         arena = GameObject.Find("Arena");
+        
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -39,10 +48,21 @@ public class Nivel1 : MonoBehaviour
         {
             puerta.GetComponent<Animator>().enabled = true;
             animator.Play(stateName: "Animacion_Completa");
+
+            StartCoroutine(SonidoAbrirRetrasado(3f));
+
             tierra.GetComponent<Collider>().enabled = true;
-
             tierra.SetActive(false);
+        }
+    }
 
+    private IEnumerator SonidoAbrirRetrasado(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (audioAbrir != null)
+        {
+            audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+            audioSource.PlayOneShot(audioAbrir);
         }
     }
 
@@ -53,10 +73,16 @@ public class Nivel1 : MonoBehaviour
             arena.SetActive(false);
             puertasalida.SetActive(true);
             animator.Play(stateName: "PuertaCerrar");
+
+            if (audioCerrar != null)
+            {
+                audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+                audioSource.PlayOneShot(audioCerrar);
+            }
+
             nivel.Nivel1();
             nivel.Nivel2();
             this.GetComponent<Collider>().enabled = false;
         }
     }
-
 }

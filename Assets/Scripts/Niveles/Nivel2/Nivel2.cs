@@ -9,26 +9,28 @@ public class Nivel2 : MonoBehaviour
     GameObject puerta;
     GameObject plataformas;
     public Animator animator;
+    public AudioClip audioAbrir;  
+    public AudioClip audioCerrar;
+    private AudioSource audioSource;
     
-
-    // Start is called before the first frame update
     void Start()
     {
         plataformas = GameObject.Find("Plataformas");
         puerta = GameObject.Find("Puerta2");
-        
-        plataformas.SetActive(false);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        plataformas.SetActive(false);
+
+        audioSource = puerta.GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = puerta.AddComponent<AudioSource>();
+        }
     }
 
     public void ActivarPlataformas()
     {
-        animator.Play("Puerta");
+        ReproducirSonido(audioAbrir);
+        animator.Play("Puerta", -1, 0f);
         plataformas.SetActive(true);
         puerta.GetComponent<Collider>().enabled = false;
     }
@@ -38,8 +40,18 @@ public class Nivel2 : MonoBehaviour
         if (other.tag == "Player")
         {
             animator.Play("PuertaCerrar");
-            nivel.Nivel3(); 
+            ReproducirSonido(audioCerrar);
+            nivel.Nivel3();
             this.GetComponent<Collider>().enabled = false;
+        }
+    }
+
+    private void ReproducirSonido(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
         }
     }
 }
