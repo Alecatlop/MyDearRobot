@@ -38,7 +38,7 @@ public class Nivel2 : MonoBehaviour
         if (other.tag == "Player")
         {
             animator.Play("PuertaCerrar");
-            nivel.Nivel3();
+            nivel.Nivel3(); 
             this.GetComponent<Collider>().enabled = false;
         }
     }
