@@ -6,14 +6,15 @@ public class EfectoSonido : MonoBehaviour
 {
     private AudioSource[] audios;
     [Range(0f, 1f)]
-    public float volumenBase = 1f; 
+    public float volumenBase = 1f;
 
     void Awake()
     {
         audios = GetComponents<AudioSource>();
+        ActualizarVolumen();
     }
 
-    void Start()
+    public void ActualizarVolumen()
     {
         float volumenGlobal = PlayerPrefs.GetFloat("efectos", 1f);
         SetVolumen(volumenGlobal);
@@ -31,8 +32,7 @@ public class EfectoSonido : MonoBehaviour
     {
         foreach (AudioSource audio in audios)
         {
-            if (audio.isPlaying)
-                audio.Pause();
+            if (audio.isPlaying) audio.Pause();
         }
     }
 

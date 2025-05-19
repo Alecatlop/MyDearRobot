@@ -8,6 +8,10 @@ public class Baldosa : MonoBehaviour
     public Renderer runarenderer;
     float velocidadCaida = 10f;
 
+    public AudioClip RunaIncorrecta;
+    public AudioClip RunaCorrecta;
+    private AudioSource audioSource;
+    private bool sonidoCorrectoReproducido = false;
     private bool caer = false;
     private Vector3 posicionObjetivo;
 
@@ -15,6 +19,14 @@ public class Baldosa : MonoBehaviour
     {
         // Inicialmente no hay posición objetivo
         posicionObjetivo = transform.position;
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
     }
 
     void Update()
@@ -37,11 +49,24 @@ public class Baldosa : MonoBehaviour
                 Debug.Log("hola");
                 material.SetColor("_EmissionColor", Color.green);
                 material.EnableKeyword("_EMISSION");
+
+                if (!sonidoCorrectoReproducido && RunaCorrecta != null)
+                {
+                    audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+                    audioSource.PlayOneShot(RunaCorrecta);
+                    sonidoCorrectoReproducido = true;
+                }
             }
             else
             {
                 material.SetColor("_EmissionColor", Color.red);
                 material.EnableKeyword("_EMISSION");
+
+                if (RunaIncorrecta != null)
+                {
+                    audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+                    audioSource.PlayOneShot(RunaIncorrecta);
+                }
 
                 // Establece la nueva posición objetivo más abajo
                 posicionObjetivo = transform.position + Vector3.down * 100f; // Puedes ajustar la distancia

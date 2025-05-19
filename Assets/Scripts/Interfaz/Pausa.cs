@@ -47,7 +47,7 @@ public class Pausa : MonoBehaviour
         toggle = GameObject.Find("Toggle").gameObject.GetComponent<Toggle>();
 
         datos = GameObject.Find("Persistente").GetComponent<Persistente>();
-      
+
         this.gameObject.SetActive(false);
         opciones.SetActive(true);
         controles.SetActive(false);
@@ -63,7 +63,6 @@ public class Pausa : MonoBehaviour
         datos.GetComponent<AudioSource>().volume = slidermusica.GetComponent<Slider>().value;
 
         sliderefectos.GetComponent<Slider>().value = datos.volumenefectos;
-        Efectos(datos.volumenefectos); 
 
         if (Screen.fullScreen)
         {
@@ -72,6 +71,11 @@ public class Pausa : MonoBehaviour
         else toggle.isOn = false;
 
         ComprobacionCalidad();
+        
+        if (!datos.GetComponent<AudioSource>().isPlaying)
+        {
+            datos.GetComponent<AudioSource>().Play();
+        }
     }
 
     public void ComprobacionCalidad()
@@ -160,30 +164,37 @@ public class Pausa : MonoBehaviour
 
     public void Brillo(float valor)
     {
-        datos.valorcalidad = sliderbrillo.GetComponent<Slider>().value;
-        PlayerPrefs.GetFloat("brillo", sliderbrillo.GetComponent<Slider>().value);
-        panelbrillo.color = new Color(panelbrillo.color.r, panelbrillo.color.g, panelbrillo.color.b, sliderbrillo.GetComponent<Slider>().value);
+        datos.valorcalidad = valor;
+        PlayerPrefs.SetFloat("brillo", valor);
+        PlayerPrefs.Save();
+        panelbrillo.color = new Color(panelbrillo.color.r, panelbrillo.color.g, panelbrillo.color.b, valor);
     }
     
     public void Efectos(float valor)
     {
-        boton.Play();
-        datos.volumenefectos = sliderefectos.GetComponent<Slider>().value;
-        PlayerPrefs.SetFloat("efectos", sliderefectos.GetComponent<Slider>().value);
+        datos.volumenefectos = valor;
+        PlayerPrefs.SetFloat("efectos", valor);
         PlayerPrefs.Save();
-        boton.volume = sliderefectos.GetComponent<Slider>().value;
 
+        // Actualizar todos los objetos con EfectoSonido
         foreach (EfectoSonido efecto in FindObjectsOfType<EfectoSonido>())
         {
-            efecto.SetVolumen(sliderefectos.GetComponent<Slider>().value);
+            efecto.SetVolumen(valor);
+        }
+
+        // Actualizar botones (si tienen UIButtonSound)
+        foreach (UIButtonSound btn in FindObjectsOfType<UIButtonSound>())
+        {
+            btn.ActualizarVolumen();
         }
     }
 
     public void Musica(float valor)
     {
-        datos.volumenmusica = slidermusica.GetComponent<Slider>().value;
-        PlayerPrefs.GetFloat("musica", slidermusica.GetComponent<Slider>().value);
-        datos.GetComponent<AudioSource>().volume = slidermusica.GetComponent<Slider>().value;
+        datos.volumenmusica = valor;
+        PlayerPrefs.SetFloat("musica", valor);
+        PlayerPrefs.Save();
+        datos.GetComponent<AudioSource>().volume = valor;
     }
 
     public void PantallaCompleta(bool valor)
@@ -228,7 +239,6 @@ public class Pausa : MonoBehaviour
     public void Volver()
     {
         boton.Play();
-        datos.GetComponent<AudioSource>().Stop();
         SceneManager.LoadScene("Menu");
     }
     
