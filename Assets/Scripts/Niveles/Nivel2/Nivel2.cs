@@ -8,6 +8,7 @@ public class Nivel2 : MonoBehaviour
     public GameMana nivel;
     GameObject puerta;
     GameObject plataformas;
+    public Animator animator;
     
 
     // Start is called before the first frame update
@@ -27,7 +28,7 @@ public class Nivel2 : MonoBehaviour
 
     public void ActivarPlataformas()
     {
-        puerta.SetActive(false);
+        animator.Play("Puerta");
         plataformas.SetActive(true);
     }
 
@@ -35,7 +36,7 @@ public class Nivel2 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            puerta.SetActive(true);
+            animator.Play("PuertaCerrar");
             nivel.Nivel3();
             this.GetComponent<Collider>().enabled = false;
         }

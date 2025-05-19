@@ -12,12 +12,12 @@ public class Puerta : MonoBehaviour
     void Start()
     {
         jugador = GameObject.Find("Jugador");
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Vector3 posjugador = jugador.transform.position;
         Vector3 pospuerta = puerta.transform.position;
 
@@ -25,12 +25,11 @@ public class Puerta : MonoBehaviour
 
         if (distancia > 15)
         {
-            //animator.enabled = true;
             puerta.gameObject.SetActive(true);
         }
         else if (distancia < 15)
         {
-            puerta.gameObject.SetActive(false);
+            animator.Play(stateName: "Puerta");
         }
            
     }
@@ -39,7 +38,7 @@ public class Puerta : MonoBehaviour
     {
         if (other.name == "Jugador")
         {
-            puerta.gameObject.SetActive(true);
+            animator.Play("PuertaCerrar");
             Destroy(gameObject);
         }
     }
