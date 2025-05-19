@@ -30,6 +30,7 @@ public class Nivel2 : MonoBehaviour
     {
         animator.Play("Puerta");
         plataformas.SetActive(true);
+        puerta.GetComponent<Collider>().enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
