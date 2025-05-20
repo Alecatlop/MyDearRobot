@@ -21,8 +21,9 @@ public class CinematicaFinalMManager : MonoBehaviour
     public GameObject secuencia7A;
     public GameObject secuencia7camara;
     public GameObject secuencia8camara;
-    public GameObject secuencia9A;
+    public GameObject secuencia8A;
     public GameObject secuencia9camara;
+    public GameObject secuencia9A;
 
     // Start is called before the first frame update
     void Start()
@@ -42,9 +43,11 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia6camara.SetActive(false);
         secuencia7A.SetActive(false);
         secuencia7camara.SetActive(false);
-        /*secuencia8camara.SetActive(false);
+        secuencia8camara.SetActive(false);
+        secuencia8A.SetActive(false);
+        secuencia9camara.SetActive(false);
         secuencia9A.SetActive(false);
-        secuencia9camara.SetActive(false); */
+
 
 
         StartCoroutine(Escena1());
@@ -85,7 +88,7 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia5camara.SetActive(false);
         secuencia6A.SetActive(true);
         secuencia6camara.SetActive(true);
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(6f);
         fade.SetActive(true);
         yield return new WaitForSeconds(3f);
         fade.SetActive(false);
@@ -95,8 +98,18 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia6camara.SetActive(false);
         secuencia7A.SetActive(true);
         secuencia7camara.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.60f);
         fadeOut.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        secuencia7A.SetActive(false);
+        secuencia7camara.SetActive(false);
+        secuencia8camara.SetActive(true);
+        secuencia8A.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        secuencia8camara.SetActive(false);
+        secuencia8A.SetActive(false);
+        secuencia9camara.SetActive(true);
+        secuencia9A.SetActive(true);
 
 
 
