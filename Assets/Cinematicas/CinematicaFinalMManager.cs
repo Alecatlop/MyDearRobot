@@ -24,6 +24,13 @@ public class CinematicaFinalMManager : MonoBehaviour
     public GameObject secuencia8A;
     public GameObject secuencia9camara;
     public GameObject secuencia9A;
+    public GameObject secuencia10camara;
+    public GameObject secuencia10A;
+    public GameObject secuencia11camara;
+    public GameObject secuencia11A;
+    public GameObject creditos;
+    public GameObject particulas;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +54,12 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia8A.SetActive(false);
         secuencia9camara.SetActive(false);
         secuencia9A.SetActive(false);
+        secuencia10camara.SetActive(false);
+        secuencia10A.SetActive(false);
+        secuencia11camara.SetActive(false);
+        secuencia11A.SetActive(false);
+        creditos.SetActive(false);
+        particulas.SetActive(false);
 
 
 
@@ -90,10 +103,11 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia6camara.SetActive(true);
         yield return new WaitForSeconds(6f);
         fade.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         fade.SetActive(false);
         fadeOut.SetActive(true);
         yield return new WaitForSeconds(1f);
+        particulas.SetActive(true);
         secuencia6A.SetActive(false);
         secuencia6camara.SetActive(false);
         secuencia7A.SetActive(true);
@@ -110,6 +124,24 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia8A.SetActive(false);
         secuencia9camara.SetActive(true);
         secuencia9A.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        secuencia9camara.SetActive(false);
+        secuencia9A.SetActive(false);
+        secuencia10camara.SetActive(true);
+        secuencia10A.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        secuencia10camara.SetActive(false);
+        secuencia10A.SetActive(false);
+        secuencia11camara.SetActive(true);
+        secuencia11A.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        creditos.SetActive(true);
+
+
+
+
+
+
 
 
 
