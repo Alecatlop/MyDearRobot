@@ -168,6 +168,10 @@ public class EnemigoIA: MonoBehaviour
         }
     }
 
+    
+        
+    
+
     IEnumerator Cargaataque()
     {
         yield return new WaitForSeconds(5f);
