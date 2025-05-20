@@ -40,9 +40,9 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia5camara.SetActive(false);
         secuencia6A.SetActive(false);
         secuencia6camara.SetActive(false);
-        /*secuencia7A.SetActive(false);
+        secuencia7A.SetActive(false);
         secuencia7camara.SetActive(false);
-        secuencia8camara.SetActive(false);
+        /*secuencia8camara.SetActive(false);
         secuencia9A.SetActive(false);
         secuencia9camara.SetActive(false); */
 
@@ -85,6 +85,20 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia5camara.SetActive(false);
         secuencia6A.SetActive(true);
         secuencia6camara.SetActive(true);
+        yield return new WaitForSeconds(7f);
+        fade.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        fade.SetActive(false);
+        fadeOut.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        secuencia6A.SetActive(false);
+        secuencia6camara.SetActive(false);
+        secuencia7A.SetActive(true);
+        secuencia7camara.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        fadeOut.SetActive(false);
+
+
 
 
 

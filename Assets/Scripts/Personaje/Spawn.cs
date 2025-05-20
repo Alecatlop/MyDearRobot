@@ -10,6 +10,7 @@ public class Spawn : MonoBehaviour
     public GameObject spawn;
     public GameObject jugador;
     public GameObject canvas;
+    public Animator animator;
     public UnityEngine.UI.Image fadeImage;
     public CharacterControllerScript velocidad;
 
@@ -26,16 +27,16 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
+            animator.Play("Falling Idle");
             StartCoroutine(Caida());
         }
-
     }
 
     public IEnumerator Caida()
