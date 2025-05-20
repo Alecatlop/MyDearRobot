@@ -12,6 +12,7 @@ public class EnemigoIA: MonoBehaviour
 
     public int contadorrunas;
     public int runarandom;
+    int[] posicionOcupada = new int[6];
     public int fase;
     float dist;
     public int vidas = 3;
@@ -26,6 +27,11 @@ public class EnemigoIA: MonoBehaviour
         FSM.inicializarVariables(this);
         rayo = GameObject.Find("RAYO");
         rayo.SetActive(false);
+
+        for (int i = 0; i < posicionOcupada.Length; i++)
+        {
+            posicionOcupada[i] = -1;
+        }
     }
 
     void Update()
@@ -110,7 +116,15 @@ public class EnemigoIA: MonoBehaviour
     {
         Debug.Log("Cuantas VECES SE EJECUTA SUPERATAQUE");
         runarandom = Random.Range(0, 6);
-        
+
+        do
+        {
+            runarandom = Random.Range(0, 6);
+        }
+        while (posicionOcupada[runarandom] == 1);
+
+        posicionOcupada[runarandom] = 1;
+
         ocupado = true;
         Superatataqueactivo = true;
         puedeHacerSuperataque = false;
