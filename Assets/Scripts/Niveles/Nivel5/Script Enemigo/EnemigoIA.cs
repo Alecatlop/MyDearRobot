@@ -118,11 +118,13 @@ public class EnemigoIA: MonoBehaviour
         Debug.Log("Cuantas VECES SE EJECUTA SUPERATAQUE");
         runarandom = Random.Range(0, 6);
 
+        // condicion si ha activado todas
         do
         {
             runarandom = Random.Range(0, 6);
         }
         while (posicionOcupada[runarandom] == 1);
+
         platasformas[runarandom].GetComponent<Nivel5Plataformas1>().MoverArriba();
         posicionOcupada[runarandom] = 1;
 
@@ -168,10 +170,6 @@ public class EnemigoIA: MonoBehaviour
             StartCoroutine(Dañado());
         }
     }
-
-    
-        
-    
 
     IEnumerator Cargaataque()
     {

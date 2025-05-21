@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -17,7 +18,10 @@ public class Fase2 : Estado
         base.Entrar();
         enemigoIA.lanzarCorrutinaFase();
         enemigoIA.agent.SetDestination(enemigoIA.centro.transform.position);
-       
+        for (int i = 0; i < enemigoIA.platasformas.Length; i++)
+        {
+            enemigoIA.platasformas[i].GetComponent<Nivel5Plataformas1>().MoverArriba();
+        }
         enemigoIA.agent.speed = 6f;
         enemigoIA.luzruna = true;
        

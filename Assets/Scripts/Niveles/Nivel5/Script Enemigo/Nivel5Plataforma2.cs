@@ -9,7 +9,8 @@ public class Nivel5Plataformas2 : MonoBehaviour
 {
 
     public EnemigoIA scriptenemigo;
-    bool subido = false;
+    bool subir = true;
+    bool bajar = false;
     float speed = 3f;
 
     // Start is called before the first frame update
@@ -21,19 +22,21 @@ public class Nivel5Plataformas2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (scriptenemigo.vidas == 2 && subido == false)
+        if (scriptenemigo.vidas == 2 && subir == true && bajar == false)
         {
             StartCoroutine(SubirPlataformas());
         }
         
-        if (scriptenemigo.vidas == 2 && subido == true)
+        if (scriptenemigo.vidas == 2 && subir == false && bajar == true)
         {
             StartCoroutine(BajarPlataformas());
         }
 
-        if (scriptenemigo.vidas < 2)
+        if (scriptenemigo.vidas < 2 && (subir == true || bajar == true))
         {
-            StopAllCoroutines();
+            subir = false;
+            bajar = true;
+            StartCoroutine(BajarPlataformas());
         }
     }
 
@@ -41,45 +44,62 @@ public class Nivel5Plataformas2 : MonoBehaviour
     {
         if (other.name == "Limite superior")
         {
-            StopAllCoroutines();
-            subido = true;
-            StartCoroutine(Espera());
+            if (scriptenemigo.vidas < 2)
+            {
+                print("Baja trigger");
+                StopAllCoroutines();
+                subir = false;
+                bajar = true;
+                StartCoroutine(BajarPlataformas());
+            }
+            else
+            {
+                StopAllCoroutines();
+                subir = false;
+                StartCoroutine(Espera());
+            }
         }
 
-        if (other.name == "Limite inferior")
+        if (other.name == "Limite inferior 2")
         {
-            StopAllCoroutines();
-            subido = false;
-            StartCoroutine(Espera());
+            if (scriptenemigo.vidas < 2)
+            {
+                print("Para trigger");
+                StopAllCoroutines();
+                subir = false;
+                bajar = false;
+            }
+            else
+            {
+                StopAllCoroutines();
+                bajar = false;
+                StartCoroutine(Espera2());
+            }
         }
     }
 
     IEnumerator SubirPlataformas()
     {
-        // sube todas las plataformas runa
-        if (scriptenemigo.vidas == 2 && subido == false)
-        {
-            yield return new WaitForSeconds(2);
-
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        }
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        yield return null;
     }
 
     IEnumerator BajarPlataformas()
     {
-        // sube todas las plataformas runa
-        if (scriptenemigo.vidas == 2 && subido == true)
-        {
-            yield return new WaitForSeconds(2);
-
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        }
+        transform.Translate(Vector3.back * Time.deltaTime * speed);
+        yield return null;
     }
 
     IEnumerator Espera()
     {
         yield return new WaitForSeconds(5);
-        subido = !subido;
+        bajar = true;
+    }
+
+    IEnumerator Espera2()
+    {
+        yield return new WaitForSeconds(5);
+        subir = true;
     }
 
 }

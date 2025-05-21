@@ -18,6 +18,10 @@ public class Fase3 : Estado
         enemigoIA.lanzarCorrutinaFase();
         enemigoIA.puedeHacerSuperataque = true;
         enemigoIA.lanzarCorrutinaFase3();
+        for (int i = 0; i < enemigoIA.platasformas.Length; i++)
+        {
+            enemigoIA.platasformas[i].GetComponent<Nivel5Plataformas1>().MoverAbajo();
+        }
         enemigoIA.luzruna = true;
        
     }
