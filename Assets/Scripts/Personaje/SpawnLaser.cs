@@ -10,7 +10,6 @@ public class SpawnLaser : MonoBehaviour
     public GameObject spawn;
     public GameObject jugador;
     public GameObject canvas;
-    public Animator animator;
     public UnityEngine.UI.Image fadeImage;
     public CharacterControllerScript velocidad;
 
