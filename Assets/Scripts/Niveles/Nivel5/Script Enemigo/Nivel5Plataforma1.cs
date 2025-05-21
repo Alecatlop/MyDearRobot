@@ -11,7 +11,7 @@ public class Nivel5Plataformas1 : MonoBehaviour
     public EnemigoIA scriptenemigo;
     bool subido = false;
     float speed = 3f;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +21,12 @@ public class Nivel5Plataformas1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // mover con funcion que se accede desde enemigo
         if (scriptenemigo.vidas == 2 && subido == false)
         {
             StartCoroutine(SubirPlataformas());
         }
-        
+
         if (scriptenemigo.vidas == 1 && subido == true)
         {
             StartCoroutine(BajarPlataformas());
@@ -36,24 +37,44 @@ public class Nivel5Plataformas1 : MonoBehaviour
     {
         if (other.name == "Limite superior")
         {
+            print("Trigger");
             StopAllCoroutines();
             subido = true;
-            StartCoroutine(Espera());
+            if (scriptenemigo.vidas == 1)
+            {
+                StartCoroutine(Espera());
+            }
+          
         }
 
         if (other.name == "Limite inferior")
         {
             StopAllCoroutines();
             subido = false;
-            StartCoroutine(Espera());
+            if (scriptenemigo.vidas == 1)
+            {
+                StartCoroutine(Espera());
+            }
         }
+    }
+
+    public void MoverArriba()
+    {
+        print("ejecutar mover arriba");
+        StartCoroutine(SubirPlataformas());
+    }
+
+    public void MoverAbajo()
+    {
+        StartCoroutine(BajarPlataformas());
     }
 
     IEnumerator SubirPlataformas()
     {
         // sube todas las plataformas runa
-        if (scriptenemigo.vidas == 2 && subido == false)
+        if (subido == false)
         {
+            print("corrutina");
             yield return new WaitForSeconds(2);
 
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
@@ -64,7 +85,7 @@ public class Nivel5Plataformas1 : MonoBehaviour
     IEnumerator BajarPlataformas()
     {
         // sube todas las plataformas runa
-        if (scriptenemigo.vidas == 1 && subido == true)
+        if (subido == true)
         {
             yield return new WaitForSeconds(2);
 

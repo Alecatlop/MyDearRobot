@@ -17,6 +17,7 @@ public class Fase2 : Estado
         base.Entrar();
         enemigoIA.lanzarCorrutinaFase();
         enemigoIA.agent.SetDestination(enemigoIA.centro.transform.position);
+       
         enemigoIA.agent.speed = 6f;
         enemigoIA.luzruna = true;
        
