@@ -9,6 +9,7 @@ public class EnemigoIA: MonoBehaviour
     public GameObject centro;
     public NavMeshAgent agent;
     GameObject rayo;
+    public GameObject[] platasformas;
 
     public int contadorrunas;
     public int runarandom;
@@ -122,7 +123,7 @@ public class EnemigoIA: MonoBehaviour
             runarandom = Random.Range(0, 6);
         }
         while (posicionOcupada[runarandom] == 1);
-
+        platasformas[runarandom].GetComponent<Nivel5Plataformas1>().MoverArriba();
         posicionOcupada[runarandom] = 1;
 
         ocupado = true;
@@ -181,7 +182,7 @@ public class EnemigoIA: MonoBehaviour
     IEnumerator CargaSuperataque()
     {
         yield return new WaitForSeconds(12f);
-        
+        platasformas[runarandom].GetComponent<Nivel5Plataformas1>().MoverAbajo();
         Superatataqueactivo = false;
 
         yield return new WaitForSeconds(5f);
