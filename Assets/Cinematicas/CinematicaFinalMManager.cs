@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class CinematicaFinalMManager : MonoBehaviour
@@ -103,18 +104,15 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia6camara.SetActive(true);
         yield return new WaitForSeconds(6f);
         fade.SetActive(true);
-        yield return new WaitForSeconds(4f);
-        fade.SetActive(false);
-        fadeOut.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(6.8f);
         particulas.SetActive(true);
         secuencia6A.SetActive(false);
         secuencia6camara.SetActive(false);
         secuencia7A.SetActive(true);
         secuencia7camara.SetActive(true);
-        yield return new WaitForSeconds(1.60f);
-        fadeOut.SetActive(false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.5f);
+        fade.SetActive(false);
+        yield return new WaitForSeconds(2.6f);
         secuencia7A.SetActive(false);
         secuencia7camara.SetActive(false);
         secuencia8camara.SetActive(true);
@@ -136,6 +134,14 @@ public class CinematicaFinalMManager : MonoBehaviour
         secuencia11A.SetActive(true);
         yield return new WaitForSeconds(1f);
         creditos.SetActive(true);
+        yield return new WaitForSeconds(55f);
+        creditos.SetActive(true);
+        fade.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene(sceneName: "Menu");
+
+
+
 
 
 

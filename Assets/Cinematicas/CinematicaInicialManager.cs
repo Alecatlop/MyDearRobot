@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class CinematicaInicialManager : MonoBehaviour
@@ -88,6 +89,8 @@ public class CinematicaInicialManager : MonoBehaviour
         secuencia9A.SetActive(true);
         secuencia9camara.SetActive(true);
         yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(sceneName: "Oficial");
+
 
 
     }

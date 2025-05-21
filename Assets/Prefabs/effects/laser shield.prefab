@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4755128301535930450}
   - component: {fileID: 2289804625212862366}
   - component: {fileID: 1681172355652367833}
-  - component: {fileID: 1086541290043507432}
+  - component: {fileID: 2677628355593890361}
   m_Layer: 0
   m_Name: rayo
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 2.24}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1086541290043507432
+--- !u!114 &2677628355593890361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,12 +115,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7041723988054716795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e8b39baa295fb42a3e44bc50d2c65c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5090be6b1ec845544952497cceec7efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 0}
   jugador: {fileID: 0}
   canvas: {fileID: 0}
+  animator: {fileID: 0}
   fadeImage: {fileID: 0}
   velocidad: {fileID: 0}
 --- !u!1 &8985987191313024541

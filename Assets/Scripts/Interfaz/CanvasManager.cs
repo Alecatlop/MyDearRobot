@@ -127,7 +127,7 @@ public class CanvasManager : MonoBehaviour
     public void Jugar()
     {
         boton.Play();
-        SceneManager.LoadScene("Oficial");
+        SceneManager.LoadScene("Cinematica Inicial");
     }
 
     public void Configuracion()

@@ -18139,6 +18139,14 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1507030489}
     - target: {fileID: 3368824878514867979, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
       propertyPath: sonidoLaser
       value: 
@@ -39763,6 +39771,14 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1507030489}
     - target: {fileID: 3368824878514867979, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
       propertyPath: sonidoLaser
       value: 
@@ -52573,7 +52589,7 @@ MonoBehaviour:
   spawn: {fileID: 1442588434}
   jugador: {fileID: 0}
   canvas: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 1507030489}
   fadeImage: {fileID: 0}
   velocidad: {fileID: 0}
 --- !u!65 &566360437
@@ -71089,6 +71105,14 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1507030489}
     - target: {fileID: 3368824878514867979, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
       propertyPath: sonidoLaser
       value: 
@@ -112795,6 +112819,14 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1507030489}
     - target: {fileID: 3368824878514867979, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
       propertyPath: sonidoLaser
       value: 
@@ -112803,7 +112835,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: laser shield (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1086541290043507432, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -115370,7 +115403,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 716550145}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.8133333
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -122328,6 +122361,14 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1507030489}
     - target: {fileID: 3368824878514867979, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
       propertyPath: sonidoLaser
       value: 
@@ -136898,7 +136939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
+  m_AnchoredPosition: {x: 0, y: -0.000009536743}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1001 &1558356571
@@ -140379,6 +140420,14 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1507030489}
     - target: {fileID: 3368824878514867979, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
       propertyPath: sonidoLaser
       value: 
@@ -164990,6 +165039,14 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 768963742}
+    - target: {fileID: 2677628355593890361, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1507030489}
     - target: {fileID: 3368824878514867979, guid: fefe84697f20c424ea19f517d72cacdf, type: 3}
       propertyPath: sonidoLaser
       value: 
