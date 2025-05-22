@@ -32,8 +32,10 @@ public class Fase1 : Estado
 
             if (!puede && !enemigoIA.ocupado)
             {
+                //enemigoIA.animator.SetBool("caminar", true);
                 enemigoIA.agent.speed = 2f;
                 enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
+                enemigoIA.transform.LookAt(enemigoIA.jugador.transform.position);
             }
 
             enemigoIA.ActivarRayo();

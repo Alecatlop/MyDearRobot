@@ -38,6 +38,8 @@ public class Fase3 : Estado
 
             if (!puede && !enemigoIA.ocupado && !enemigoIA.Superatataqueactivo)
             {
+                //enemigoIA.animator.SetBool("caminar", true);
+                enemigoIA.transform.LookAt(enemigoIA.jugador.transform.position);
                 enemigoIA.agent.speed = 2f;
                 enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
             }

@@ -18,6 +18,8 @@ public class Fase2 : Estado
         base.Entrar();
         enemigoIA.lanzarCorrutinaFase();
         enemigoIA.agent.SetDestination(enemigoIA.centro.transform.position);
+        enemigoIA.transform.LookAt(enemigoIA.centro.transform.position);
+        //enemigoIA.animator.SetBool("caminar", true);
         for (int i = 0; i < enemigoIA.platasformas.Length; i++)
         {
             enemigoIA.platasformas[i].GetComponent<Nivel5Plataformas1>().MoverArriba();
@@ -32,6 +34,7 @@ public class Fase2 : Estado
 
         if (enemigoIA.vidas == 1)
         {
+            enemigoIA.animator.SetBool("terremoto", false);
             enemigoIA.ocupado = true;
             siguienteEstado = new Fase3();
             siguienteEstado.inicializarVariables(enemigoIA);

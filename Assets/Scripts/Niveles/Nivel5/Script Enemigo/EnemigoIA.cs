@@ -10,6 +10,7 @@ public class EnemigoIA: MonoBehaviour
     public NavMeshAgent agent;
     GameObject rayo;
     public GameObject[] platasformas;
+    public Animator animator;
 
     public int contadorrunas;
     public int runarandom;
@@ -24,6 +25,17 @@ public class EnemigoIA: MonoBehaviour
 
     void Start()
     {
+      
+
+        if (fase == 1)
+        {
+            FSM = new Fase1();
+        }
+        else if(fase == 3)
+        {
+            FSM = new Fase3();
+        }
+
         FSM = new Fase1();
         FSM.inicializarVariables(this);
         rayo = GameObject.Find("RAYO");
@@ -33,6 +45,8 @@ public class EnemigoIA: MonoBehaviour
         {
             posicionOcupada[i] = -1;
         }
+
+        transform.LookAt(jugador.transform.position);
     }
 
     void Update()
@@ -68,7 +82,7 @@ public class EnemigoIA: MonoBehaviour
 
             return true;
         }
-        else if (dist < 18f && ocupado == false && Superatataqueactivo == false && puedeHacerSuperataque == false)
+        else if (dist < 12f && ocupado == false && Superatataqueactivo == false && puedeHacerSuperataque == false)
         {
             ocupado = true;
             Ataque1();
@@ -87,6 +101,8 @@ public class EnemigoIA: MonoBehaviour
     {
        Debug.Log("Ataque1 / PISOTON");
         this.agent.speed = 0f;
+        animator.SetBool("pisoton", true);
+        animator.SetBool("caminar", false);
         StartCoroutine(Cargaataque());
     }
 
@@ -94,6 +110,8 @@ public class EnemigoIA: MonoBehaviour
     {
         Debug.Log("Ataque2 / PUÑETAZO");
         this.agent.speed = 0f;
+        animator.SetBool("puñetazo", true);
+        animator.SetBool("caminar", false);
         StartCoroutine(Cargaataque());
     }
 
@@ -101,6 +119,8 @@ public class EnemigoIA: MonoBehaviour
     {
         Debug.Log("Ataque3 / RAYO");
         this.agent.speed = 0f;
+        animator.SetBool("rayo", true);
+        animator.SetBool("caminar", false);
         StartCoroutine(Cargaataque());
     }
 
@@ -109,16 +129,20 @@ public class EnemigoIA: MonoBehaviour
         if (ocupado == false)
         {
             ocupado = true;
+            animator.SetBool("terremoto", true);
+            animator.SetBool("caminar", false);
             Debug.Log("Golpearsuelo / TERREMOTO");
         }
     }
 
     public void Superataque()
     {
+        animator.SetBool("superataque", true);
+        animator.SetBool("caminar", false);
         Debug.Log("Cuantas VECES SE EJECUTA SUPERATAQUE");
         runarandom = Random.Range(0, 6);
 
-        // condicion si ha activado todas
+        // condicion si ha activado todas volver todas a -1 o dejar de hacer hacer superataque
         do
         {
             runarandom = Random.Range(0, 6);
@@ -146,18 +170,23 @@ public class EnemigoIA: MonoBehaviour
 
     IEnumerator Dañado()
     {
+        animator.SetBool("dañado", true);
+        animator.SetBool("caminar", false);
         ocupado = true;
         this.agent.speed = 0f;
         vidas--;
         luzruna = false;
-       
+
+        yield return new WaitForSeconds(2f);
         Debug.Log("Dañado, le quedan " + vidas);
         ocupado = false;
         yield return null;
+        animator.SetBool("dañado", false);
     }
 
     public void Morir()
     {
+        animator.SetBool("caminar", false);
         Debug.Log("Muerto");
         this.gameObject.SetActive(false);   
     }
@@ -174,6 +203,9 @@ public class EnemigoIA: MonoBehaviour
     IEnumerator Cargaataque()
     {
         yield return new WaitForSeconds(5f);
+        animator.SetBool("pisoton", false);
+        animator.SetBool("puñetazo", false);
+        animator.SetBool("rayo", false);
         ocupado = false;
     }
 
@@ -184,6 +216,7 @@ public class EnemigoIA: MonoBehaviour
         Superatataqueactivo = false;
 
         yield return new WaitForSeconds(5f);
+        animator.SetBool("superataque", false);
         ocupado = false;
 
 
