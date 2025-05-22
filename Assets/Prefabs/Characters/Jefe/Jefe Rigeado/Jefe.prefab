@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6014138138920483811}
   - component: {fileID: 580139729350298389}
+  - component: {fileID: 6329955179502459637}
+  - component: {fileID: 5232850014883922045}
   m_Layer: 0
   m_Name: Jefe
   m_TagString: Untagged
@@ -47,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
   centro: {fileID: 0}
-  agent: {fileID: 493039421037351872}
+  agent: {fileID: 0}
   platasformas:
   - {fileID: 0}
   - {fileID: 0}
@@ -64,6 +66,49 @@ MonoBehaviour:
   luzruna: 1
   puedeHacerSuperataque: 0
   Superatataqueactivo: 0
+--- !u!195 &6329955179502459637
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240910138599973395}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1.7
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 16.28
+  m_BaseOffset: 9.98
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!65 &5232850014883922045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240910138599973395}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.48, y: 14.41, z: 2.41}
+  m_Center: {x: -0.07, y: -2.92, z: 0}
 --- !u!1001 &4612779378872600017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,12 +192,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fa258777ec1c4a14887e4f125c9e07b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3013402615467126600}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fa258777ec1c4a14887e4f125c9e07b5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 493039421037351872}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fa258777ec1c4a14887e4f125c9e07b5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8332377945410966594}
   m_SourcePrefab: {fileID: 100100000, guid: fa258777ec1c4a14887e4f125c9e07b5, type: 3}
 --- !u!4 &5154751418653975098 stripped
 Transform:
@@ -185,46 +224,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!195 &493039421037351872
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5531136907053889664}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.74
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 3.6
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!65 &8332377945410966594
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5531136907053889664}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.86, y: 5.02, z: 2.11}
-  m_Center: {x: 0.1, y: 2.4, z: -0.51}

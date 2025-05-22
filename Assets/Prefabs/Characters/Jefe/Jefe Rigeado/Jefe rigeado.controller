@@ -1,30 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1101 &-8879840815721161275
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: terremoto
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -8253657118600299726}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.94736844
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
 --- !u!1102 &-8253657118600299726
 AnimatorState:
   serializedVersion: 6
@@ -93,9 +68,9 @@ AnimatorState:
   - {fileID: -250556502851638446}
   - {fileID: 1645676465278827967}
   - {fileID: -4566172534282947403}
-  - {fileID: -8879840815721161275}
   - {fileID: -2664148414433309414}
   - {fileID: -7343134102044040798}
+  - {fileID: 8314626518763674984}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -119,9 +94,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: superataque
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: furia
     m_EventTreshold: 0
@@ -151,7 +123,7 @@ AnimatorStateTransition:
     m_ConditionEvent: terremoto
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: "Da\xF1ado"
+    m_ConditionEvent: "da\xF1ado"
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8964961162043885289}
@@ -226,7 +198,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: "Da\xF1ado"
+    m_ConditionEvent: "da\xF1ado"
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8964961162043885289}
@@ -253,8 +225,9 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: 7503003514968208596}
   - {fileID: 2638078327687093808}
+  - {fileID: 4482652697986868657}
+  - {fileID: 6523172737992768616}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -527,16 +500,16 @@ AnimatorStateMachine:
     m_Position: {x: 620, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8253657118600299726}
-    m_Position: {x: 810, y: 150, z: 0}
+    m_Position: {x: 940, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7736340844468554908}
     m_Position: {x: 500, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1926505897016466430}
-    m_Position: {x: 730, y: -10, z: 0}
+    m_Position: {x: 760, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8964961162043885289}
-    m_Position: {x: 810, y: 80, z: 0}
+    m_Position: {x: 750, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1757906532416683101}
     m_Position: {x: 490, y: -10, z: 0}
@@ -547,9 +520,37 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 60, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 1080, y: 130, z: 0}
+  m_ExitPosition: {x: 1190, y: 210, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -7736340844468554908}
+--- !u!1101 &4482652697986868657
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: terremoto
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: furia
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -8253657118600299726}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9433962
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &4522292085684919961
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -570,7 +571,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.9142857
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -587,7 +588,7 @@ AnimatorStateTransition:
     m_ConditionEvent: furia
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: "Da\xF1ado"
+    m_ConditionEvent: "da\xF1ado"
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1926505897016466430}
@@ -598,7 +599,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.9361702
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -650,7 +651,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.76
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -676,6 +677,37 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.94545454
   m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &6523172737992768616
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: furia
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: terremoto
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: superataque
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -7736340844468554908}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9433962
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -707,7 +739,7 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1101 &7503003514968208596
+--- !u!1101 &8314626518763674984
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -715,18 +747,18 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: furia
+  - m_ConditionMode: 1
+    m_ConditionEvent: terremoto
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -7736340844468554908}
+  m_DstState: {fileID: -8253657118600299726}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.9433962
+  m_ExitTime: 0.94736844
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

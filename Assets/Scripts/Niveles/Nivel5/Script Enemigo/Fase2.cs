@@ -18,7 +18,6 @@ public class Fase2 : Estado
         base.Entrar();
         enemigoIA.lanzarCorrutinaFase();
         enemigoIA.agent.SetDestination(enemigoIA.centro.transform.position);
-        enemigoIA.transform.LookAt(enemigoIA.centro.transform.position);
         //enemigoIA.animator.SetBool("caminar", true);
         for (int i = 0; i < enemigoIA.platasformas.Length; i++)
         {
@@ -47,7 +46,6 @@ public class Fase2 : Estado
 
     public override void Salir()
     {
-        enemigoIA.TerminarCorrutinas();
         base.Salir();
     }
 }

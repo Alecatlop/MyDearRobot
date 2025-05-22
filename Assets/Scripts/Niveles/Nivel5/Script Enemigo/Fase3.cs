@@ -15,9 +15,9 @@ public class Fase3 : Estado
     public override void Entrar()
     {
         base.Entrar();
+        enemigoIA.animator.SetBool("caminar", true);
         enemigoIA.lanzarCorrutinaFase();
         enemigoIA.puedeHacerSuperataque = true;
-        enemigoIA.lanzarCorrutinaFase3();
         for (int i = 0; i < enemigoIA.platasformas.Length; i++)
         {
             enemigoIA.platasformas[i].GetComponent<Nivel5Plataformas1>().MoverAbajo();
@@ -38,7 +38,6 @@ public class Fase3 : Estado
 
             if (!puede && !enemigoIA.ocupado && !enemigoIA.Superatataqueactivo)
             {
-                //enemigoIA.animator.SetBool("caminar", true);
                 enemigoIA.transform.LookAt(enemigoIA.jugador.transform.position);
                 enemigoIA.agent.speed = 2f;
                 enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
@@ -46,7 +45,7 @@ public class Fase3 : Estado
 
             if (enemigoIA.vidas == 1 && enemigoIA.ocupado == false && enemigoIA.puedeHacerSuperataque == true)
             {
-                enemigoIA.Superataque();
+                enemigoIA.IniciarSuperataque();
             }
 
             enemigoIA.ActivarRayo();

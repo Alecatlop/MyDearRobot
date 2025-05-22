@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cinematica Inicial.unity
     guid: 14b0e9bbccaf8654d8e6edbc2c0941b9
+  - enabled: 1
+    path: Assets/Scenes/Cinematica Final Bueno.unity
+    guid: 4c797deeaf8a66b4c82b10844daf6c39
+  - enabled: 1
+    path: Assets/Scenes/Cinematica Final Malo.unity
+    guid: d91e501cce4fe2b4a9945534432f4ea2
   m_configObjects: {}

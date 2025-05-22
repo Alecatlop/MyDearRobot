@@ -1,6 +1,9 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemigoIA: MonoBehaviour
 {
@@ -8,7 +11,8 @@ public class EnemigoIA: MonoBehaviour
     public GameObject jugador;
     public GameObject centro;
     public NavMeshAgent agent;
-    GameObject rayo;
+    GameObject rayotrigger;
+    GameObject rayolaser;
     public GameObject[] platasformas;
     public Animator animator;
 
@@ -26,20 +30,19 @@ public class EnemigoIA: MonoBehaviour
     void Start()
     {
       
+        FSM = new Fase1();
 
-        if (fase == 1)
-        {
-            FSM = new Fase1();
-        }
-        else if(fase == 3)
-        {
-            FSM = new Fase3();
-        }
+        //if(fase == 3)
+        //{
+        //    FSM = new Fase3();
+        //}
 
         FSM = new Fase1();
         FSM.inicializarVariables(this);
-        rayo = GameObject.Find("RAYO");
-        rayo.SetActive(false);
+        rayotrigger = GameObject.Find("RAYO");
+        rayolaser = GameObject.Find("RAYOLASER");
+        rayotrigger.SetActive(false);
+        rayolaser.SetActive(false);
 
         for (int i = 0; i < posicionOcupada.Length; i++)
         {
@@ -70,13 +73,13 @@ public class EnemigoIA: MonoBehaviour
             if (probabilidad > 0 && ocupado == false && Superatataqueactivo == false && puedeHacerSuperataque == false)
             {
                 ocupado = true;
-                Ataque3();
+                StartCoroutine(Ataque3());
                 return true;
             }
             else if (probabilidad == 0 && ocupado == false && Superatataqueactivo == false && puedeHacerSuperataque == false)
             {
                 ocupado = true;
-                Ataque2();
+                StartCoroutine(Ataque2());
                 return true;
             }
 
@@ -85,61 +88,92 @@ public class EnemigoIA: MonoBehaviour
         else if (dist < 12f && ocupado == false && Superatataqueactivo == false && puedeHacerSuperataque == false)
         {
             ocupado = true;
-            Ataque1();
+            StartCoroutine(Ataque1());
             return true;
         }
         else if (dist > 35f && vidas == 3 && ocupado == false)
         {
             ocupado = true;
-            Ataque2();
+            StartCoroutine(Ataque2());
             return true;
         }
         else return false;
     }
 
-    public void Ataque1()
+    IEnumerator Ataque1()
     {
-       Debug.Log("Ataque1 / PISOTON");
+        Debug.Log("Ataque1 / PISOTON");
         this.agent.speed = 0f;
         animator.SetBool("pisoton", true);
         animator.SetBool("caminar", false);
-        StartCoroutine(Cargaataque());
+
+        yield return new WaitForSeconds(3f);
+        animator.SetBool("pisoton", false);
+
+        yield return new WaitForSeconds(3f);
+        ocupado = false;
     }
 
-    public void Ataque2()
+    IEnumerator Ataque2()
     {
         Debug.Log("Ataque2 / PUÑETAZO");
         this.agent.speed = 0f;
         animator.SetBool("puñetazo", true);
         animator.SetBool("caminar", false);
-        StartCoroutine(Cargaataque());
+
+        yield return new WaitForSeconds(4f);
+        animator.SetBool("puñetazo", false);
+
+        yield return new WaitForSeconds(2f);
+        ocupado = false;
     }
 
-    public void Ataque3()
+    IEnumerator Ataque3()
     {
         Debug.Log("Ataque3 / RAYO");
         this.agent.speed = 0f;
         animator.SetBool("rayo", true);
         animator.SetBool("caminar", false);
-        StartCoroutine(Cargaataque());
+
+        yield return new WaitForSeconds(3f);
+        animator.SetBool("rayo", false);
+        animator.SetBool("rayo descanso", true);
+
+        yield return new WaitForSeconds(1.5f);
+        animator.SetBool("rayo descanso", false);
+
+        yield return new WaitForSeconds(2f);
+        ocupado = false;
     }
 
     public void Golpearsuelo()
     {
         if (ocupado == false)
         {
+            print("Terremoto");
             ocupado = true;
             animator.SetBool("terremoto", true);
             animator.SetBool("caminar", false);
-            Debug.Log("Golpearsuelo / TERREMOTO");
         }
     }
 
-    public void Superataque()
+    public void IniciarSuperataque()
     {
+        StartCoroutine(Superataque());
+    }
+
+    IEnumerator Superataque()
+    {
+        ocupado = true;
+
+        yield return new WaitForSeconds(2f);
+        animator.SetBool("furia", true);
+
+        yield return new WaitForSeconds(2f);
+        print("inicio Superatataque");
+        animator.SetBool("furia", false);
         animator.SetBool("superataque", true);
         animator.SetBool("caminar", false);
-        Debug.Log("Cuantas VECES SE EJECUTA SUPERATAQUE");
         runarandom = Random.Range(0, 6);
 
         // condicion si ha activado todas volver todas a -1 o dejar de hacer hacer superataque
@@ -149,13 +183,13 @@ public class EnemigoIA: MonoBehaviour
         }
         while (posicionOcupada[runarandom] == 1);
 
+        yield return new WaitForSeconds(2f);
         platasformas[runarandom].GetComponent<Nivel5Plataformas1>().MoverArriba();
         posicionOcupada[runarandom] = 1;
-
-        ocupado = true;
         Superatataqueactivo = true;
         puedeHacerSuperataque = false;
         this.agent.speed = 0f;
+
         StartCoroutine(CargaSuperataque());
     }
 
@@ -163,77 +197,92 @@ public class EnemigoIA: MonoBehaviour
     {
         if (contadorrunas == 6)
         {
-            rayo.SetActive(true);
+            print("RayoTrigger activado");
+            rayotrigger.SetActive(true);
             contadorrunas = 0;
         }
     }
 
-    IEnumerator Dañado()
+    IEnumerator DisparandoRayo()
     {
-        animator.SetBool("dañado", true);
-        animator.SetBool("caminar", false);
+        print("Disparar Rayo");
         ocupado = true;
-        this.agent.speed = 0f;
-        vidas--;
-        luzruna = false;
+        rayolaser.SetActive(true);
 
         yield return new WaitForSeconds(2f);
-        Debug.Log("Dañado, le quedan " + vidas);
-        ocupado = false;
-        yield return null;
-        animator.SetBool("dañado", false);
+        StartCoroutine(Dañado());
+        rayolaser.SetActive(false);
+    }
+
+    IEnumerator Dañado()
+    {
+        if (vidas == 1)
+        {
+            animator.SetBool("dañado", true); vidas--; ocupado = true;
+        }
+        else
+        {
+            animator.SetBool("terremoto", false);
+            animator.SetBool("dañado", true);
+            animator.SetBool("caminar", false);
+            ocupado = true;
+            this.agent.speed = 0f;
+            luzruna = false;
+
+            yield return new WaitForSeconds(2f);
+            animator.SetBool("dañado", false);
+            animator.SetBool("furia", true);
+
+
+            yield return new WaitForSeconds(4f);
+            animator.SetBool("furia", false);
+            vidas--;
+            Debug.Log("Dañado, le quedan " + vidas);
+            ocupado = false;
+        }
+
     }
 
     public void Morir()
     {
-        animator.SetBool("caminar", false);
-        Debug.Log("Muerto");
-        this.gameObject.SetActive(false);   
+        print("morir");
+        SceneManager.LoadScene("Cinematica Final Malo");
+        //if (jugador.GetComponent<CharacterControllerScript>().muertesActuales >= 6)
+        //{
+        //    SceneManager.LoadScene("Cinematica Final Malo");
+        //}
+        //else SceneManager.LoadScene("Cinematica Final Bueno");
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "RAYO")
         {
-            rayo.SetActive(false);
-            StartCoroutine(Dañado());
+            print("Rayo Lanzado");
+            StartCoroutine(DisparandoRayo());
+            rayotrigger.SetActive(false);
         }
-    }
-
-    IEnumerator Cargaataque()
-    {
-        yield return new WaitForSeconds(5f);
-        animator.SetBool("pisoton", false);
-        animator.SetBool("puñetazo", false);
-        animator.SetBool("rayo", false);
-        ocupado = false;
     }
 
     IEnumerator CargaSuperataque()
     {
-        yield return new WaitForSeconds(12f);
+        yield return new WaitForSeconds(10f);
+        Debug.Log("Cargando SUPERATAQUE");
         platasformas[runarandom].GetComponent<Nivel5Plataformas1>().MoverAbajo();
         Superatataqueactivo = false;
+        animator.SetBool("superataque", false);
 
         yield return new WaitForSeconds(5f);
-        animator.SetBool("superataque", false);
         ocupado = false;
 
-
-        Debug.Log("Cargando SUPERATAQUE");
         yield return new WaitForSeconds(20f);
         puedeHacerSuperataque = true;
     }
 
-    IEnumerator CambioFase3()
-    {
-        yield return new WaitForSeconds(10f);
-        ocupado = false;
-    }
-
     IEnumerator CambiarFase()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
 
         if (vidas == 2)
         {
@@ -241,11 +290,7 @@ public class EnemigoIA: MonoBehaviour
         }
 
         fase++;
-    }
-
-    public void lanzarCorrutinaFase3()
-    {
-        StartCoroutine(CambioFase3());
+        ocupado = false;
     }
 
     public void lanzarCorrutinaFase()

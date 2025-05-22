@@ -37,7 +37,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     public int muertesParaDaño = 3;
     public int muertesParaMuyDaño = 6;
-    private int muertesActuales = 0;
+    public int muertesActuales = 0;
 
     Transform plataformaActual = null;
     Vector3 ultimaPosicionPlataforma;
@@ -254,12 +254,6 @@ public class CharacterControllerScript : MonoBehaviour
         else if (muertesActuales >= muertesParaDaño)
         {
             CambiarMateriales(materialesDañados);
-        }
-
-        if (jefe.GetComponent<EnemigoIA>().fase == 3)
-        {
-            print("cargar escenA DE NUEVO");
-            SceneManager.LoadScene("Batalla");
         }
     }
 
