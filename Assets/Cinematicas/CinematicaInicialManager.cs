@@ -21,30 +21,31 @@ public class CinematicaInicialManager : MonoBehaviour
     public GameObject secuencia8camara;
     public GameObject secuencia9A;
     public GameObject secuencia9camara;
+    public AudioSource audioCinematica;
 
     // Start is called before the first frame update
     void Start()
     {
-      secuencia1camara.SetActive(false);
-      secuencia2A.SetActive(false);
-      secuencia2camara.SetActive(false);
-      secuencia3A.SetActive(false);
-      secuencia3camara.SetActive(false);
-      secuencia4A.SetActive(false);
-      secuencia4camara.SetActive(false);
-      secuencia5A.SetActive(false);
-      secuencia5camara.SetActive(false);
-      secuencia6A.SetActive(false);
-      secuencia6camara.SetActive(false);
-      secuencia7A.SetActive(false);
-      secuencia7camara.SetActive(false);
-      secuencia8camara.SetActive(false);
-      secuencia9A.SetActive(false);
-      secuencia9camara.SetActive(false);
+        secuencia1camara.SetActive(false);
+        secuencia2A.SetActive(false);
+        secuencia2camara.SetActive(false);
+        secuencia3A.SetActive(false);
+        secuencia3camara.SetActive(false);
+        secuencia4A.SetActive(false);
+        secuencia4camara.SetActive(false);
+        secuencia5A.SetActive(false);
+        secuencia5camara.SetActive(false);
+        secuencia6A.SetActive(false);
+        secuencia6camara.SetActive(false);
+        secuencia7A.SetActive(false);
+        secuencia7camara.SetActive(false);
+        secuencia8camara.SetActive(false);
+        secuencia9A.SetActive(false);
+        secuencia9camara.SetActive(false);
 
+        audioCinematica.Play();
 
         StartCoroutine(Escena1());
-        
     }
     
     public IEnumerator Escena1()
