@@ -55,12 +55,12 @@ public class CinematicaFinalBManager : MonoBehaviour
         secuencia8A.SetActive(false);
         secuencia9camara.SetActive(false);
         secuencia9A.SetActive(false);
-        secuencia10camara.SetActive(false);
+        /*secuencia10camara.SetActive(false);
         secuencia10A.SetActive(false);
         secuencia11camara.SetActive(false);
         secuencia11A.SetActive(false);
         creditos.SetActive(false);
-        particulas.SetActive(false);
+        particulas.SetActive(false);*/
 
 
 
@@ -112,7 +112,7 @@ public class CinematicaFinalBManager : MonoBehaviour
         secuencia7camara.SetActive(true);
         yield return new WaitForSeconds(2.5f);
         fade.SetActive(false);
-        yield return new WaitForSeconds(2.6f);
+       yield return new WaitForSeconds(2.6f);
         secuencia7A.SetActive(false);
         secuencia7camara.SetActive(false);
         secuencia8camara.SetActive(true);
@@ -121,8 +121,8 @@ public class CinematicaFinalBManager : MonoBehaviour
         secuencia8camara.SetActive(false);
         secuencia8A.SetActive(false);
         secuencia9camara.SetActive(true);
-        secuencia9A.SetActive(true);
-        yield return new WaitForSeconds(3f);
+       secuencia9A.SetActive(true);
+        /*yield return new WaitForSeconds(3f);
         secuencia9camara.SetActive(false);
         secuencia9A.SetActive(false);
         secuencia10camara.SetActive(true);
@@ -138,22 +138,7 @@ public class CinematicaFinalBManager : MonoBehaviour
         creditos.SetActive(true);
         fade.SetActive(true);
         yield return new WaitForSeconds(4f);
-        SceneManager.LoadScene(sceneName: "Menu");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        SceneManager.LoadScene(sceneName: "Menu");*/
 
     }
 }
