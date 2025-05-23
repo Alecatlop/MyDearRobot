@@ -11,7 +11,7 @@ public class Nivel5Plataformas2 : MonoBehaviour
     public EnemigoIA scriptenemigo;
     bool subir = true;
     bool bajar = false;
-    float speed = 3f;
+    float speed = 6f;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,7 @@ public class Nivel5Plataformas2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Limite superior")
+        if (other.name == "Limite superior 2")
         {
             if (scriptenemigo.vidas < 2)
             {
@@ -92,13 +92,13 @@ public class Nivel5Plataformas2 : MonoBehaviour
 
     IEnumerator Espera()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         bajar = true;
     }
 
     IEnumerator Espera2()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         subir = true;
     }
 

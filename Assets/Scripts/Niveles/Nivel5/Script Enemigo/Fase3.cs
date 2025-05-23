@@ -36,14 +36,13 @@ public class Fase3 : Estado
         {
             bool puede = enemigoIA.PuedeAtacar();
 
-            if (!puede && !enemigoIA.ocupado && !enemigoIA.Superatataqueactivo)
+            if (!puede && !enemigoIA.ocupado && !enemigoIA.Superataqueactivo)
             {
-                enemigoIA.transform.LookAt(enemigoIA.jugador.transform.position);
                 enemigoIA.agent.speed = 2f;
                 enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
             }
 
-            if (enemigoIA.vidas == 1 && enemigoIA.ocupado == false && enemigoIA.puedeHacerSuperataque == true)
+            if (enemigoIA.vidas == 1 && enemigoIA.ocupado == false && enemigoIA.puedeHacerSuperataque == true && enemigoIA.contadorrunas < 6)
             {
                 enemigoIA.IniciarSuperataque();
             }
