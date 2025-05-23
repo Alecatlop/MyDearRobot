@@ -43,7 +43,7 @@ public class CinematicaInicialManager : MonoBehaviour
         secuencia9A.SetActive(false);
         secuencia9camara.SetActive(false);
 
-        audioCinematica.Play();
+        audioCinematica.PlayDelayed(0f);
 
         StartCoroutine(Escena1());
     }

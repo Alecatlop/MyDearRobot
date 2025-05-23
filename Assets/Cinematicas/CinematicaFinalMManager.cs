@@ -31,7 +31,7 @@ public class CinematicaFinalMManager : MonoBehaviour
     public GameObject secuencia11A;
     public GameObject creditos;
     public GameObject particulas;
-
+    public AudioSource audioCinematica;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +62,7 @@ public class CinematicaFinalMManager : MonoBehaviour
         creditos.SetActive(false);
         particulas.SetActive(false);
 
-
+        audioCinematica.PlayDelayed(0f);
 
         StartCoroutine(Escena1());
 
