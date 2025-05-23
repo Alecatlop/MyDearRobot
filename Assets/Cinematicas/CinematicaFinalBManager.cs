@@ -27,8 +27,6 @@ public class CinematicaFinalBManager : MonoBehaviour
     public GameObject secuencia9A;
     public GameObject secuencia10camara;
     public GameObject secuencia10A;
-    public GameObject secuencia11camara;
-    public GameObject secuencia11A;
     public GameObject creditos;
     public GameObject particulas;
 
@@ -55,12 +53,10 @@ public class CinematicaFinalBManager : MonoBehaviour
         secuencia8A.SetActive(false);
         secuencia9camara.SetActive(false);
         secuencia9A.SetActive(false);
-        /*secuencia10camara.SetActive(false);
+        secuencia10camara.SetActive(false);
         secuencia10A.SetActive(false);
-        secuencia11camara.SetActive(false);
-        secuencia11A.SetActive(false);
         creditos.SetActive(false);
-        particulas.SetActive(false);*/
+        particulas.SetActive(false);
 
 
 
@@ -121,24 +117,19 @@ public class CinematicaFinalBManager : MonoBehaviour
         secuencia8camara.SetActive(false);
         secuencia8A.SetActive(false);
         secuencia9camara.SetActive(true);
-       secuencia9A.SetActive(true);
-        /*yield return new WaitForSeconds(3f);
+        secuencia9A.SetActive(true);
+        yield return new WaitForSeconds(3f);
         secuencia9camara.SetActive(false);
         secuencia9A.SetActive(false);
         secuencia10camara.SetActive(true);
         secuencia10A.SetActive(true);
-        yield return new WaitForSeconds(2.5f);
-        secuencia10camara.SetActive(false);
+        yield return new WaitForSeconds(4f);
         secuencia10A.SetActive(false);
-        secuencia11camara.SetActive(true);
-        secuencia11A.SetActive(true);
-        yield return new WaitForSeconds(1f);
         creditos.SetActive(true);
         yield return new WaitForSeconds(55f);
-        creditos.SetActive(true);
         fade.SetActive(true);
         yield return new WaitForSeconds(4f);
-        SceneManager.LoadScene(sceneName: "Menu");*/
+        SceneManager.LoadScene(sceneName: "Menu");
 
     }
 }
