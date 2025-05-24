@@ -32,6 +32,8 @@ public class CinematicaFinalMManager : MonoBehaviour
     public GameObject creditos;
     public GameObject particulas;
     public AudioSource audioCinematica;
+    public AudioSource audioMusicaCinematica;
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,10 +64,19 @@ public class CinematicaFinalMManager : MonoBehaviour
         creditos.SetActive(false);
         particulas.SetActive(false);
 
-        audioCinematica.PlayDelayed(0f);
+        var persistente = GameObject.Find("Persistente");
+        
+        if (persistente != null)
+        {
+            var p = persistente.GetComponent<Persistente>();
+            p.GetComponent<AudioSource>().Stop();
+            audioMusicaCinematica.volume = p.volumenmusica;
+        }
+        
+        audioCinematica.PlayDelayed(0f); 
+        audioMusicaCinematica.Play(); 
 
         StartCoroutine(Escena1());
-
     }
 
     public IEnumerator Escena1()
@@ -138,22 +149,13 @@ public class CinematicaFinalMManager : MonoBehaviour
         creditos.SetActive(true);
         fade.SetActive(true);
         yield return new WaitForSeconds(4f);
+
+        if (audioMusicaCinematica != null)
+        {
+            audioMusicaCinematica.Stop();
+            Destroy(audioMusicaCinematica.gameObject);
+        }
+
         SceneManager.LoadScene(sceneName: "Menu");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

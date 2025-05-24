@@ -36,6 +36,8 @@ public class CanvasManager : MonoBehaviour
 
     float speed = 0.2f;
 
+    public AudioClip musicaMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,8 +61,14 @@ public class CanvasManager : MonoBehaviour
         sliderbrillo.GetComponent<Slider>().value = datos.valorcalidad;
         panelbrillo.color = new Color(panelbrillo.color.r, panelbrillo.color.g, panelbrillo.color.b, sliderbrillo.GetComponent<Slider>().value);
 
+        if (musicaMenu != null && datos.GetComponent<AudioSource>().clip != musicaMenu)
+        {
+            datos.CambiarMusica(musicaMenu);
+        }
+
         slidermusica.GetComponent<Slider>().value = datos.volumenmusica;
         datos.GetComponent<AudioSource>().volume = slidermusica.GetComponent<Slider>().value;
+        datos.GetComponent<AudioSource>().Play(); 
 
         sliderefectos.GetComponent<Slider>().value = datos.volumenefectos;
 
@@ -140,14 +148,14 @@ public class CanvasManager : MonoBehaviour
     public void Brillo(float valor)
     {
         datos.valorcalidad = sliderbrillo.GetComponent<Slider>().value;
-        PlayerPrefs.GetFloat("brillo", sliderbrillo.GetComponent<Slider>().value);
+        PlayerPrefs.SetFloat("brillo", sliderbrillo.GetComponent<Slider>().value);
         panelbrillo.color = new Color(panelbrillo.color.r, panelbrillo.color.g, panelbrillo.color.b, sliderbrillo.GetComponent<Slider>().value);
     }
 
     public void Efectos(float valor)
     {
         datos.volumenefectos = sliderefectos.GetComponent<Slider>().value;
-        PlayerPrefs.GetFloat("efectos", sliderefectos.GetComponent<Slider>().value);
+        PlayerPrefs.SetFloat("efectos", sliderefectos.GetComponent<Slider>().value);
         boton.volume = sliderefectos.GetComponent<Slider>().value;
         boton.Play();
     }
@@ -155,7 +163,7 @@ public class CanvasManager : MonoBehaviour
     public void Musica(float valor)
     {
         datos.volumenmusica = slidermusica.GetComponent<Slider>().value;
-        PlayerPrefs.GetFloat("musica", slidermusica.GetComponent<Slider>().value);
+        PlayerPrefs.SetFloat("musica", slidermusica.GetComponent<Slider>().value);
         datos.GetComponent<AudioSource>().volume = slidermusica.GetComponent<Slider>().value;
     }
 

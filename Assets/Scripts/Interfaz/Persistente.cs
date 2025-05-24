@@ -11,6 +11,8 @@ public class Persistente : MonoBehaviour
 
     private static Persistente instancia;
 
+    public AudioSource audioSource;
+
     private void Awake()
     {
         if (instancia == null)
@@ -34,5 +36,15 @@ public class Persistente : MonoBehaviour
         PlayerPrefs.SetFloat("musica", volumenmusica);
         PlayerPrefs.SetFloat("brillo", valorcalidad);
         PlayerPrefs.Save();
+    }
+
+    public void CambiarMusica(AudioClip nuevo)
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        if (audio.clip != nuevo)
+        {
+            audio.clip = nuevo;
+            audio.Play();
+        }
     }
 }

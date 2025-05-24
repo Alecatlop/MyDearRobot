@@ -22,6 +22,7 @@ public class CinematicaInicialManager : MonoBehaviour
     public GameObject secuencia9A;
     public GameObject secuencia9camara;
     public AudioSource audioCinematica;
+    public AudioSource audioMusicaCinematica;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +44,17 @@ public class CinematicaInicialManager : MonoBehaviour
         secuencia9A.SetActive(false);
         secuencia9camara.SetActive(false);
 
-        audioCinematica.PlayDelayed(0f);
+        var persistente = GameObject.Find("Persistente");
+        
+        if (persistente != null)
+        {
+            var p = persistente.GetComponent<Persistente>();
+            p.GetComponent<AudioSource>().Stop();
+            audioMusicaCinematica.volume = p.volumenmusica;
+        }
+
+        audioCinematica.PlayDelayed(0f); 
+        audioMusicaCinematica.Play(); 
 
         StartCoroutine(Escena1());
     }
@@ -91,8 +102,5 @@ public class CinematicaInicialManager : MonoBehaviour
         secuencia9camara.SetActive(true);
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(sceneName: "Oficial");
-
-
-
     }
 }
