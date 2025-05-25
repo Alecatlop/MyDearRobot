@@ -8,11 +8,13 @@ public class Runas5 : MonoBehaviour
     public bool activada = false;
     public bool runapintada;
     public bool runaLista = false;
+    public float intensidad = 3f;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class Runas5 : MonoBehaviour
         {
             Material mat = this.GetComponent<MeshRenderer>().material;
             mat.EnableKeyword("_EMISSION");
-            mat.SetColor("_EmissionColor", Color.yellow);
+            mat.SetColor("_EmissionColor", Color.yellow * intensidad);
             activada = true;
             scriptenemigo.contadorrunas++;
             runapintada = true;
@@ -41,7 +43,7 @@ public class Runas5 : MonoBehaviour
         {
             Material mat = this.GetComponent<MeshRenderer>().material;
             mat.EnableKeyword("_EMISSION");
-            mat.SetColor("_EmissionColor", Color.yellow);
+            mat.SetColor("_EmissionColor", Color.yellow * intensidad);
             activada = true;
             scriptenemigo.contadorrunas++;
             runapintada = true;
@@ -56,5 +58,20 @@ public class Runas5 : MonoBehaviour
         mat.EnableKeyword("_EMISSION");
         mat.SetColor("_EmissionColor", Color.white);
     }
+
+    public void AvisoRuna()
+    {
+        Material mat = this.GetComponent<MeshRenderer>().material;
+        mat.EnableKeyword("_EMISSION");
+        mat.SetColor("_EmissionColor", Color.blue * intensidad);
+    }
+
+    public void NoAvisoRuna()
+    {
+        Material mat = this.GetComponent<MeshRenderer>().material;
+        mat.EnableKeyword("_EMISSION");
+        mat.SetColor("_EmissionColor", Color.white);
+    }
+
 
 }

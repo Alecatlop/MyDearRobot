@@ -24,9 +24,9 @@ public class CharacterControllerScript : MonoBehaviour
     public bool altura = false;
     public Pausa pausa;
     private GameObject puerta;
-    GameObject jefe;
 
     public bool spawn = false;
+    public bool daño = false;
 
     public Animator animator;
 
@@ -62,12 +62,11 @@ public class CharacterControllerScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
         puerta = GameObject.Find("Puerta6");
-
-        jefe = GameObject.Find("Modelo Jefe");
     }
 
     void Update()
     {
+        //print(daño);
         // Verificar si est� en el suelo
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, 0.2f);
 
@@ -211,6 +210,22 @@ public class CharacterControllerScript : MonoBehaviour
         {
             puerta.SetActive(false);
         }
+
+        if (other.tag == "jefe")
+        {
+            print("dañaoooo");
+            daño = true;
+            AñadirMuerte();
+            StartCoroutine(SufrirDaño());
+        }
+    }
+
+    IEnumerator SufrirDaño()
+    {
+            animator.SetBool("hit", true);
+            yield return new WaitForSeconds(0.2f);
+            animator.SetBool("hit", false);
+            daño = false;
     }
 
     private void OnTriggerStay(Collider other)
@@ -234,19 +249,12 @@ public class CharacterControllerScript : MonoBehaviour
 
             sobrePlataforma = true;
         }
-
-        if (hit.gameObject.name == "Jefe")
-        {
-            print("activar muerte hit");
-            AñadirMuerte();
-        }
     }
 
     public void AñadirMuerte()
     {
-        muertesActuales++;
-        Debug.Log("Muertes: " + muertesActuales);
-
+            muertesActuales++;
+        
         if (muertesActuales >= muertesParaMuyDaño)
         {
             CambiarMateriales(materialesMuyDañados);

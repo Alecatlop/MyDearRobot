@@ -11,11 +11,25 @@ public class EnemigoIA: MonoBehaviour
     public GameObject jugador;
     public GameObject centro;
     public NavMeshAgent agent;
-    GameObject rayotrigger;
-    GameObject rayolaser;
     public GameObject[] platasformas;
     public Animator animator;
     public GameObject[] runas;
+    float velocidad = 2f;
+    public GameObject[] avisorunas;
+
+    GameObject COpisoton;
+    GameObject particulaspisoton;
+    GameObject COterremoto;
+    GameObject particulasterremoto;
+    GameObject COpuñetazo;
+    GameObject particulaspuñetazo;
+    Vector3 collidersize;
+
+    GameObject orbelaser;
+    GameObject rayotrigger;
+    GameObject rayolaser;
+    GameObject rayolaserparticulas;
+    public Animator animatorrayo;
 
     public int contadorrunas;
     public int runarandom;
@@ -27,20 +41,45 @@ public class EnemigoIA: MonoBehaviour
     public bool luzruna;
     public bool puedeHacerSuperataque;
     public bool Superataqueactivo;
+    bool puño = false;
 
     void Start()
     {
       
         FSM = new Fase1();
         FSM.inicializarVariables(this);
-        rayotrigger = GameObject.Find("RAYO");
+        rayotrigger = GameObject.Find("corayo");
         rayolaser = GameObject.Find("RAYOLASER");
+        rayolaserparticulas = GameObject.Find("rayolaser particulas");
+        orbelaser = GameObject.Find("ORBELASER");
         rayotrigger.SetActive(false);
         rayolaser.SetActive(false);
+        rayolaserparticulas.SetActive(false);
+        orbelaser.SetActive(false);
+
+        COpisoton = GameObject.Find("collider pisoton");
+        COpisoton.SetActive(false);
+        particulaspisoton = GameObject.Find("particulas pisoton");
+        particulaspisoton.SetActive(false);
+        COterremoto = GameObject.Find("collider terremoto");
+        COterremoto.SetActive(false);
+        particulasterremoto = GameObject.Find("terremoto");
+        particulasterremoto.SetActive(false);
+        COpuñetazo = GameObject.Find("1");
+        COpuñetazo.SetActive(false);
+        particulaspuñetazo = GameObject.Find("puñetazo");
+        particulaspuñetazo.SetActive(false);
+
+        collidersize = COpuñetazo.GetComponent<BoxCollider>().size;
 
         for (int i = 0; i < posicionOcupada.Length; i++)
         {
             posicionOcupada[i] = -1;
+        }
+
+        for (int i = 0; i < avisorunas.Length; i++)
+        {
+            avisorunas[i].SetActive(false);
         }
 
         transform.LookAt(jugador.transform.position);
@@ -54,6 +93,16 @@ public class EnemigoIA: MonoBehaviour
         {
             posicionOcupada[runarandom] = 1;
         }
+
+        if (jugador.GetComponent<CharacterControllerScript>().daño == true && fase != 2)
+        {
+            StartCoroutine(EsperaJugador());
+        }
+
+        if (ocupado == true && puño == true)
+        {
+            COpuñetazo.GetComponent<BoxCollider>().size = new Vector3(COpuñetazo.GetComponent<BoxCollider>().size.x + 0.9f, COpuñetazo.GetComponent<BoxCollider>().size.y, COpuñetazo.GetComponent<BoxCollider>().size.z + 0.9f);
+        }
     }
 
     public void TerminarCorrutinas()
@@ -65,17 +114,18 @@ public class EnemigoIA: MonoBehaviour
     {
         dist = Vector3.Distance(jugador.transform.position, transform.position);
 
-        if (dist > 35f && vidas == 1 && ocupado == false)
+       
+        if (dist > 35f && vidas == 1 && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false)
         {
             int probabilidad = Random.Range(0, 3);
 
-            if (probabilidad > 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false)
+            if (probabilidad > 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false)
             {
                 ocupado = true;
                 StartCoroutine(Ataque3());
                 return true;
             }
-            else if (probabilidad == 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false)
+            else if (probabilidad == 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false)
             {
                 ocupado = true;
                 StartCoroutine(Ataque2());
@@ -84,13 +134,13 @@ public class EnemigoIA: MonoBehaviour
 
             return true;
         }
-        else if (dist < 12f && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false)
+        else if (dist < 15f && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false)
         {
             ocupado = true;
             StartCoroutine(Ataque1());
             return true;
         }
-        else if (dist > 35f && vidas == 3 && ocupado == false)
+        else if (dist > 35f && vidas == 3 && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false)
         {
             ocupado = true;
             StartCoroutine(Ataque2());
@@ -104,13 +154,25 @@ public class EnemigoIA: MonoBehaviour
         this.agent.speed = 0f;
         animator.SetBool("pisoton", true);
         animator.SetBool("caminar", false);
+       
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.8f);
+        particulaspisoton.SetActive(true);
+
+        yield return new WaitForSeconds(0.2f);
+        if (jugador.GetComponent<CharacterControllerScript>().daño == false)
+        {
+            COpisoton.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        COpisoton.SetActive(false);
+
+        yield return new WaitForSeconds(0.5f);
+        particulaspisoton.SetActive(false);
+
         animator.SetBool("pisoton", false);
-
-        animator.SetBool("caminar", true);
-        agent.speed = 2f;
-        agent.SetDestination(jugador.transform.position);
+        SeguirJugador();
 
         yield return new WaitForSeconds(2f);
         ocupado = false;
@@ -122,9 +184,19 @@ public class EnemigoIA: MonoBehaviour
         animator.SetBool("puñetazo", true);
         animator.SetBool("caminar", false);
 
-        yield return new WaitForSeconds(4f);
-        animator.SetBool("puñetazo", false);
+        yield return new WaitForSeconds(2.2f);
+        particulaspuñetazo.SetActive(true);
+        COpuñetazo.SetActive(true);
+        puño = true;
 
+        yield return new WaitForSeconds(1f);
+        puño = false;
+        COpuñetazo.SetActive(false);
+        COpuñetazo.GetComponent<BoxCollider>().size = collidersize;
+
+        yield return new WaitForSeconds(0.8f);
+        animator.SetBool("puñetazo", false);
+        particulaspuñetazo.SetActive(false);
         animator.SetBool("caminar", true);
         agent.speed = 2f;
         agent.SetDestination(jugador.transform.position);
@@ -147,21 +219,23 @@ public class EnemigoIA: MonoBehaviour
         animator.SetBool("rayo descanso", false);
 
         animator.SetBool("caminar", true);
-        agent.speed = 2f;
+        agent.speed = velocidad;
         agent.SetDestination(jugador.transform.position);
 
         yield return new WaitForSeconds(2f);
         ocupado = false;
     }
 
-    public void Golpearsuelo()
+    IEnumerator Terremoto()
     {
-        if (ocupado == false)
-        {
-            ocupado = true;
-            animator.SetBool("terremoto", true);
-            animator.SetBool("caminar", false);
-        }
+        ocupado = true;
+        agent.speed = 0;
+        animator.SetBool("terremoto", true);
+        animator.SetBool("caminar", false);
+
+        yield return new WaitForSeconds(5f);
+        COterremoto.SetActive(true);
+        particulasterremoto.SetActive(true);
     }
 
     public void IniciarSuperataque()
@@ -172,6 +246,16 @@ public class EnemigoIA: MonoBehaviour
     IEnumerator Superataque()
     {
         ocupado = true;
+        this.agent.speed = 0f;
+        runarandom = Random.Range(0, 6);
+        do
+        {
+            runarandom = Random.Range(0, 6);
+        }
+        while (posicionOcupada[runarandom] == 1);
+        runas[runarandom].GetComponent<Runas5>().runaLista = true;
+        runas[runarandom].GetComponent<Runas5>().AvisoRuna();
+        avisorunas[runarandom].SetActive(true);
 
         yield return new WaitForSeconds(2f);
         animator.SetBool("furia", true);
@@ -180,17 +264,10 @@ public class EnemigoIA: MonoBehaviour
         animator.SetBool("furia", false);
         animator.SetBool("superataque", true);
         animator.SetBool("caminar", false);
-        runarandom = Random.Range(0, 6);
 
-        do
-        {
-            runarandom = Random.Range(0, 6);
-        }
-        while (posicionOcupada[runarandom] == 1);
-        runas[runarandom].GetComponent<Runas5>().runaLista = true;
-
-
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
+        avisorunas[runarandom].SetActive(false);
+        runas[runarandom].GetComponent<Runas5>().NoAvisoRuna();
         platasformas[runarandom].GetComponent<Nivel5Plataformas1>().MoverArriba();
         Superataqueactivo = true;
         puedeHacerSuperataque = false;
@@ -203,11 +280,13 @@ public class EnemigoIA: MonoBehaviour
     {
         if (contadorrunas == 6 && fase < 3)
         {
+            orbelaser.SetActive(true);
             rayotrigger.SetActive(true);
             contadorrunas = 0;
         }
         else if (contadorrunas == 6 && fase == 3)
         {
+            orbelaser.SetActive(true);
             rayotrigger.SetActive(true);
         }
     }
@@ -217,9 +296,15 @@ public class EnemigoIA: MonoBehaviour
         ocupado = true;
         rayolaser.SetActive(true);
 
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(Dañado());
+        yield return new WaitForSeconds(0.5f);
+        rayolaserparticulas.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
         rayolaser.SetActive(false);
+
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(Dañado());
+        orbelaser.SetActive(false);
+        rayolaserparticulas.SetActive(false);
     }
 
     IEnumerator Dañado()
@@ -230,6 +315,8 @@ public class EnemigoIA: MonoBehaviour
         }
         else
         {
+            COterremoto.SetActive(false);
+            particulasterremoto.SetActive(false);
             animator.SetBool("terremoto", false);
             animator.SetBool("dañado", true);
             animator.SetBool("caminar", false);
@@ -254,7 +341,6 @@ public class EnemigoIA: MonoBehaviour
 
     public void Morir()
     {
-        //SceneManager.LoadScene("Cinematica Final Malo");
         if (jugador.GetComponent<CharacterControllerScript>().muertesActuales >= 6)
         {
             SceneManager.LoadScene("Cinematica Final Malo");
@@ -263,14 +349,33 @@ public class EnemigoIA: MonoBehaviour
 
     }
 
+    IEnumerator EsperaJugador()
+    {
+        agent.speed = 0;
+        ocupado = true;
+
+        yield return new WaitForSeconds(3f);
+        jugador.GetComponent<CharacterControllerScript>().daño = false;
+        ocupado = false;
+        SeguirJugador();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "RAYO")
+        if (other.name == "corayo")
         {
             StartCoroutine(DisparandoRayo());
             rayotrigger.SetActive(false);
         }
     }
+
+    public void SeguirJugador()
+    {
+        animator.SetBool("caminar", true);
+        agent.speed = velocidad;
+        agent.SetDestination(jugador.transform.position);
+    }
+
 
     IEnumerator CargaSuperataque()
     {
@@ -278,8 +383,9 @@ public class EnemigoIA: MonoBehaviour
         platasformas[runarandom].GetComponent<Nivel5Plataformas1>().MoverAbajo();
         Superataqueactivo = false;
         animator.SetBool("superataque", false);
+        animator.SetBool("caminar", true);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         ocupado = false;
 
         yield return new WaitForSeconds(20f);
@@ -292,7 +398,11 @@ public class EnemigoIA: MonoBehaviour
 
         if (vidas == 2)
         {
-            Golpearsuelo();
+           
+            if (ocupado == false)
+            {
+                StartCoroutine(Terremoto());
+            }
         }
 
         fase++;

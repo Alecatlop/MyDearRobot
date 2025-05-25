@@ -9,6 +9,7 @@ TagManager:
   - Plataforma
   - plataformas1
   - plataformas2
+  - jefe
   layers:
   - Default
   - TransparentFX

@@ -22,7 +22,7 @@ public class Fase2 : Estado
         {
             enemigoIA.platasformas[i].GetComponent<Nivel5Plataformas1>().MoverArriba();
         }
-        enemigoIA.agent.speed = 6f;
+        enemigoIA.agent.speed = 2f;
         enemigoIA.luzruna = true;
        
     }
