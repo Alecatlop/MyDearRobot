@@ -11,11 +11,16 @@ public class Nivel5Plataformas1 : MonoBehaviour
     public EnemigoIA scriptenemigo;
     bool subido = false;
     float speed = 3f;
+    private AudioSource audioSource;
+    private bool subiendo = false;
+    private bool bajando = false;
     
     // Start is called before the first frame update
     void Start()
     {
-    
+        audioSource = GetComponent<AudioSource>();
+        float volumenGlobal = PlayerPrefs.GetFloat("efectos", 1f);
+        audioSource.volume = volumenGlobal * 0.5f;
     }
 
     // Update is called once per frame
@@ -32,6 +37,20 @@ public class Nivel5Plataformas1 : MonoBehaviour
         //    print("abajo");
         //    StartCoroutine(BajarPlataformas());
         //}
+
+        if (Pausa.juegoPausado) return;
+
+        float volumenGlobal = PlayerPrefs.GetFloat("efectos", 1f);
+        audioSource.volume = volumenGlobal * 0.5f;
+
+        if ((subiendo || bajando) && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        else if (!subiendo && !bajando && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,12 +59,14 @@ public class Nivel5Plataformas1 : MonoBehaviour
         {
             StopAllCoroutines();
             subido = true;
+            subiendo = false;
         }
 
         if (other.name == "Limite inferior")
         {
             StopAllCoroutines();
             subido = false;
+            bajando = false;
         }
     }
 
@@ -61,6 +82,9 @@ public class Nivel5Plataformas1 : MonoBehaviour
 
     IEnumerator SubirPlataformas()
     {
+        subiendo = true;
+        bajando = false;
+
         // sube todas las plataformas runa
         while (subido == false)
         {
@@ -68,10 +92,15 @@ public class Nivel5Plataformas1 : MonoBehaviour
             yield return null;
 
         }
+
+        subiendo = false;
     }
 
     IEnumerator BajarPlataformas()
     {
+        bajando = true;
+        subiendo = false;
+
         // sube todas las plataformas runa
         while (subido == true)
         {
@@ -79,6 +108,8 @@ public class Nivel5Plataformas1 : MonoBehaviour
             yield return null;
 
         }
+
+        bajando = false;
     }
 
   

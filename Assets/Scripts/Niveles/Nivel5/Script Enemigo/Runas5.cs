@@ -9,17 +9,24 @@ public class Runas5 : MonoBehaviour
     public bool runapintada;
     public bool runaLista = false;
     public float intensidad = 3f;
+    private AudioSource audioSource;
 
 
     // Start is called before the first frame update
     void Start()
     {
-    
+        audioSource = GetComponent<AudioSource>();
+        float volumenGlobal = PlayerPrefs.GetFloat("efectos", 1f);
+        audioSource.volume = volumenGlobal * 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Pausa.juegoPausado) return;
+        float volumenGlobal = PlayerPrefs.GetFloat("efectos", 1f);
+        audioSource.volume = volumenGlobal * 1f;
+
         if (scriptenemigo.luzruna == false)
         {
             Apagar();
@@ -37,6 +44,11 @@ public class Runas5 : MonoBehaviour
             activada = true;
             scriptenemigo.contadorrunas++;
             runapintada = true;
+
+            if (audioSource != null && !audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
 
         if (other.name == "Jugador" && activada == false && scriptenemigo.fase == 3 && runaLista == true)
@@ -47,6 +59,11 @@ public class Runas5 : MonoBehaviour
             activada = true;
             scriptenemigo.contadorrunas++;
             runapintada = true;
+
+            if (audioSource != null && !audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
     }
 

@@ -12,27 +12,46 @@ public class Nivel5Plataformas2 : MonoBehaviour
     bool subir = true;
     bool bajar = false;
     float speed = 6f;
+    private AudioSource audioSource;
+    private bool subiendo = false;
+    private bool bajando = false;
 
     // Start is called before the first frame update
     void Start()
     {
-    
+        audioSource = GetComponent<AudioSource>();
+        float volumenGlobal = PlayerPrefs.GetFloat("efectos", 1f);
+        audioSource.volume = volumenGlobal * 0.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (scriptenemigo.vidas == 2 && subir == true && bajar == false)
+        if (Pausa.juegoPausado) return;
+
+        float volumenGlobal = PlayerPrefs.GetFloat("efectos", 1f);
+        audioSource.volume = volumenGlobal * 0.5f;
+
+        if ((subiendo || bajando) && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        else if (!subiendo && !bajando && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+
+        if (scriptenemigo.vidas == 2 && subir && !bajar)
         {
             StartCoroutine(SubirPlataformas());
         }
-        
-        if (scriptenemigo.vidas == 2 && subir == false && bajar == true)
+
+        if (scriptenemigo.vidas == 2 && !subir && bajar)
         {
             StartCoroutine(BajarPlataformas());
         }
 
-        if (scriptenemigo.vidas < 2 && (subir == true || bajar == true))
+        if (scriptenemigo.vidas < 2 && (subir || bajar))
         {
             subir = false;
             bajar = true;
@@ -58,6 +77,8 @@ public class Nivel5Plataformas2 : MonoBehaviour
                 subir = false;
                 StartCoroutine(Espera());
             }
+            
+            subiendo = false;
         }
 
         if (other.name == "Limite inferior 2")
@@ -75,17 +96,25 @@ public class Nivel5Plataformas2 : MonoBehaviour
                 bajar = false;
                 StartCoroutine(Espera2());
             }
+
+            bajando = false;
         }
     }
 
     IEnumerator SubirPlataformas()
     {
+        subiendo = true;
+        bajando = false;
+
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
         yield return null;
     }
 
     IEnumerator BajarPlataformas()
     {
+        bajando = true;
+        subiendo = false;
+
         transform.Translate(Vector3.back * Time.deltaTime * speed);
         yield return null;
     }
@@ -101,5 +130,4 @@ public class Nivel5Plataformas2 : MonoBehaviour
         yield return new WaitForSeconds(2);
         subir = true;
     }
-
 }
