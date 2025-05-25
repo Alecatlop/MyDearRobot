@@ -23,7 +23,10 @@ public class EnemigoIA: MonoBehaviour
     GameObject particulasterremoto;
     GameObject COpuñetazo;
     GameObject particulaspuñetazo;
-    Vector3 collidersize;
+    Vector3 collidersize1;
+    GameObject COsuperataque;
+    GameObject particulasuperataque;
+    Vector3 collidersize2;
 
     GameObject orbelaser;
     GameObject rayotrigger;
@@ -42,6 +45,7 @@ public class EnemigoIA: MonoBehaviour
     public bool puedeHacerSuperataque;
     public bool Superataqueactivo;
     bool puño = false;
+    bool superataque = false;
 
     void Start()
     {
@@ -65,12 +69,17 @@ public class EnemigoIA: MonoBehaviour
         COterremoto.SetActive(false);
         particulasterremoto = GameObject.Find("terremoto");
         particulasterremoto.SetActive(false);
-        COpuñetazo = GameObject.Find("1");
+        COpuñetazo = GameObject.Find("copuñetazo");
         COpuñetazo.SetActive(false);
         particulaspuñetazo = GameObject.Find("puñetazo");
         particulaspuñetazo.SetActive(false);
+        COsuperataque = GameObject.Find("COsuperataque");
+        COsuperataque.SetActive(false);
+        particulasuperataque = GameObject.Find("superataque");
+        particulasuperataque.SetActive(false);
 
-        collidersize = COpuñetazo.GetComponent<BoxCollider>().size;
+        collidersize1 = COpuñetazo.GetComponent<BoxCollider>().size;
+        collidersize2 = COsuperataque.GetComponent<BoxCollider>().size;
 
         for (int i = 0; i < posicionOcupada.Length; i++)
         {
@@ -103,6 +112,11 @@ public class EnemigoIA: MonoBehaviour
         {
             COpuñetazo.GetComponent<BoxCollider>().size = new Vector3(COpuñetazo.GetComponent<BoxCollider>().size.x + 0.9f, COpuñetazo.GetComponent<BoxCollider>().size.y, COpuñetazo.GetComponent<BoxCollider>().size.z + 0.9f);
         }
+
+        //if (ocupado == true && superataque == true)
+        //{
+        //    COsuperataque.GetComponent<BoxCollider>().size = new Vector3(COsuperataque.GetComponent<BoxCollider>().size.x + 0.9f, COsuperataque.GetComponent<BoxCollider>().size.y, COsuperataque.GetComponent<BoxCollider>().size.z + 0.9f);
+        //}
     }
 
     public void TerminarCorrutinas()
@@ -192,7 +206,7 @@ public class EnemigoIA: MonoBehaviour
         yield return new WaitForSeconds(1f);
         puño = false;
         COpuñetazo.SetActive(false);
-        COpuñetazo.GetComponent<BoxCollider>().size = collidersize;
+        COpuñetazo.GetComponent<BoxCollider>().size = collidersize1;
 
         yield return new WaitForSeconds(0.8f);
         animator.SetBool("puñetazo", false);
@@ -264,8 +278,14 @@ public class EnemigoIA: MonoBehaviour
         animator.SetBool("furia", false);
         animator.SetBool("superataque", true);
         animator.SetBool("caminar", false);
+        //superataque = true;
+        //COsuperataque.SetActive(true);
+        //particulasuperataque.SetActive(true);
 
         yield return new WaitForSeconds(5f);
+        //superataque = false;
+        //COsuperataque.SetActive(false);
+        //particulasuperataque.SetActive(false);
         avisorunas[runarandom].SetActive(false);
         runas[runarandom].GetComponent<Runas5>().NoAvisoRuna();
         platasformas[runarandom].GetComponent<Nivel5Plataformas1>().MoverArriba();

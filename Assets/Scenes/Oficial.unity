@@ -76588,7 +76588,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804337772}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0038145354, y: 0.99376124, z: -0.10551511, w: -0.035926018}
+  m_LocalRotation: {x: -0.003814534, y: 0.99376124, z: -0.1055151, w: -0.035926007}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -127917,7 +127917,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 716550145}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.8133332
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -149654,7 +149654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000009536743}
+  m_AnchoredPosition: {x: 0, y: 0.000009536743}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1556871533
@@ -173601,7 +173601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3810654575657516301, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
       propertyPath: m_Name
-      value: 1
+      value: "copu\xF1etazo"
       objectReference: {fileID: 0}
     - target: {fileID: 5154751418653975098, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
       propertyPath: m_LocalPosition.x
