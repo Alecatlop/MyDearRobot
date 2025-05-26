@@ -5,6 +5,7 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Pausa : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class Pausa : MonoBehaviour
 
     GameObject sliderefectos;
     GameObject slidermusica;
+
+    //private EventSystem evento;
+    //private Selectable firstselect;
 
     Toggle toggle;
 
@@ -76,6 +80,12 @@ public class Pausa : MonoBehaviour
         {
             datos.GetComponent<AudioSource>().Play();
         }
+
+        //if (evento == null)
+        //    return;
+
+        //evento.firstSelectedGameObject = firstselect.gameObject;
+        
     }
 
     public void ComprobacionCalidad()
@@ -113,6 +123,7 @@ public class Pausa : MonoBehaviour
 
     public void Pausar()
     {
+        
         personaje.pausar = !personaje.pausar;
 
         opciones.SetActive(true);
@@ -131,6 +142,7 @@ public class Pausa : MonoBehaviour
         }
         else
         {
+            EventSystem.current.SetSelectedGameObject(null);
             juegoPausado = false;
             ReanudarEfectos();
             this.gameObject.SetActive(false);
@@ -150,6 +162,7 @@ public class Pausa : MonoBehaviour
 
     public void Controles()
     {
+        //EventSystem.current.SetSelectedGameObject(controles);
         boton.Play();
         controles.SetActive(true);
         opciones.SetActive(false);
@@ -157,6 +170,7 @@ public class Pausa : MonoBehaviour
 
     public void Configuracion()
     {
+        //EventSystem.current.SetSelectedGameObject(configuracion);
         boton.Play();
         configuracion.SetActive(true);
         opciones.SetActive(false);
@@ -199,6 +213,7 @@ public class Pausa : MonoBehaviour
 
     public void Regresar()
     {
+        //EventSystem.current.SetSelectedGameObject(null);
         boton.Play();
         configuracion.SetActive(false);
         opciones.SetActive(true);
@@ -232,6 +247,7 @@ public class Pausa : MonoBehaviour
 
     public void Volver()
     {
+        //EventSystem.current.SetSelectedGameObject(null);
         boton.Play();
         SceneManager.LoadScene("Menu");
     }

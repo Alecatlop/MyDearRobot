@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -35,13 +36,13 @@ public class CanvasManager : MonoBehaviour
     public TextMeshProUGUI textosalir2;
 
     float speed = 0.2f;
-
     public AudioClip musicaMenu;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
+       // Cursor.lockState = CursorLockMode.Locked;
         configuracion = GameObject.Find("Configuracion");
         opciones = GameObject.Find("Opciones");
 

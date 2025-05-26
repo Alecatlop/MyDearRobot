@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,11 +31,9 @@ public class Fase1 : Estado
         {
             bool puede = enemigoIA.PuedeAtacar();
 
-            if (!puede && !enemigoIA.ocupado)
+            if (!puede && enemigoIA.ocupado == false)
             {
-                enemigoIA.animator.SetBool("caminar", true);
-                enemigoIA.agent.speed = 2f;
-                enemigoIA.agent.SetDestination(enemigoIA.jugador.transform.position);
+                enemigoIA.SeguirJugador();
             }
 
             enemigoIA.ActivarRayo();

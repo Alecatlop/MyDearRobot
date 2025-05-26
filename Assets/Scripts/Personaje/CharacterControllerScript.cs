@@ -24,6 +24,7 @@ public class CharacterControllerScript : MonoBehaviour
     public bool altura = false;
     public Pausa pausa;
     private GameObject puerta;
+    GameObject nivel5;
 
     public bool spawn = false;
     public bool daño = false;
@@ -59,14 +60,14 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
         puerta = GameObject.Find("Puerta6");
+        nivel5 = GameObject.Find("Nivel 5 Manager");
     }
 
     void Update()
     {
-        //print(daño);
         // Verificar si est� en el suelo
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, 0.2f);
 
@@ -217,6 +218,12 @@ public class CharacterControllerScript : MonoBehaviour
             daño = true;
             AñadirMuerte();
             StartCoroutine(SufrirDaño());
+        }
+
+        if (other.name == "introjefe")
+        {
+            nivel5.GetComponent<Nivel5>().ActivarTemplo();
+            nivel5.GetComponent<Nivel5>().ActivarBatalla();
         }
     }
 

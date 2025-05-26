@@ -26,6 +26,11 @@ public class EnemigoIA: MonoBehaviour
     Vector3 collidersize1;
     GameObject COsuperataque;
     GameObject particulasuperataque;
+    
+    GameObject camara1;
+    GameObject camara2;
+    bool camaractivada = true;
+    GameObject spawnfase2;
 
     GameObject orbelaser;
     GameObject rayotrigger;
@@ -39,7 +44,7 @@ public class EnemigoIA: MonoBehaviour
     public int fase;
     float dist;
     public int vidas = 3;
-    public bool ocupado;
+    public bool ocupado = true;
     public bool luzruna;
     public bool puedeHacerSuperataque;
     public bool Superataqueactivo;
@@ -76,6 +81,11 @@ public class EnemigoIA: MonoBehaviour
         particulasuperataque = GameObject.Find("particulas superataque");
         particulasuperataque.SetActive(false);
 
+        camara1 = GameObject.Find("camara 1");
+        camara2 = GameObject.Find("camara 2");
+        camara1.SetActive(false);
+        spawnfase2 = GameObject.Find("spawnfase2");
+
         collidersize1 = COpuñetazo.GetComponent<BoxCollider>().size;
 
         for (int i = 0; i < posicionOcupada.Length; i++)
@@ -89,6 +99,8 @@ public class EnemigoIA: MonoBehaviour
         }
 
         transform.LookAt(jugador.transform.position);
+
+        StartCoroutine(Intro());
     }
 
     void Update()
@@ -109,7 +121,7 @@ public class EnemigoIA: MonoBehaviour
         {
             COpuñetazo.GetComponent<BoxCollider>().size = new Vector3(COpuñetazo.GetComponent<BoxCollider>().size.x + 0.9f, COpuñetazo.GetComponent<BoxCollider>().size.y, COpuñetazo.GetComponent<BoxCollider>().size.z + 0.9f);
         }
-        
+
     }
 
     public void TerminarCorrutinas()
@@ -122,17 +134,17 @@ public class EnemigoIA: MonoBehaviour
         dist = Vector3.Distance(jugador.transform.position, transform.position);
 
        
-        if (dist > 35f && vidas == 1 && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false)
+        if (dist > 35f && vidas == 1 && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
         {
             int probabilidad = Random.Range(0, 3);
 
-            if (probabilidad > 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false)
+            if (probabilidad > 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
             {
                 ocupado = true;
                 StartCoroutine(Ataque3());
                 return true;
             }
-            else if (probabilidad == 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false)
+            else if (probabilidad == 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
             {
                 ocupado = true;
                 StartCoroutine(Ataque2());
@@ -141,13 +153,13 @@ public class EnemigoIA: MonoBehaviour
 
             return true;
         }
-        else if (dist < 15f && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false)
+        else if (dist < 15f && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
         {
             ocupado = true;
             StartCoroutine(Ataque1());
             return true;
         }
-        else if (dist > 35f && vidas == 3 && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false)
+        else if (dist > 35f && vidas == 3 && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
         {
             ocupado = true;
             StartCoroutine(Ataque2());
@@ -299,19 +311,64 @@ public class EnemigoIA: MonoBehaviour
     {
         if (contadorrunas == 6 && fase < 3)
         {
-            orbelaser.SetActive(true);
+            if (fase == 1)
+            {
+                StartCoroutine(Camara1());
+            }
+            
             rayotrigger.SetActive(true);
             contadorrunas = 0;
         }
         else if (contadorrunas == 6 && fase == 3)
         {
+            StartCoroutine(Camara1());
             orbelaser.SetActive(true);
             rayotrigger.SetActive(true);
         }
     }
 
+    IEnumerator Camara1()
+    {
+        camara1.SetActive(true);
+        camaractivada = true;
+        animator.SetBool("caminar", false);
+        ocupado = true;
+        this.agent.speed = 0f;
+        
+        yield return new WaitForSeconds(1.5f);
+        orbelaser.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+        camaractivada = false;
+        ocupado = false;
+        camara1.SetActive(false);
+        SeguirJugador();
+    }
+
+    IEnumerator Camara2()
+    {
+        camara1.SetActive(true);
+        camaractivada = true;
+        animator.SetBool("caminar", false);
+        ocupado = true;
+        this.agent.speed = 0f;
+        yield return new WaitForSeconds(1f);
+
+        yield return new WaitForSeconds(1f);
+        camara1.SetActive(false);
+        camara2.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+        
+        ocupado = false;
+        yield return new WaitForSeconds(2f);
+        camara2.SetActive(false);
+    }
+
     IEnumerator DisparandoRayo()
     {
+        StartCoroutine(Camara2());
+        yield return new WaitForSeconds(2.5f);
         ocupado = true;
         rayolaser.SetActive(true);
 
@@ -353,6 +410,7 @@ public class EnemigoIA: MonoBehaviour
             vidas--;
             luzruna = false;
             Debug.Log("Dañado, le quedan " + vidas);
+            camaractivada = false;
             ocupado = false;
         }
 
@@ -390,9 +448,12 @@ public class EnemigoIA: MonoBehaviour
 
     public void SeguirJugador()
     {
-        animator.SetBool("caminar", true);
-        agent.speed = velocidad;
-        agent.SetDestination(jugador.transform.position);
+        if (camaractivada == false)
+        {
+            animator.SetBool("caminar", true);
+            agent.speed = velocidad;
+            agent.SetDestination(jugador.transform.position);
+        }
     }
 
 
@@ -421,6 +482,14 @@ public class EnemigoIA: MonoBehaviour
         {
             if (ocupado == false)
             {
+                CharacterController controller = jugador.GetComponent<CharacterController>();
+
+                if (controller != null)
+                {
+                    controller.enabled = false;
+                    jugador.transform.position = spawnfase2.transform.position;
+                    controller.enabled = true;
+                }
                 StartCoroutine(Terremoto());
             }
         }
@@ -432,6 +501,21 @@ public class EnemigoIA: MonoBehaviour
     public void lanzarCorrutinaFase()
     {
         StartCoroutine(CambiarFase());
+    }
+
+    IEnumerator Intro()
+    {
+        camara2.SetActive(true);
+        animator.SetBool("furia", true);
+        yield return new WaitForSeconds(1f);
+
+        yield return new WaitForSeconds(2f);
+        camara2.SetActive(false);
+
+        yield return new WaitForSeconds(1f);
+        camaractivada = false;
+        ocupado = false;
+        animator.SetBool("furia", false);
     }
 
 }
