@@ -85,7 +85,6 @@ public class Nivel5Plataformas2 : MonoBehaviour
         {
             if (scriptenemigo.vidas < 2)
             {
-                print("Para trigger");
                 StopAllCoroutines();
                 subir = false;
                 bajar = false;

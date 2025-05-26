@@ -222,10 +222,10 @@ public class CharacterControllerScript : MonoBehaviour
 
     IEnumerator SufrirDaño()
     {
-            animator.SetBool("hit", true);
-            yield return new WaitForSeconds(0.2f);
-            animator.SetBool("hit", false);
-            daño = false;
+        animator.SetBool("hit", true);
+        yield return new WaitForSeconds(0.2f);
+        animator.SetBool("hit", false);
+        daño = false;
     }
 
     private void OnTriggerStay(Collider other)

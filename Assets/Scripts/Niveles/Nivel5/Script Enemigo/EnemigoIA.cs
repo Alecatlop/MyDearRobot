@@ -26,7 +26,6 @@ public class EnemigoIA: MonoBehaviour
     Vector3 collidersize1;
     GameObject COsuperataque;
     GameObject particulasuperataque;
-    Vector3 collidersize2;
 
     GameObject orbelaser;
     GameObject rayotrigger;
@@ -45,7 +44,6 @@ public class EnemigoIA: MonoBehaviour
     public bool puedeHacerSuperataque;
     public bool Superataqueactivo;
     bool puño = false;
-    bool superataque = false;
 
     void Start()
     {
@@ -75,11 +73,10 @@ public class EnemigoIA: MonoBehaviour
         particulaspuñetazo.SetActive(false);
         COsuperataque = GameObject.Find("COsuperataque");
         COsuperataque.SetActive(false);
-        particulasuperataque = GameObject.Find("superataque");
+        particulasuperataque = GameObject.Find("particulas superataque");
         particulasuperataque.SetActive(false);
 
         collidersize1 = COpuñetazo.GetComponent<BoxCollider>().size;
-        collidersize2 = COsuperataque.GetComponent<BoxCollider>().size;
 
         for (int i = 0; i < posicionOcupada.Length; i++)
         {
@@ -112,11 +109,7 @@ public class EnemigoIA: MonoBehaviour
         {
             COpuñetazo.GetComponent<BoxCollider>().size = new Vector3(COpuñetazo.GetComponent<BoxCollider>().size.x + 0.9f, COpuñetazo.GetComponent<BoxCollider>().size.y, COpuñetazo.GetComponent<BoxCollider>().size.z + 0.9f);
         }
-
-        //if (ocupado == true && superataque == true)
-        //{
-        //    COsuperataque.GetComponent<BoxCollider>().size = new Vector3(COsuperataque.GetComponent<BoxCollider>().size.x + 0.9f, COsuperataque.GetComponent<BoxCollider>().size.y, COsuperataque.GetComponent<BoxCollider>().size.z + 0.9f);
-        //}
+        
     }
 
     public void TerminarCorrutinas()
@@ -268,27 +261,33 @@ public class EnemigoIA: MonoBehaviour
         }
         while (posicionOcupada[runarandom] == 1);
         runas[runarandom].GetComponent<Runas5>().runaLista = true;
-        runas[runarandom].GetComponent<Runas5>().AvisoRuna();
-        avisorunas[runarandom].SetActive(true);
 
         yield return new WaitForSeconds(2f);
+        runas[runarandom].GetComponent<Runas5>().AvisoRuna();
+        avisorunas[runarandom].SetActive(true);
         animator.SetBool("furia", true);
 
         yield return new WaitForSeconds(2f);
         animator.SetBool("furia", false);
         animator.SetBool("superataque", true);
         animator.SetBool("caminar", false);
-        //superataque = true;
-        //COsuperataque.SetActive(true);
-        //particulasuperataque.SetActive(true);
 
-        yield return new WaitForSeconds(5f);
-        //superataque = false;
-        //COsuperataque.SetActive(false);
-        //particulasuperataque.SetActive(false);
-        avisorunas[runarandom].SetActive(false);
-        runas[runarandom].GetComponent<Runas5>().NoAvisoRuna();
+        yield return new WaitForSeconds(3f);
+        if (posicionOcupada[runarandom] == -1)
+        {
+            runas[runarandom].GetComponent<Runas5>().NoAvisoRuna();
+        }
         platasformas[runarandom].GetComponent<Nivel5Plataformas1>().MoverArriba();
+        avisorunas[runarandom].SetActive(false);
+
+        yield return new WaitForSeconds(5.5f);
+        COsuperataque.SetActive(true);
+        particulasuperataque.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+        COsuperataque.SetActive(false);
+        particulasuperataque.SetActive(false);
+       
         Superataqueactivo = true;
         puedeHacerSuperataque = false;
         this.agent.speed = 0f;
@@ -382,7 +381,7 @@ public class EnemigoIA: MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "corayo")
+        if (other.name == "corayo" && ocupado == false )
         {
             StartCoroutine(DisparandoRayo());
             rayotrigger.SetActive(false);
@@ -399,13 +398,15 @@ public class EnemigoIA: MonoBehaviour
 
     IEnumerator CargaSuperataque()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(1f);
         platasformas[runarandom].GetComponent<Nivel5Plataformas1>().MoverAbajo();
         Superataqueactivo = false;
         animator.SetBool("superataque", false);
-        animator.SetBool("caminar", true);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        SeguirJugador();
+
+        yield return new WaitForSeconds(2f);
         ocupado = false;
 
         yield return new WaitForSeconds(20f);
@@ -418,7 +419,6 @@ public class EnemigoIA: MonoBehaviour
 
         if (vidas == 2)
         {
-           
             if (ocupado == false)
             {
                 StartCoroutine(Terremoto());
