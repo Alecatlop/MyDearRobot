@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static Cinemachine.DocumentationSortingAttribute;
 
 public class Nivel5 : MonoBehaviour
@@ -8,15 +9,19 @@ public class Nivel5 : MonoBehaviour
     public GameMana nivel;
     GameObject niveltemplo;
     GameObject nivelbatalla;
+    public Image fade;
 
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        niveltemplo = GameObject.Find("Nivel templo");
-        nivelbatalla = GameObject.Find("Nivel Jefe");
-        niveltemplo.SetActive(false);
-        //nivelbatalla.SetActive(false);
+        
+    }
+
+    private void Start()
+    {
+        niveltemplo = GameObject.Find("Nivel Templo");
+        nivelbatalla = GameObject.Find("Nivel Batalla");
+        nivelbatalla.SetActive(false);
+        fade.color = new Color(1, 1, 1, 0);
     }
 
     // Update is called once per frame
@@ -31,19 +36,28 @@ public class Nivel5 : MonoBehaviour
         {
             nivel.Nivel3();
             nivel.Nivel5();
-            ActivarTemplo();
             this.GetComponent<Collider>().enabled = false;
         }
     }
 
-    public void ActivarTemplo()
-    {
-        niveltemplo.SetActive(!niveltemplo.activeSelf);
-    }
-
     public void ActivarBatalla()
     {
-        nivelbatalla.SetActive(!nivelbatalla.activeSelf);
+        StartCoroutine(CambioBatalla());
+    }
+
+    IEnumerator CambioBatalla()
+    {
+
+        while (fade.color.a > 0)
+        {
+            fade.color = new Color(1, 1, 1, fade.color.a + 0.2f);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(2f);
+        nivelbatalla.SetActive(true);
+        niveltemplo.SetActive(false);
     }
 
 }

@@ -23,7 +23,7 @@ public class CharacterControllerScript : MonoBehaviour
     public bool respawn = true;
     public bool altura = false;
     public Pausa pausa;
-    private GameObject puerta;
+    GameObject puerta;
     GameObject nivel5;
 
     public bool spawn = false;
@@ -68,7 +68,6 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
-        //print(daño);
         // Verificar si est� en el suelo
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, 0.2f);
 
@@ -197,8 +196,6 @@ public class CharacterControllerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-
         if (other.CompareTag("runa nivel1"))
         {
             other.GetComponent<Collider>().enabled = false;
@@ -228,9 +225,8 @@ public class CharacterControllerScript : MonoBehaviour
             
         }
 
-        if (other.name == "introjefe")
+        if (other.name == "Cambio Batalla")
         {
-            nivel5.GetComponent<Nivel5>().ActivarTemplo();
             nivel5.GetComponent<Nivel5>().ActivarBatalla();
         }
     }
