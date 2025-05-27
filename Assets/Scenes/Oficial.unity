@@ -129093,7 +129093,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 716550145}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.8133333
+  m_Size: 0.8133334
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -147584,7 +147584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462732284}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.017474862, y: 0.98069614, z: -0.10412783, w: -0.16458166}
+  m_LocalRotation: {x: -0.01747486, y: 0.98069614, z: -0.10412783, w: -0.16458164}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -150995,7 +150995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000038146973}
+  m_AnchoredPosition: {x: 0, y: 0.0000019073486}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1556871533
@@ -175708,6 +175708,10 @@ PrefabInstance:
       propertyPath: "pu\xF1etazoClip"
       value: 
       objectReference: {fileID: 8300000, guid: f6645f72a5d93d64fa73dbd1b11aa1f7, type: 3}
+    - target: {fileID: 580139729350298389, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
+      propertyPath: superataqueClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d54b5943a31cb9a448d4d138cf02ec04, type: 3}
     - target: {fileID: 580139729350298389, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
       propertyPath: tiempoEntrePaso
       value: 1.5
