@@ -49,6 +49,14 @@ public class EnemigoIA: MonoBehaviour
     public bool puedeHacerSuperataque;
     public bool Superataqueactivo;
     bool puño = false;
+    public AudioSource audioPasos;
+    public AudioSource audioEfectos;
+    public AudioClip pisotonClip;
+    public AudioClip pasoClip;         
+    public float tiempoEntrePaso = 0.5f; 
+    private float pasoTiempo = 0f;
+    float tiempoUltimoPisoton = -10f;
+    float cooldownPisoton = 1f;
 
     void Start()
     {
@@ -100,12 +108,29 @@ public class EnemigoIA: MonoBehaviour
 
         transform.LookAt(jugador.transform.position);
 
+        if (audioPasos != null) 
+        {
+            audioPasos.loop = false;
+            audioPasos.Stop();
+        }
+
         StartCoroutine(Intro());
     }
 
     void Update()
     {
         FSM = FSM.Procesar();
+
+        pasoTiempo -= Time.deltaTime;
+
+        if (animator.GetBool("caminar") && pasoTiempo <= 0f && agent.velocity.magnitude > 0.1f)
+        {
+            if (!audioPasos.isPlaying)
+            {
+                audioPasos.PlayOneShot(pasoClip);
+                pasoTiempo = tiempoEntrePaso;
+            }
+        }
 
         if (runas[runarandom].GetComponent<Runas5>().runapintada == true && fase == 3)
         {
@@ -182,6 +207,15 @@ public class EnemigoIA: MonoBehaviour
         if (jugador.GetComponent<CharacterControllerScript>().daño == false)
         {
             COpisoton.SetActive(true);
+
+            if (audioPasos != null && pisotonClip != null)
+            {
+                if (Time.time - tiempoUltimoPisoton >= cooldownPisoton)
+                {
+                    audioPasos.PlayOneShot(pisotonClip);
+                    tiempoUltimoPisoton = Time.time;
+                }
+            }
         }
 
         yield return new WaitForSeconds(0.5f);
@@ -505,6 +539,8 @@ public class EnemigoIA: MonoBehaviour
 
     IEnumerator Intro()
     {
+        if (audioPasos != null) audioPasos.Stop();
+
         camara2.SetActive(true);
         animator.SetBool("furia", true);
         yield return new WaitForSeconds(1f);
