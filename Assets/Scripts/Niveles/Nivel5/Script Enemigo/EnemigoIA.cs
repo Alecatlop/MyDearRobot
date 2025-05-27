@@ -53,11 +53,13 @@ public class EnemigoIA: MonoBehaviour
     public AudioSource audioPasos;
     public AudioSource audioEfectos;
     public AudioClip pisotonClip;
-    public AudioClip pasoClip;         
+    public AudioClip pasoClip;
+    public AudioClip rayoClip;
     public float tiempoEntrePaso = 0.5f; 
     private float pasoTiempo = 0f;
     float tiempoUltimoPisoton = -10f;
     float cooldownPisoton = 1f;
+    private bool puedeSonarRayo = true;
 
     void Start()
     {
@@ -419,6 +421,13 @@ public class EnemigoIA: MonoBehaviour
         ocupado = true;
         rayolaser.SetActive(true);
 
+        if (puedeSonarRayo)
+        {
+            audioEfectos.PlayOneShot(rayoClip);
+            puedeSonarRayo = false;
+            StartCoroutine(ResetSonidoDelay());
+        }
+
         yield return new WaitForSeconds(0.5f);
         rayolaserparticulas.SetActive(true);
         yield return new WaitForSeconds(0.5f);
@@ -428,6 +437,12 @@ public class EnemigoIA: MonoBehaviour
         StartCoroutine(Dañado());
         orbelaser.SetActive(false);
         rayolaserparticulas.SetActive(false);
+    }
+
+    IEnumerator ResetSonidoDelay()
+    {
+        yield return new WaitForSeconds(1f);  
+        puedeSonarRayo = true;
     }
 
     IEnumerator Dañado()

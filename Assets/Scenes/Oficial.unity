@@ -129092,7 +129092,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 716550145}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.8133332
+  m_Size: 0.8133334
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -147583,7 +147583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462732284}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.017474862, y: 0.98069614, z: -0.10412783, w: -0.16458166}
+  m_LocalRotation: {x: -0.01747486, y: 0.98069614, z: -0.10412783, w: -0.16458164}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -150994,7 +150994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000017166138}
+  m_AnchoredPosition: {x: 0, y: 0.0000019073486}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1556871533
@@ -175676,9 +175676,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 580139729350298389, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
+      propertyPath: OrbeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: df9ab58607a019f4fa336573d3e5b4a4, type: 3}
+    - target: {fileID: 580139729350298389, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
       propertyPath: pasoClip
       value: 
       objectReference: {fileID: 8300000, guid: 37d39d4368f6d064c9f66da4656bca7b, type: 3}
+    - target: {fileID: 580139729350298389, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
+      propertyPath: rayoClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a87d6b5022f3404f91d7def52a8a363, type: 3}
     - target: {fileID: 580139729350298389, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
       propertyPath: audioPasos
       value: 
@@ -175686,7 +175694,7 @@ PrefabInstance:
     - target: {fileID: 580139729350298389, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
       propertyPath: pisotonClip
       value: 
-      objectReference: {fileID: 8300000, guid: b16a08ffb7494c942873a0848432f9fd, type: 3}
+      objectReference: {fileID: 8300000, guid: 16a0a539d11dbef41be7db9a6d4ef3fe, type: 3}
     - target: {fileID: 580139729350298389, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
       propertyPath: animatorrayo
       value: 
