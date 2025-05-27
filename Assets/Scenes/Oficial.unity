@@ -449,15 +449,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d92b15a211f475542972c1d080628be4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -208.48
+      value: -211.95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d92b15a211f475542972c1d080628be4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.62
+      value: 106.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d92b15a211f475542972c1d080628be4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -96.74
+      value: 906.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d92b15a211f475542972c1d080628be4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63596,7 +63596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521857090}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.09731797, y: -0.38571122, z: 0.040953897, w: -0.9165582}
+  m_LocalRotation: {x: 0.08145681, y: 0.86158234, z: -0.1464706, w: 0.4791524}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -65508,7 +65508,7 @@ Transform:
   m_GameObject: {fileID: 575788459}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.99934715, z: -0, w: -0.03612795}
-  m_LocalPosition: {x: -200.76643, y: 9.8099985, z: -88.022736}
+  m_LocalPosition: {x: -201.07506, y: 112.28999, z: 901.89966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -77723,7 +77723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804337772}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.09731795, y: -0.38571122, z: 0.040953893, w: -0.9165582}
+  m_LocalRotation: {x: 0.08145681, y: 0.86158234, z: -0.1464706, w: 0.4791524}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -148125,7 +148125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462732284}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.097317964, y: -0.38571122, z: 0.040953897, w: -0.9165582}
+  m_LocalRotation: {x: 0.081456795, y: 0.86158234, z: -0.14647062, w: 0.47915244}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -151536,7 +151536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
+  m_AnchoredPosition: {x: 0, y: -0.0000038146973}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1556871533
@@ -176368,6 +176368,10 @@ PrefabInstance:
       propertyPath: rayoClip
       value: 
       objectReference: {fileID: 8300000, guid: 4a87d6b5022f3404f91d7def52a8a363, type: 3}
+    - target: {fileID: 580139729350298389, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
+      propertyPath: furiaClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 05439d29d2e958b4984a84403c93ad72, type: 3}
     - target: {fileID: 580139729350298389, guid: 9b46bd7b253328a4db855e2ec1362613, type: 3}
       propertyPath: audioPasos
       value: 

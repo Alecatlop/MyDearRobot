@@ -55,6 +55,7 @@ public class EnemigoIA: MonoBehaviour
     public AudioClip pisotonClip;
     public AudioClip puñetazoClip;
     public AudioClip superataqueClip;
+    public AudioClip furiaClip;
     public AudioClip pasoClip;
     public AudioClip rayoClip;
     public float tiempoEntrePaso = 0.5f; 
@@ -333,8 +334,14 @@ public class EnemigoIA: MonoBehaviour
         runas[runarandom].GetComponent<Runas5>().AvisoRuna();
         avisorunas[runarandom].SetActive(true);
         animator.SetBool("furia", true);
+        
+        if (audioEfectos != null && furiaClip != null)
+        {
+            StartCoroutine(ReproducirChoques(furiaClip, 1.7f, 3, 0.02f));
+        }
 
         yield return new WaitForSeconds(2f);
+
         animator.SetBool("furia", false);
         animator.SetBool("superataque", true);
         animator.SetBool("caminar", false);
@@ -477,8 +484,13 @@ public class EnemigoIA: MonoBehaviour
             animator.SetBool("dañado", false);
             animator.SetBool("furia", true);
 
+            if (audioEfectos != null && furiaClip != null)
+            {
+                StartCoroutine(ReproducirChoques(furiaClip, 1.7f, 3, 0.02f));
+            }
 
             yield return new WaitForSeconds(4f);
+
             animator.SetBool("furia", false);
             vidas--;
             luzruna = false;
@@ -566,6 +578,11 @@ public class EnemigoIA: MonoBehaviour
         animator.SetBool("furia", true);
         yield return new WaitForSeconds(1f);
 
+        if (audioEfectos != null && furiaClip != null)
+        {
+            StartCoroutine(ReproducirChoques(furiaClip, 0.7f, 3, 0.02f)); 
+        }
+
         yield return new WaitForSeconds(2f);
         camara2.SetActive(false);
 
@@ -574,7 +591,18 @@ public class EnemigoIA: MonoBehaviour
         ocupado = false;
         animator.SetBool("furia", false);
     }
+    
+    IEnumerator ReproducirChoques(AudioClip clip, float delayInicial, int repeticiones, float intervalo)
+    {
+        yield return new WaitForSeconds(delayInicial); 
 
+        for (int i = 0; i < repeticiones; i++)
+        {
+            audioEfectos.clip = clip;
+            audioEfectos.Play();
+            yield return new WaitForSeconds(clip.length + intervalo);
+        }
+    }
 }
 
 
