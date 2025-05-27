@@ -68,6 +68,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
+        //print(daño);
         // Verificar si est� en el suelo
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, 0.2f);
 
@@ -196,6 +197,8 @@ public class CharacterControllerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
+
         if (other.CompareTag("runa nivel1"))
         {
             other.GetComponent<Collider>().enabled = false;
@@ -212,12 +215,17 @@ public class CharacterControllerScript : MonoBehaviour
             puerta.SetActive(false);
         }
 
-        if (other.tag == "jefe")
+        if (other.tag == "jefe" && daño == false)
         {
-            print("dañaoooo");
-            daño = true;
-            AñadirMuerte();
-            StartCoroutine(SufrirDaño());
+
+            if (daño == false)
+            {
+                daño = true;
+                this.GetComponent<BoxCollider>().enabled = false;
+                AñadirMuerte();
+                StartCoroutine(SufrirDaño());
+            }
+            
         }
 
         if (other.name == "introjefe")
@@ -232,6 +240,8 @@ public class CharacterControllerScript : MonoBehaviour
         animator.SetBool("hit", true);
         yield return new WaitForSeconds(0.2f);
         animator.SetBool("hit", false);
+        yield return new WaitForSeconds(3f);
+        this.GetComponent<BoxCollider>().enabled = true;
         daño = false;
     }
 

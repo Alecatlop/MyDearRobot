@@ -30,7 +30,8 @@ public class EnemigoIA: MonoBehaviour
     GameObject camara1;
     GameObject camara2;
     bool camaractivada = true;
-    GameObject spawnfase2;
+    GameObject COspawnfase2;
+
 
     GameObject orbelaser;
     GameObject rayotrigger;
@@ -63,6 +64,9 @@ public class EnemigoIA: MonoBehaviour
       
         FSM = new Fase1();
         FSM.inicializarVariables(this);
+        COspawnfase2 = GameObject.Find("COspawnfase2");
+        // spawnfase2 = GameObject.Find("spawnfase2");
+        COspawnfase2.GetComponent<BoxCollider>().enabled = false;
         rayotrigger = GameObject.Find("corayo");
         rayolaser = GameObject.Find("RAYOLASER");
         rayolaserparticulas = GameObject.Find("rayolaser particulas");
@@ -92,7 +96,7 @@ public class EnemigoIA: MonoBehaviour
         camara1 = GameObject.Find("camara 1");
         camara2 = GameObject.Find("camara 2");
         camara1.SetActive(false);
-        spawnfase2 = GameObject.Find("spawnfase2");
+       
 
         collidersize1 = COpuñetazo.GetComponent<BoxCollider>().size;
 
@@ -135,11 +139,6 @@ public class EnemigoIA: MonoBehaviour
         if (runas[runarandom].GetComponent<Runas5>().runapintada == true && fase == 3)
         {
             posicionOcupada[runarandom] = 1;
-        }
-
-        if (jugador.GetComponent<CharacterControllerScript>().daño == true && fase != 2)
-        {
-            StartCoroutine(EsperaJugador());
         }
 
         if (ocupado == true && puño == true)
@@ -195,6 +194,8 @@ public class EnemigoIA: MonoBehaviour
 
     IEnumerator Ataque1()
     {
+        //transform.position = spawnfase2.transform.position;
+        
         this.agent.speed = 0f;
         animator.SetBool("pisoton", true);
         animator.SetBool("caminar", false);
@@ -282,11 +283,23 @@ public class EnemigoIA: MonoBehaviour
     IEnumerator Terremoto()
     {
         ocupado = true;
+        //CharacterController controller = jugador.GetComponent<CharacterController>();
+
+        //if (controller != null)
+        //{
+
+
+        //    controller.enabled = true;
+        //}
+        COspawnfase2.GetComponent<BoxCollider>().enabled = true;
         agent.speed = 0;
         animator.SetBool("terremoto", true);
         animator.SetBool("caminar", false);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
+        COspawnfase2.GetComponent<BoxCollider>().enabled = false;
+
+        yield return new WaitForSeconds(4f);
         COterremoto.SetActive(true);
         particulasterremoto.SetActive(true);
     }
@@ -460,16 +473,6 @@ public class EnemigoIA: MonoBehaviour
 
     }
 
-    IEnumerator EsperaJugador()
-    {
-        agent.speed = 0;
-        ocupado = true;
-
-        yield return new WaitForSeconds(3f);
-        jugador.GetComponent<CharacterControllerScript>().daño = false;
-        ocupado = false;
-        SeguirJugador();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -516,14 +519,6 @@ public class EnemigoIA: MonoBehaviour
         {
             if (ocupado == false)
             {
-                CharacterController controller = jugador.GetComponent<CharacterController>();
-
-                if (controller != null)
-                {
-                    controller.enabled = false;
-                    jugador.transform.position = spawnfase2.transform.position;
-                    controller.enabled = true;
-                }
                 StartCoroutine(Terremoto());
             }
         }

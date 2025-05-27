@@ -16,7 +16,7 @@ public class Nivel5 : MonoBehaviour
         niveltemplo = GameObject.Find("Nivel templo");
         nivelbatalla = GameObject.Find("Nivel Jefe");
         niveltemplo.SetActive(false);
-        nivelbatalla.SetActive(false);
+        //nivelbatalla.SetActive(false);
     }
 
     // Update is called once per frame
