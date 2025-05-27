@@ -53,6 +53,7 @@ public class EnemigoIA: MonoBehaviour
     public AudioSource audioPasos;
     public AudioSource audioEfectos;
     public AudioClip pisotonClip;
+    public AudioClip puñetazoClip;
     public AudioClip pasoClip;
     public AudioClip rayoClip;
     public float tiempoEntrePaso = 0.5f; 
@@ -243,6 +244,10 @@ public class EnemigoIA: MonoBehaviour
         yield return new WaitForSeconds(2.2f);
         particulaspuñetazo.SetActive(true);
         COpuñetazo.SetActive(true);
+        if (audioEfectos != null && puñetazoClip != null)
+        {
+            audioEfectos.PlayOneShot(puñetazoClip);
+        }
         puño = true;
 
         yield return new WaitForSeconds(1f);
