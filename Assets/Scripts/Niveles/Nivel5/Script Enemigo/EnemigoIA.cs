@@ -56,6 +56,7 @@ public class EnemigoIA: MonoBehaviour
     public AudioClip puñetazoClip;
     public AudioClip superataqueClip;
     public AudioClip furiaClip;
+    public AudioClip avisoAtaque;
     public AudioClip pasoClip;
     public AudioClip rayoClip;
     public float tiempoEntrePaso = 0.5f; 
@@ -206,6 +207,13 @@ public class EnemigoIA: MonoBehaviour
         //transform.position = spawnfase2.transform.position;
         
         this.agent.speed = 0f;
+
+        if (audioEfectos != null && avisoAtaque != null)
+        {
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+            audioEfectos.PlayOneShot(avisoAtaque);
+        }
+
         animator.SetBool("pisoton", true);
         animator.SetBool("caminar", false);
        
@@ -245,6 +253,13 @@ public class EnemigoIA: MonoBehaviour
     IEnumerator Ataque2()
     {
         this.agent.speed = 0f;
+
+        if (audioEfectos != null && avisoAtaque != null)
+        {
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+            audioEfectos.PlayOneShot(avisoAtaque);
+        }
+
         animator.SetBool("puñetazo", true);
         animator.SetBool("caminar", false);
 
@@ -339,6 +354,13 @@ public class EnemigoIA: MonoBehaviour
         yield return new WaitForSeconds(2f);
         runas[runarandom].GetComponent<Runas5>().AvisoRuna();
         avisorunas[runarandom].SetActive(true);
+
+        if (audioEfectos != null && avisoAtaque != null)
+        {
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+            audioEfectos.PlayOneShot(avisoAtaque);
+        }
+
         animator.SetBool("furia", true);
         
         if (audioEfectos != null && furiaClip != null)
@@ -491,6 +513,13 @@ public class EnemigoIA: MonoBehaviour
 
             yield return new WaitForSeconds(2f);
             animator.SetBool("dañado", false);
+
+            if (audioEfectos != null && avisoAtaque != null)
+            {
+                audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+                audioEfectos.PlayOneShot(avisoAtaque);
+            }
+
             animator.SetBool("furia", true);
 
             if (audioEfectos != null && furiaClip != null)
