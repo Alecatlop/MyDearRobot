@@ -117,7 +117,10 @@ public class EnemigoIA: MonoBehaviour
 
         transform.LookAt(jugador.transform.position);
 
-        if (audioPasos != null) 
+        audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+        audioPasos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+
+        if (audioPasos != null)
         {
             audioPasos.loop = false;
             audioPasos.Stop();
@@ -136,6 +139,7 @@ public class EnemigoIA: MonoBehaviour
         {
             if (!audioPasos.isPlaying)
             {
+                audioPasos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
                 audioPasos.PlayOneShot(pasoClip);
                 pasoTiempo = tiempoEntrePaso;
             }
@@ -214,11 +218,12 @@ public class EnemigoIA: MonoBehaviour
         {
             COpisoton.SetActive(true);
 
-            if (audioPasos != null && pisotonClip != null)
+            if (audioEfectos != null && pisotonClip != null)
             {
                 if (Time.time - tiempoUltimoPisoton >= cooldownPisoton)
                 {
-                    audioPasos.PlayOneShot(pisotonClip);
+                    audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+                    audioEfectos.PlayOneShot(pisotonClip);
                     tiempoUltimoPisoton = Time.time;
                 }
             }
@@ -248,6 +253,7 @@ public class EnemigoIA: MonoBehaviour
         COpuñetazo.SetActive(true);
         if (audioEfectos != null && puñetazoClip != null)
         {
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
             audioEfectos.PlayOneShot(puñetazoClip);
         }
         puño = true;
@@ -337,6 +343,7 @@ public class EnemigoIA: MonoBehaviour
         
         if (audioEfectos != null && furiaClip != null)
         {
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
             StartCoroutine(ReproducirChoques(furiaClip, 1.7f, 3, 0.02f));
         }
 
@@ -360,6 +367,7 @@ public class EnemigoIA: MonoBehaviour
 
         if (audioEfectos != null && superataqueClip != null)
         {
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
             audioEfectos.PlayOneShot(superataqueClip);
         }
 
@@ -441,6 +449,7 @@ public class EnemigoIA: MonoBehaviour
 
         if (puedeSonarRayo)
         {
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
             audioEfectos.PlayOneShot(rayoClip);
             puedeSonarRayo = false;
             StartCoroutine(ResetSonidoDelay());
@@ -486,6 +495,7 @@ public class EnemigoIA: MonoBehaviour
 
             if (audioEfectos != null && furiaClip != null)
             {
+                audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
                 StartCoroutine(ReproducirChoques(furiaClip, 1.7f, 3, 0.02f));
             }
 
@@ -580,6 +590,7 @@ public class EnemigoIA: MonoBehaviour
 
         if (audioEfectos != null && furiaClip != null)
         {
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
             StartCoroutine(ReproducirChoques(furiaClip, 0.7f, 3, 0.02f)); 
         }
 
