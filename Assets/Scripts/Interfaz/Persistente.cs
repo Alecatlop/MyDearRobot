@@ -44,6 +44,7 @@ public class Persistente : MonoBehaviour
         if (audio.clip != nuevo)
         {
             audio.clip = nuevo;
+            audio.loop = true;
             audio.Play();
         }
     }

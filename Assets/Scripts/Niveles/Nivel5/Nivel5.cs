@@ -10,6 +10,7 @@ public class Nivel5 : MonoBehaviour
     GameObject niveltemplo;
     GameObject nivelbatalla;
     public Image fade;
+    public AudioClip musicaBatalla;
 
     void Awake()
     {
@@ -57,6 +58,8 @@ public class Nivel5 : MonoBehaviour
         yield return new WaitForSeconds(1f);
         nivelbatalla.SetActive(true);
         niveltemplo.SetActive(false);
+
+        GameObject.Find("Persistente").GetComponent<Persistente>().CambiarMusica(musicaBatalla);
 
         while (fade.color.a > 0)
         {

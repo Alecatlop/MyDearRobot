@@ -18,7 +18,7 @@ public class Nivel2 : MonoBehaviour
         plataformas = GameObject.Find("Plataformas");
         puerta = GameObject.Find("Puerta2");
 
-        plataformas.SetActive(false);
+        //plataformas.SetActive(false);
 
         audioSource = puerta.GetComponent<AudioSource>();
         if (audioSource == null)
@@ -31,7 +31,7 @@ public class Nivel2 : MonoBehaviour
     {
         ReproducirSonido(audioAbrir);
         animator.Play("Puerta", -1, 0f);
-        plataformas.SetActive(true);
+        //plataformas.SetActive(true);
         puerta.GetComponent<Collider>().enabled = false;
     }
 
