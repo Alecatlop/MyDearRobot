@@ -53,6 +53,8 @@ public class CinematicaInicialManager : MonoBehaviour
             audioMusicaCinematica.volume = p.volumenmusica;
         }
 
+        audioCinematica.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+
         audioCinematica.PlayDelayed(0f); 
         audioMusicaCinematica.Play(); 
 

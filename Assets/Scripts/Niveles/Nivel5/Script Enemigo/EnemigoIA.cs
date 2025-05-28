@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
-public class EnemigoIA: MonoBehaviour
+public class EnemigoIA : MonoBehaviour
 {
     Estado FSM;
     public GameObject jugador;
@@ -26,7 +26,7 @@ public class EnemigoIA: MonoBehaviour
     Vector3 collidersize1;
     GameObject COsuperataque;
     GameObject particulasuperataque;
-    
+
     GameObject camara1;
     GameObject camara2;
     bool camaractivada = true;
@@ -57,17 +57,19 @@ public class EnemigoIA: MonoBehaviour
     public AudioClip superataqueClip;
     public AudioClip furiaClip;
     public AudioClip avisoAtaque;
+    public AudioClip orbeClip;
     public AudioClip pasoClip;
     public AudioClip rayoClip;
-    public float tiempoEntrePaso = 0.5f; 
+    public float tiempoEntrePaso = 0.5f;
     private float pasoTiempo = 0f;
     float tiempoUltimoPisoton = -10f;
     float cooldownPisoton = 1f;
     private bool puedeSonarRayo = true;
+    private bool orbeSonidoReproducido = false;
 
     void Start()
     {
-      
+
         FSM = new Fase1();
         FSM.inicializarVariables(this);
         COspawnfase2 = GameObject.Find("COspawnfase2");
@@ -102,7 +104,7 @@ public class EnemigoIA: MonoBehaviour
         camara1 = GameObject.Find("camara 1");
         camara2 = GameObject.Find("camara 2");
         camara1.SetActive(false);
-       
+
 
         collidersize1 = COpuñetazo.GetComponent<BoxCollider>().size;
 
@@ -118,8 +120,8 @@ public class EnemigoIA: MonoBehaviour
 
         transform.LookAt(jugador.transform.position);
 
-        audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
-        audioPasos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+        audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+        audioPasos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
 
         if (audioPasos != null)
         {
@@ -140,7 +142,7 @@ public class EnemigoIA: MonoBehaviour
         {
             if (!audioPasos.isPlaying)
             {
-                audioPasos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+                audioPasos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
                 audioPasos.PlayOneShot(pasoClip);
                 pasoTiempo = tiempoEntrePaso;
             }
@@ -156,10 +158,14 @@ public class EnemigoIA: MonoBehaviour
             COpuñetazo.GetComponent<BoxCollider>().size = new Vector3(COpuñetazo.GetComponent<BoxCollider>().size.x + 0.9f, COpuñetazo.GetComponent<BoxCollider>().size.y, COpuñetazo.GetComponent<BoxCollider>().size.z + 0.9f);
         }
 
+        if (vidas <= 0)
+        {
+            PausarEfectosSonido();
+        }
     }
 
     public void TerminarCorrutinas()
-    { 
+    {
         StopAllCoroutines();
     }
 
@@ -167,7 +173,7 @@ public class EnemigoIA: MonoBehaviour
     {
         dist = Vector3.Distance(jugador.transform.position, transform.position);
 
-       
+
         if (dist > 35f && vidas == 1 && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
         {
             int probabilidad = Random.Range(0, 3);
@@ -205,7 +211,7 @@ public class EnemigoIA: MonoBehaviour
     IEnumerator Ataque1()
     {
         //transform.position = spawnfase2.transform.position;
-        
+
         this.agent.speed = 0f;
 
         if (audioEfectos != null && avisoAtaque != null)
@@ -216,7 +222,7 @@ public class EnemigoIA: MonoBehaviour
 
         animator.SetBool("pisoton", true);
         animator.SetBool("caminar", false);
-       
+
 
         yield return new WaitForSeconds(1.8f);
         particulaspisoton.SetActive(true);
@@ -230,7 +236,7 @@ public class EnemigoIA: MonoBehaviour
             {
                 if (Time.time - tiempoUltimoPisoton >= cooldownPisoton)
                 {
-                    audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+                    audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
                     audioEfectos.PlayOneShot(pisotonClip);
                     tiempoUltimoPisoton = Time.time;
                 }
@@ -268,7 +274,7 @@ public class EnemigoIA: MonoBehaviour
         COpuñetazo.SetActive(true);
         if (audioEfectos != null && puñetazoClip != null)
         {
-            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
             audioEfectos.PlayOneShot(puñetazoClip);
         }
         puño = true;
@@ -362,10 +368,10 @@ public class EnemigoIA: MonoBehaviour
         }
 
         animator.SetBool("furia", true);
-        
+
         if (audioEfectos != null && furiaClip != null)
         {
-            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
             StartCoroutine(ReproducirChoques(furiaClip, 1.7f, 3, 0.02f));
         }
 
@@ -389,14 +395,14 @@ public class EnemigoIA: MonoBehaviour
 
         if (audioEfectos != null && superataqueClip != null)
         {
-            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
             audioEfectos.PlayOneShot(superataqueClip);
         }
 
         yield return new WaitForSeconds(2f);
         COsuperataque.SetActive(false);
         particulasuperataque.SetActive(false);
-       
+
         Superataqueactivo = true;
         puedeHacerSuperataque = false;
         this.agent.speed = 0f;
@@ -412,7 +418,7 @@ public class EnemigoIA: MonoBehaviour
             {
                 StartCoroutine(Camara1());
             }
-            
+
             rayotrigger.SetActive(true);
             contadorrunas = 0;
         }
@@ -420,6 +426,14 @@ public class EnemigoIA: MonoBehaviour
         {
             StartCoroutine(Camara1());
             orbelaser.SetActive(true);
+
+            if (!orbeSonidoReproducido)
+            {
+                audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+                audioEfectos.PlayOneShot(orbeClip);
+                orbeSonidoReproducido = true; 
+            }
+        
             rayotrigger.SetActive(true);
         }
     }
@@ -431,9 +445,16 @@ public class EnemigoIA: MonoBehaviour
         animator.SetBool("caminar", false);
         ocupado = true;
         this.agent.speed = 0f;
-        
+
         yield return new WaitForSeconds(1.5f);
         orbelaser.SetActive(true);
+
+        if (!orbeSonidoReproducido)
+        {
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+            audioEfectos.PlayOneShot(orbeClip);
+            orbeSonidoReproducido = true; 
+        }
 
         yield return new WaitForSeconds(3f);
         camaractivada = false;
@@ -456,7 +477,7 @@ public class EnemigoIA: MonoBehaviour
         camara2.SetActive(true);
 
         yield return new WaitForSeconds(0.5f);
-        
+
         ocupado = false;
         yield return new WaitForSeconds(2f);
         camara2.SetActive(false);
@@ -471,7 +492,7 @@ public class EnemigoIA: MonoBehaviour
 
         if (puedeSonarRayo)
         {
-            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
             audioEfectos.PlayOneShot(rayoClip);
             puedeSonarRayo = false;
             StartCoroutine(ResetSonidoDelay());
@@ -490,7 +511,7 @@ public class EnemigoIA: MonoBehaviour
 
     IEnumerator ResetSonidoDelay()
     {
-        yield return new WaitForSeconds(1f);  
+        yield return new WaitForSeconds(1f);
         puedeSonarRayo = true;
     }
 
@@ -509,7 +530,7 @@ public class EnemigoIA: MonoBehaviour
             animator.SetBool("caminar", false);
             ocupado = true;
             this.agent.speed = 0f;
-        
+
 
             yield return new WaitForSeconds(2f);
             animator.SetBool("dañado", false);
@@ -524,7 +545,7 @@ public class EnemigoIA: MonoBehaviour
 
             if (audioEfectos != null && furiaClip != null)
             {
-                audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
+                audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
                 StartCoroutine(ReproducirChoques(furiaClip, 1.7f, 3, 0.02f));
             }
 
@@ -553,7 +574,7 @@ public class EnemigoIA: MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "corayo" && ocupado == false )
+        if (other.name == "corayo" && ocupado == false)
         {
             StartCoroutine(DisparandoRayo());
             rayotrigger.SetActive(false);
@@ -619,8 +640,8 @@ public class EnemigoIA: MonoBehaviour
 
         if (audioEfectos != null && furiaClip != null)
         {
-            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f; 
-            StartCoroutine(ReproducirChoques(furiaClip, 0.7f, 3, 0.02f)); 
+            audioEfectos.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
+            StartCoroutine(ReproducirChoques(furiaClip, 0.7f, 3, 0.02f));
         }
 
         yield return new WaitForSeconds(2f);
@@ -631,10 +652,10 @@ public class EnemigoIA: MonoBehaviour
         ocupado = false;
         animator.SetBool("furia", false);
     }
-    
+
     IEnumerator ReproducirChoques(AudioClip clip, float delayInicial, int repeticiones, float intervalo)
     {
-        yield return new WaitForSeconds(delayInicial); 
+        yield return new WaitForSeconds(delayInicial);
 
         for (int i = 0; i < repeticiones; i++)
         {
@@ -643,6 +664,17 @@ public class EnemigoIA: MonoBehaviour
             yield return new WaitForSeconds(clip.length + intervalo);
         }
     }
+
+    public void PausarEfectosSonido()
+    {
+        if (audioEfectos != null)
+        {
+            audioEfectos.Pause();
+        }
+
+        if (audioPasos != null)
+        {
+            audioPasos.Pause();
+        }
+    }
 }
-
-

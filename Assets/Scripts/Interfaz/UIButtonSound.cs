@@ -13,6 +13,7 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerClickH
     {
         if (audioSource != null && hoverSound != null)
         {
+            audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
             audioSource.PlayOneShot(hoverSound, audioSource.volume);
         }
     }
@@ -21,6 +22,7 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerClickH
     {
         if (audioSource != null && clickSound != null)
         {
+            audioSource.volume = PlayerPrefs.GetFloat("efectos", 1f) * 1f;
             audioSource.PlayOneShot(clickSound, audioSource.volume);
         }
     }
