@@ -29,7 +29,23 @@ public class Cinematica : MonoBehaviour
         RenderSettings.fogDensity = endDensity;
         yield return new WaitForSeconds(6f);
 
+        Destroy(this.gameObject);
         cam.SetActive(false);
+
+        startDensity = RenderSettings.fogDensity;
+        endDensity = 0.005f;
+        step = 0.001f;
+        waitTime = 0.1f;
+
+        // Bajamos la densidad gradualmente
+        for (float density = startDensity; density < endDensity; density += step)
+        {
+            RenderSettings.fogDensity = density;
+            yield return new WaitForSeconds(waitTime);
+        }
+
+        // Aseguramos que termina exactamente en el valor deseado
+        RenderSettings.fogDensity = endDensity;
     }
 }
 

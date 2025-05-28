@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b830c943fdb87df40b4502110a438fe2, type: 2}
+  - {fileID: 2100000, guid: 27b5db3beef9cca4b8bd0385a2019770, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,7 +121,6 @@ MonoBehaviour:
   spawn: {fileID: 0}
   jugador: {fileID: 0}
   canvas: {fileID: 0}
-  animator: {fileID: 0}
   fadeImage: {fileID: 0}
   velocidad: {fileID: 0}
 --- !u!1 &8985987191313024541

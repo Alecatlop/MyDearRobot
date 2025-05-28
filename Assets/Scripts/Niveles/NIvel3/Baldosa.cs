@@ -46,8 +46,7 @@ public class Baldosa : MonoBehaviour
 
             if (correcto)
             {
-                Debug.Log("hola");
-                material.SetColor("_EmissionColor", Color.green);
+                material.SetColor("_EmissionColor", Color.green * 2);
                 material.EnableKeyword("_EMISSION");
 
                 if (!sonidoCorrectoReproducido && RunaCorrecta != null)
@@ -59,7 +58,7 @@ public class Baldosa : MonoBehaviour
             }
             else
             {
-                material.SetColor("_EmissionColor", Color.red);
+                material.SetColor("_EmissionColor", Color.red * 2);
                 material.EnableKeyword("_EMISSION");
 
                 if (RunaIncorrecta != null)

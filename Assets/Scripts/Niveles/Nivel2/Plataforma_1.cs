@@ -78,16 +78,16 @@ public class Plataforma_1 : MonoBehaviour
         while (true) 
         {
             retroceder = true;
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(1.5f);
 
             retroceder = false;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
 
             avanzar = true;
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(1.5f);
 
             avanzar = false;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
         }
     }
 }

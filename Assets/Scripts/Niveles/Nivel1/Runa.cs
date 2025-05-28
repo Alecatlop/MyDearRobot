@@ -16,13 +16,13 @@ public class Runa : MonoBehaviour
 
         Material mat = this.GetComponent<MeshRenderer>().material;
         mat.EnableKeyword("_EMISSION");
-        mat.SetColor("_EmissionColor", Color.yellow);
+        mat.SetColor("_EmissionColor", Color.yellow * 2);
         camara.SetActive(true);
 
         yield return new WaitForSeconds(2f);
         Material runaMat = runa.GetComponent<MeshRenderer>().material;
         runaMat.EnableKeyword("_EMISSION");
-        runaMat.SetColor("_EmissionColor", Color.yellow);
+        runaMat.SetColor("_EmissionColor", Color.yellow * 2);
 
         if (audioSource != null && sonidoActivacion != null)
         {

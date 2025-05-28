@@ -73,7 +73,6 @@ public class EnemigoIA : MonoBehaviour
         FSM = new Fase1();
         FSM.inicializarVariables(this);
         COspawnfase2 = GameObject.Find("COspawnfase2");
-        // spawnfase2 = GameObject.Find("spawnfase2");
         COspawnfase2.GetComponent<BoxCollider>().enabled = false;
         rayotrigger = GameObject.Find("corayo");
         rayolaser = GameObject.Find("RAYOLASER");
@@ -174,32 +173,32 @@ public class EnemigoIA : MonoBehaviour
         dist = Vector3.Distance(jugador.transform.position, transform.position);
 
 
-        if (dist > 35f && vidas == 1 && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
-        {
-            int probabilidad = Random.Range(0, 3);
+        //if (dist > 35f && vidas == 1 && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
+        //{
+        //    int probabilidad = Random.Range(0, 3);
 
-            if (probabilidad > 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
-            {
-                ocupado = true;
-                StartCoroutine(Ataque3());
-                return true;
-            }
-            else if (probabilidad == 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
-            {
-                ocupado = true;
-                StartCoroutine(Ataque2());
-                return true;
-            }
+        //    if (probabilidad > 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
+        //    {
+        //        ocupado = true;
+        //        StartCoroutine(Ataque3());
+        //        return true;
+        //    }
+        //    else if (probabilidad == 0 && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
+        //    {
+        //        ocupado = true;
+        //        StartCoroutine(Ataque2());
+        //        return true;
+        //    }
 
-            return true;
-        }
-        else if (dist < 15f && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
+        //    return true;
+        //}
+        if (dist < 15f && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
         {
             ocupado = true;
             StartCoroutine(Ataque1());
             return true;
         }
-        else if (dist > 35f && vidas == 3 && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
+        else if (dist > 35f && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false && puedeHacerSuperataque == false)
         {
             ocupado = true;
             StartCoroutine(Ataque2());
@@ -210,7 +209,6 @@ public class EnemigoIA : MonoBehaviour
 
     IEnumerator Ataque1()
     {
-        //transform.position = spawnfase2.transform.position;
 
         this.agent.speed = 0f;
 
@@ -295,38 +293,31 @@ public class EnemigoIA : MonoBehaviour
         ocupado = false;
     }
 
-    IEnumerator Ataque3()
-    {
-        this.agent.speed = 0f;
-        animator.SetBool("rayo", true);
-        animator.SetBool("caminar", false);
+    //IEnumerator Ataque3()
+    //{
+    //    this.agent.speed = 0f;
+    //    animator.SetBool("rayo", true);
+    //    animator.SetBool("caminar", false);
 
-        yield return new WaitForSeconds(3f);
-        animator.SetBool("rayo", false);
-        animator.SetBool("rayo descanso", true);
+    //    yield return new WaitForSeconds(3f);
+    //    animator.SetBool("rayo", false);
+    //    animator.SetBool("rayo descanso", true);
 
-        yield return new WaitForSeconds(1.5f);
-        animator.SetBool("rayo descanso", false);
+    //    yield return new WaitForSeconds(1.5f);
+    //    animator.SetBool("rayo descanso", false);
 
-        animator.SetBool("caminar", true);
-        agent.speed = velocidad;
-        agent.SetDestination(jugador.transform.position);
+    //    animator.SetBool("caminar", true);
+    //    agent.speed = velocidad;
+    //    agent.SetDestination(jugador.transform.position);
 
-        yield return new WaitForSeconds(2f);
-        ocupado = false;
-    }
+    //    yield return new WaitForSeconds(2f);
+    //    ocupado = false;
+    //}
 
     IEnumerator Terremoto()
     {
         ocupado = true;
-        //CharacterController controller = jugador.GetComponent<CharacterController>();
 
-        //if (controller != null)
-        //{
-
-
-        //    controller.enabled = true;
-        //}
         COspawnfase2.GetComponent<BoxCollider>().enabled = true;
         agent.speed = 0;
         animator.SetBool("terremoto", true);

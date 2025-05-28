@@ -35,7 +35,7 @@ public class Nivel5 : MonoBehaviour
         if (other.tag == "Player")
         {
             nivel.Nivel3();
-            nivel.Nivel5();
+            nivel.Nivel4();
             this.GetComponent<Collider>().enabled = false;
         }
     }
@@ -47,17 +47,23 @@ public class Nivel5 : MonoBehaviour
 
     IEnumerator CambioBatalla()
     {
-
-        while (fade.color.a > 0)
+        while (fade.color.a < 1)
         {
-            fade.color = new Color(1, 1, 1, fade.color.a + 0.2f);
+            fade.color = new Color(1, 1, 1, fade.color.a + 0.15f);
 
             yield return new WaitForSeconds(0.1f);
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         nivelbatalla.SetActive(true);
         niveltemplo.SetActive(false);
+
+        while (fade.color.a > 0)
+        {
+            fade.color = new Color(1, 1, 1, fade.color.a - 0.15f);
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
 }

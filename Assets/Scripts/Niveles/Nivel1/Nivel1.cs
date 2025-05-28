@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Nivel1 : MonoBehaviour
 {
     int contadorrunas = -1;
     public GameMana nivel;
     public GameObject puerta;
-    public GameObject puertasalida;
     public GameObject tierra;
     public GameObject arena;
     public Animator animator;
     public AudioClip audioAbrir;  
     public AudioClip audioCerrar;
     private AudioSource audioSource;
-
+    public GameObject[] puertarunas;
 
 
     // Start is called before the first frame update
@@ -71,8 +71,11 @@ public class Nivel1 : MonoBehaviour
         if (other.tag == "Player")
         {
             arena.SetActive(false);
-            puertasalida.SetActive(true);
             animator.Play(stateName: "PuertaCerrar");
+            for (int i = 0; i < puertarunas.Length; i++)
+            {
+                puertarunas[i].SetActive(false);
+            }
 
             if (audioCerrar != null)
             {

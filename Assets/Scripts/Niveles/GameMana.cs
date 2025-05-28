@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameMana : MonoBehaviour
@@ -24,38 +25,33 @@ public class GameMana : MonoBehaviour
 
     public void Nivel1()
     {
-        Debug.Log("activado.");
-        StartCoroutine(Nivel1Destroy());
+        niveles[0].SetActive(!niveles[1].activeSelf);
     }
 
     public void Nivel2()
     {
-        Debug.Log("activado.");
         niveles[1].SetActive(!niveles[1].activeSelf);
     }
 
     public void Nivel3()
     {
-        Debug.Log("activado.");
         niveles[2].SetActive(!niveles[2].activeSelf);
     }
 
     public void Nivel4()
     {
-        Debug.Log("activado.");
         niveles[3].SetActive(!niveles[3].activeSelf);
     }
 
     public void Nivel5()
     {
-        Debug.Log("activado.");
         niveles[4].SetActive(!niveles[4].activeSelf);
     }
 
     public IEnumerator Nivel1Destroy()
     {
         yield return new WaitForSeconds(2f);
-        niveles[0].SetActive(!niveles[0].activeSelf);
+        Destroy(niveles[0].gameObject);
 
     }
 }

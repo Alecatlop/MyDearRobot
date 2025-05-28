@@ -24,7 +24,7 @@ public class CharacterControllerScript : MonoBehaviour
     public bool altura = false;
     public Pausa pausa;
     GameObject puerta;
-    GameObject nivel5;
+    public GameObject nivel5;
 
     public bool spawn = false;
     public bool daño = false;
@@ -36,8 +36,8 @@ public class CharacterControllerScript : MonoBehaviour
     public Material[] materialesDañados;
     public Material[] materialesMuyDañados;
 
-    public int muertesParaDaño = 3;
-    public int muertesParaMuyDaño = 6;
+    public int muertesParaDaño = 5;
+    public int muertesParaMuyDaño = 10;
     public int muertesActuales = 0;
 
     Transform plataformaActual = null;
@@ -63,7 +63,6 @@ public class CharacterControllerScript : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
         puerta = GameObject.Find("Puerta6");
-        nivel5 = GameObject.Find("Nivel 5 Manager");
     }
 
     void Update()
@@ -225,8 +224,9 @@ public class CharacterControllerScript : MonoBehaviour
             
         }
 
-        if (other.name == "Cambio Batalla")
+        if (other.name == "1")
         {
+            print("funcionaaaaa");
             nivel5.GetComponent<Nivel5>().ActivarBatalla();
         }
     }
