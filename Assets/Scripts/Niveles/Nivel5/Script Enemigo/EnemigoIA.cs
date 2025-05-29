@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -31,7 +30,6 @@ public class EnemigoIA : MonoBehaviour
     GameObject camara2;
     bool camaractivada = true;
     GameObject COspawnfase2;
-
 
     GameObject orbelaser;
     GameObject rayotrigger;
@@ -192,13 +190,13 @@ public class EnemigoIA : MonoBehaviour
 
         //    return true;
         //}
-        if (dist < 15f && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
+        if (dist < 20f && ocupado == false && Superataqueactivo == false && puedeHacerSuperataque == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false)
         {
             ocupado = true;
             StartCoroutine(Ataque1());
             return true;
         }
-        else if (dist > 35f && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false && puedeHacerSuperataque == false)
+        else if (dist > 30f && ocupado == false && jugador.GetComponent<CharacterControllerScript>().daño == false && camaractivada == false && puedeHacerSuperataque == false)
         {
             ocupado = true;
             StartCoroutine(Ataque2());

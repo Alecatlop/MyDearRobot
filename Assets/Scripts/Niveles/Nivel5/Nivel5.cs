@@ -11,11 +11,7 @@ public class Nivel5 : MonoBehaviour
     GameObject nivelbatalla;
     public Image fade;
     public AudioClip musicaBatalla;
-
-    void Awake()
-    {
-        
-    }
+    GameObject luzsol;
 
     private void Start()
     {
@@ -23,6 +19,7 @@ public class Nivel5 : MonoBehaviour
         nivelbatalla = GameObject.Find("Nivel Batalla");
         nivelbatalla.SetActive(false);
         fade.color = new Color(1, 1, 1, 0);
+        luzsol = GameObject.Find("Directional Light");
     }
 
     // Update is called once per frame
@@ -35,6 +32,7 @@ public class Nivel5 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            StartCoroutine(CambioLuz());
             nivel.Nivel3();
             nivel.Nivel4();
             this.GetComponent<Collider>().enabled = false;
@@ -60,12 +58,22 @@ public class Nivel5 : MonoBehaviour
         niveltemplo.SetActive(false);
 
         GameObject.Find("Persistente").GetComponent<Persistente>().CambiarMusica(musicaBatalla);
-
+       
         while (fade.color.a > 0)
         {
             fade.color = new Color(1, 1, 1, fade.color.a - 0.15f);
 
             yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator CambioLuz()
+    {
+        while (luzsol.GetComponent<Light>().intensity < 1)
+        {
+            luzsol.GetComponent<Light>().intensity = luzsol.GetComponent<Light>().intensity + 0.1f;
+
+            yield return new WaitForSeconds(0.15f);
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class Nivel3 : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Nivel3 : MonoBehaviour
     GameObject ruta2;
     GameObject ruta3;
     GameObject pasillo;
+    GameObject luzsol;
     int rand;
 
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class Nivel3 : MonoBehaviour
         ruta2 = GameObject.Find("Ruta2");
         ruta3 = GameObject.Find("Ruta3");
         pasillo = GameObject.Find("Pasillo 1");
+        luzsol = GameObject.Find("Directional Light");
 
         ruta1.SetActive(false);
         ruta2.SetActive(false);
@@ -46,10 +49,22 @@ public class Nivel3 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            StartCoroutine(CambioLuz());
             pasillo.SetActive(false);
             nivel.Nivel2();
             nivel.Nivel4();
             this.GetComponent<Collider>().enabled = false;
+            
+        }
+    }
+
+    IEnumerator CambioLuz()
+    {
+        while (luzsol.GetComponent<Light>().intensity > 0)
+        {
+            luzsol.GetComponent<Light>().intensity = luzsol.GetComponent<Light>().intensity - 0.1f;
+
+            yield return new WaitForSeconds(0.15f);
         }
     }
 }

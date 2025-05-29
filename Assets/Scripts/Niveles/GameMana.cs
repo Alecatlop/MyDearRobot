@@ -25,7 +25,7 @@ public class GameMana : MonoBehaviour
 
     public void Nivel1()
     {
-        niveles[0].SetActive(!niveles[1].activeSelf);
+        StartCoroutine(Nivel1Destroy());
     }
 
     public void Nivel2()
@@ -51,7 +51,6 @@ public class GameMana : MonoBehaviour
     public IEnumerator Nivel1Destroy()
     {
         yield return new WaitForSeconds(2f);
-        Destroy(niveles[0].gameObject);
-
+        DestroyImmediate(niveles[0].gameObject);
     }
 }
