@@ -552,7 +552,7 @@ public class EnemigoIA : MonoBehaviour
 
     public void Morir()
     {
-        if (jugador.GetComponent<CharacterControllerScript>().muertesActuales >= 6)
+        if (jugador.GetComponent<CharacterControllerScript>().muertesActuales >= 10)
         {
             SceneManager.LoadScene("Cinematica Final Malo");
         }

@@ -42,7 +42,7 @@ public class CanvasManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-       // Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         configuracion = GameObject.Find("Configuracion");
         opciones = GameObject.Find("Opciones");
 
